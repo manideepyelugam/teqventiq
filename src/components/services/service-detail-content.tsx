@@ -59,7 +59,7 @@ export default function ServiceDetailContent({ service }: ServiceDetailContentPr
               </span>
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-12">
-              {service.detailedContent || `At MindLabs, we don't just provide services; we architect solutions that scale with your ambitions. Our approach to ${service.title} combines deep technical expertise with a thorough understanding of your business goals.`}
+              {service.detailedContent || `At Savvtek Services, we don't just provide services; we architect solutions that scale with your ambitions. Our approach to ${service.title} combines deep technical expertise with a thorough understanding of your business goals.`}
             </p>
 
             {!!service.solutions?.length && !!service.services?.length ? (

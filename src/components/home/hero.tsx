@@ -190,18 +190,17 @@ export default function Hero() {
             <div className="hero-enter inline-flex items-center gap-3 bg-white/80 dark:bg-card/80 backdrop-blur-xl border border-brand-lime/20 px-5 py-2.5 rounded-full mb-10 shadow-md">
               <span className="w-2 h-2 bg-brand-lime rounded-full animate-pulse" />
               <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-lime">
-                Where Technology Meets Trust
+                Savvtek Services
               </span>
             </div>
 
             <h1 className="hero-enter text-4xl lg:text-6xl  font-bold font-serif leading-[1.05] tracking-tight text-foreground mb-8">
-              Secure Scalable <br />
-              <span className="text-brand-lime">Modern IT Solutions</span>
+              Where Technology <br />
+              <span className="text-brand-lime">Meets Business Intelligence</span>
             </h1>
 
-            <p className="hero-enter text-lg lg:text-xl text-muted-foreground font-medium leading-relaxed mb-12 max-w-[540px]">
-              Empowering organizations with secure, scalable, and modern IT
-              solutions since 2017.
+            <p className="hero-enter text-lg text-muted-foreground font-sans max-w-[500px] mb-10 leading-relaxed">
+              Empowering organizations with secure, scalable, and modern technology solutions.
             </p>
 
             <div className="hero-enter flex flex-wrap gap-6">
@@ -445,7 +444,7 @@ export default function Hero() {
                   >
                     <Image
                       src="/logo.png"
-                      alt="MindLabs"
+                      alt="Savvtek"
                       width={46}
                       height={46}
                       style={{ width: 46, height: 46, objectFit: 'contain' }}

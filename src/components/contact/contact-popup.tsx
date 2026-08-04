@@ -275,10 +275,10 @@ export default function ContactPopup() {
                   Email Us
                 </p>
                 <a
-                  href="mailto:info@mindlabs-me.com"
+                  href="mailto:info@savvtek.com"
                   className="text-sm font-bold hover:text-brand-lime-vibrant transition-colors"
                 >
-                  info@mindlabs-me.com
+                  info@savvtek.com
                 </a>
               </div>
             </div>

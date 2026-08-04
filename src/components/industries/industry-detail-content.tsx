@@ -360,7 +360,7 @@ export default function IndustryDetailContent({ industry }: IndustryDetailConten
         <section className="py-24 lg:py-32 bg-transparent transition-colors duration-500">
           <div className="mx-auto max-w-[1248px] px-5">
             <div className="mb-16 reveal">
-              <span className="text-brand-lime font-bold tracking-widest uppercase text-xs mb-6 block">Why MindLabs</span>
+              <span className="text-brand-lime font-bold tracking-widest uppercase text-xs mb-6 block">Why Savvtek</span>
               <h2 className="text-3xl lg:text-5xl font-bold font-serif text-foreground leading-tight max-w-[700px]">
                 Why Partner With Us
               </h2>

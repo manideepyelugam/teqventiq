@@ -16,8 +16,8 @@ const sora = Sora({
 
 
 export const metadata: Metadata = {
-  title: "MindLabs Technologies | Where Technology Meets Trust",
-  description: "Empowering organizations with secure, scalable, and modern IT solutions. Cybersecurity, IT Infrastructure, Cloud, AI, and more.",
+  title: "Savvtek Services | Where Technology Meets Business Intelligence",
+  description: "Empowering organizations with secure, scalable, and modern technology solutions. Cybersecurity, Infrastructure & Cloud, AI & Automation, Data Intelligence, and Enterprise Applications.",
 
 };
 

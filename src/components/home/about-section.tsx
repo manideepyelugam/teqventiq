@@ -19,7 +19,7 @@ export default function AboutSection() {
              <div className="relative rounded-[2rem] overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] z-[2] border border-border/50">
               <img 
                 src="/images/mission_vision_us_1777468862412.jpeg" 
-                alt="MindLabs Corporate" 
+                alt="Savvtek Corporate" 
                 className="w-full h-[500px] lg:h-[700px] object-cover transition-transform duration-1000 hover:scale-105"
               />
             </div>
@@ -40,11 +40,14 @@ export default function AboutSection() {
           <div className="order-1 lg:order-2">
             <span className="text-brand-lime font-bold tracking-[0.2em] uppercase text-sm mb-6 block">Who We Are</span>
             <h2 className="text-4xl lg:text-6xl font-bold font-serif leading-[1.1] tracking-tight mb-8 text-foreground">
-              MindLabs <br />
-              <span className="text-muted-foreground font-medium">Technologies</span>
+              Savvtek <br />
+              <span className="text-muted-foreground font-medium">Services</span>
             </h2>
-            <p className="text-lg lg:text-xl leading-relaxed mb-8 text-muted-foreground font-normal max-w-[550px]">
-              At MindLabs, we design and deliver secure, scalable, and high-performance IT ecosystems for organizations to operate smarter, safer, and more efficiently. We specialize in cybersecurity, IT infrastructure, cloud ecosystems, AI, and enterprise applications.
+            <p className="text-base lg:text-lg leading-relaxed mb-6 text-muted-foreground font-normal max-w-[580px]">
+              At Savvtek, we design and deliver secure, scalable, and high performance technology ecosystems that help organizations operate smarter, safer, and more efficiently. We specialize in cybersecurity, IT infrastructure, cloud solutions, artificial intelligence, automation, data intelligence, market intelligence, enterprise applications, and hardware solutions.
+            </p>
+            <p className="text-base lg:text-lg leading-relaxed mb-8 text-muted-foreground font-normal max-w-[580px]">
+              Our approach is simple. We listen first. Every organization has unique operational realities, growth ambitions, and market challenges. By understanding these deeply, we develop secure, scalable, and performance driven solutions that align technology with business objectives.
             </p>
           
             

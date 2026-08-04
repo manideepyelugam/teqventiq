@@ -273,14 +273,14 @@ export default function SchnellSection() {
         <section ref={slider1Ref} className="w-full">
           <div className="mb-12 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
             <div className="max-w-[700px]">
-              {/* <span className="text-brand-lime font-bold tracking-widest uppercase text-xs mb-3 sm:mb-4 block">The MindLabs Advantage</span> */}
+              <span className="text-brand-lime font-bold tracking-widest uppercase text-xs mb-3 sm:mb-4 block">The Savvtek Advantage</span>
               <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold font-serif text-foreground leading-[1.1] tracking-tight">
                 Why Choose <br />
-                <span className="text-muted-foreground">MindLabs?</span>
+                <span className="text-muted-foreground">Savvtek?</span>
               </h2>
             </div>
-            <p className="text-base sm:text-lg text-muted-foreground max-w-[400px] leading-relaxed">
-              Strategic innovation and secure-by-design architecture that scale seamlessly.
+            <p className="text-base sm:text-lg text-muted-foreground max-w-[460px] leading-relaxed">
+              Savvtek specializes in managing and transforming complex network and IT infrastructure environments into stable, scalable, and manageable solutions.
             </p>
           </div>
 

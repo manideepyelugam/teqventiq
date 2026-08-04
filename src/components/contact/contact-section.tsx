@@ -76,7 +76,7 @@ export default function ContactSection() {
               </h3>
               <p className="text-lg opacity-80 leading-relaxed mb-10 max-w-[320px]">
                 Build a stronger, smarter, and more secure IT foundation with
-                MindLabs. Connect with us and onboard on a transformational
+                Savvtek Services. Connect with us and embark on a transformational
                 journey!
               </p>
             </div>
@@ -108,10 +108,10 @@ export default function ContactSection() {
                     Email Us
                   </p>
                   <a
-                    href="mailto:info@mindlabs-me.com"
+                    href="mailto:info@savvtek.com"
                     className="text-lg font-bold hover:text-brand-lime transition-colors"
                   >
-                    info@mindlabs-me.com
+                    info@savvtek.com
                   </a>
                 </div>
               </div>

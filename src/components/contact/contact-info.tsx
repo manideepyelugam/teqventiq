@@ -34,7 +34,7 @@ export default function ContactInfo() {
           </div>
           <div>
             <h4 className="text-foreground font-bold mb-1">Email Us</h4>
-            <p className="text-muted-foreground">hello@mindlabs.com</p>
+            <p className="text-muted-foreground">info@savvtek.com</p>
           </div>
         </div>
 

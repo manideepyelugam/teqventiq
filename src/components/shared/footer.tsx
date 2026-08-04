@@ -20,14 +20,14 @@ const Logo = () => {
     <>
       <img
         src="/logo.png"
-        alt="MindLabs Logo"
+        alt="Savvtek Services Logo"
         width="180"
         height="auto"
         className="logo-light max-w-full h-auto"
       />
       <img
         src="/logo-dark.png"
-        alt="MindLabs Logo"
+        alt="Savvtek Services Logo"
         width="180"
         height="auto"
         className="logo-dark max-w-full h-auto"
@@ -54,16 +54,15 @@ export default function Footer() {
               <Logo />
             </Link>
             <p className="text-base text-muted-foreground leading-relaxed mt-8">
-              Architecting secure, scalable, and high-performance IT ecosystems
-              that empower organizations to operate smarter and safer in a
-              digital-first world.
+              Where Technology Meets Business Intelligence. Empowering organizations
+              with secure, scalable, and modern technology solutions.
             </p>
             <div className="mt-10 flex flex-col gap-4">
               <a
-                href="mailto:info@mindlabs-me.com"
+                href="mailto:info@savvtek.com"
                 className="text-brand-lime font-bold hover:underline"
               >
-                info@mindlabs-me.com
+                info@savvtek.com
               </a>
               <a
                 href="tel:+971506582200"
@@ -153,7 +152,7 @@ export default function Footer() {
 
         <div className="mt-20 pt-10 flex flex-col md:flex-row justify-between items-center gap-8">
           <p className="text-sm text-muted-foreground font-medium">
-            © {new Date().getFullYear()} MindLabs Technologies. All rights
+            © {new Date().getFullYear()} Savvtek Services Pvt. Ltd. All rights
             reserved.
           </p>
          {/*  <div className="flex items-center gap-2">
