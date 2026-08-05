@@ -25,7 +25,7 @@ const Logo = () => {
         className="logo-light max-w-full h-auto"
       />
       <img
-        src="/logo-dark.png"
+        src="/logo.png"
         alt="Teqventiq Logo"
         width="180"
         height="auto"
@@ -43,7 +43,7 @@ export default function Footer() {
 
       <div className="mx-auto max-w-[1280px] px-6 relative z-10">
         <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-16">
-          
+
           {/* Brand & Address Column */}
           <div className="max-w-[400px]">
             <Link

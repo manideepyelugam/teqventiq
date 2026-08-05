@@ -23,14 +23,14 @@ const Logo = () => {
       <img
         src="/logo.png"
         alt="Teqventiq Logo"
-        width="180"
+        width="100"
         height="auto"
         className="logo-light max-w-full h-auto"
       />
       <img
-        src="/logo-dark.png"
+        src="/logo.png"
         alt="Teqventiq Logo"
-        width="180"
+        width="100"
         height="auto"
         className="logo-dark max-w-full h-auto"
       />
