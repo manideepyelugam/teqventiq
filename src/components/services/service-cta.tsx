@@ -67,20 +67,20 @@ export default function ServiceCTA() {
   }, containerRef);
 
   return (
-    <div className="mt-32 px-5" ref={containerRef}>
-      <div className="cta-card mx-auto max-w-[1248px] bg-gradient-to-br from-brand-blue/20 to-muted rounded-[2rem] p-12 lg:p-20 text-center relative overflow-hidden border border-border shadow-2xl transition-colors duration-500">
+    <div className="mt-24 px-5" ref={containerRef}>
+      <div className="cta-card mx-auto max-w-[1280px] bg-card border border-border/60 rounded-3xl p-10 sm:p-14 lg:p-16 text-center relative overflow-hidden shadow-md backdrop-blur-md">
         <div className="relative z-10">
-          <h2 className="cta-item text-4xl lg:text-6xl font-bold text-foreground mb-8">
+          <h2 className="cta-item text-3xl sm:text-4xl lg:text-5xl font-bold font-serif text-foreground tracking-tight mb-6">
             Not sure what you need?
           </h2>
-          <p className="cta-item text-xl text-muted-foreground mb-12 max-w-[600px] mx-auto leading-relaxed">
+          <p className="cta-item text-base sm:text-lg text-muted-foreground mb-8 max-w-[580px] mx-auto leading-relaxed">
             Our technology consultants can help you map out a strategy that aligns with your business objectives.
           </p>
           <div className="cta-item inline-block">
-            <Button asChild className="btn-primary text-lg h-auto px-12 py-6 rounded-full group">
+            <Button asChild className="btn-primary group">
               <Link href="/contact">
                 Consult With Us
-                <ArrowUpRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                <ArrowUpRight className="w-4.5 h-4.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
             </Button>
           </div>
@@ -89,7 +89,7 @@ export default function ServiceCTA() {
         {/* Background decorative item */}
         <div
           ref={orbRef}
-          className="absolute -bottom-20 -right-20 w-80 h-80 bg-brand-blue opacity-10 rounded-full blur-3xl pointer-events-none"
+          className="absolute -bottom-20 -right-20 w-80 h-80 bg-brand-blue/10 rounded-full blur-3xl pointer-events-none"
         ></div>
       </div>
     </div>

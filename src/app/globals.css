@@ -15,53 +15,53 @@
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #0c0c20;
-  --muted: #f0f4f8;
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --muted: #f1f5f9;
   --muted-foreground: #64748b;
   --border: #e2e8f0;
   --input: #e2e8f0;
   --card: #ffffff;
-  --card-foreground: #0c0c20;
-  --accent: #edf2f7;
-  --accent-foreground: #0c0c20;
-  --primary: #2567e8;
+  --card-foreground: #0f172a;
+  --accent: #f1f5f9;
+  --accent-foreground: #0f172a;
+  --primary: #2563eb;
   --primary-foreground: #ffffff;
-  --secondary: #edf2f7;
-  --secondary-foreground: #0c0c20;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --ring: #2567e8;
-  --radius: 0.5rem;
+  --ring: #2563eb;
+  --radius: 1rem;
 
-  --brand-blue: #2567e8;
-  --brand-dark: #0c0c20;
-  --brand-lime: #2567e8; /* Set to brand blue for readability in light mode as per user update */
-  --brand-lime-vibrant: #d7e866; /* Neon lime for dark backgrounds */
-  --dot-grid-color: rgba(37, 103, 232, 0.13);
+  --brand-blue: #2563eb;
+  --brand-dark: #090d16;
+  --brand-lime: #2563eb;
+  --brand-lime-vibrant: #10b981;
+  --dot-grid-color: rgba(37, 99, 235, 0.08);
 }
 
 .dark {
-  --background: #0c0c20;
-  --foreground: #ffffff;
-  --muted: #15152a;
+  --background: #080c14;
+  --foreground: #f8fafc;
+  --muted: #0f172a;
   --muted-foreground: #94a3b8;
   --border: #1e293b;
   --input: #1e293b;
-  --card: #15152a;
-  --card-foreground: #ffffff;
+  --card: #0f172a;
+  --card-foreground: #f8fafc;
   --accent: #1e293b;
-  --accent-foreground: #ffffff;
-  --primary: #2567e8;
+  --accent-foreground: #f8fafc;
+  --primary: #3b82f6;
   --primary-foreground: #ffffff;
   --secondary: #1e293b;
-  --secondary-foreground: #ffffff;
-  --destructive: #7f1d1d;
+  --secondary-foreground: #f8fafc;
+  --destructive: #991b1b;
   --destructive-foreground: #ffffff;
-  --ring: #2567e8;
-  --brand-lime: #d7e866; /* Original vibrant lime for dark mode */
-  --brand-lime-vibrant: #d7e866;
-  --dot-grid-color: rgba(255, 255, 255, 0.07);
+  --ring: #3b82f6;
+  --brand-lime: #10b981;
+  --brand-lime-vibrant: #10b981;
+  --dot-grid-color: rgba(255, 255, 255, 0.05);
 }
 
 @theme {
@@ -93,7 +93,7 @@
   --color-brand-lime: var(--brand-lime);
   --color-brand-lime-vibrant: var(--brand-lime-vibrant);
   
-  --container-max-width: 1248px;
+  --container-max-width: 1280px;
   
   --animate-float: float 6s ease-in-out infinite;
   --animate-marquee-left: marquee-left 30s linear infinite;
@@ -102,7 +102,7 @@
 
 @keyframes float {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+  50% { transform: translateY(-12px); }
   100% { transform: translateY(0px); }
 }
 
@@ -119,11 +119,11 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px;
+    scroll-padding-top: 90px;
   }
 
   body {
-    @apply font-figtree text-foreground leading-relaxed bg-background min-h-screen antialiased;
+    @apply font-figtree text-foreground leading-relaxed bg-background min-h-screen antialiased selection:bg-brand-blue/20 selection:text-brand-blue;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -137,7 +137,7 @@
 
 @layer components {
   .wrapper {
-    @apply min-h-screen flex flex-col bg-muted;
+    @apply min-h-screen flex flex-col bg-background;
     overflow-x: clip;
   }
 
@@ -147,181 +147,95 @@
   
   /* Modern Button Styles */
   .btn-primary {
-    @apply bg-brand-blue text-white px-10 py-5 rounded-full font-bold transition-all duration-500 active:scale-95 border border-transparent;
+    @apply inline-flex items-center justify-center bg-brand-blue text-white hover:bg-blue-600 shadow-md hover:shadow-lg hover:shadow-blue-500/20 px-8 py-3.5 rounded-full font-semibold transition-all duration-300 active:scale-[0.98] border border-blue-400/20 text-sm sm:text-base;
   }
   
   .btn-outline {
-    @apply bg-transparent text-foreground px-10 py-5 rounded-full font-bold transition-all duration-500 hover:bg-accent border border-border active:scale-95;
+    @apply inline-flex items-center justify-center bg-background/80 backdrop-blur-md text-foreground hover:bg-accent hover:border-brand-blue/40 px-8 py-3.5 rounded-full font-semibold transition-all duration-300 border border-border active:scale-[0.98] shadow-sm text-sm sm:text-base;
   }
 
   .btn-lime {
-    @apply bg-brand-lime text-[#0c0c20] px-10 py-5 rounded-full font-bold transition-all duration-500 active:scale-95 border border-transparent;
+    @apply inline-flex items-center justify-center bg-brand-blue text-white hover:bg-blue-600 shadow-md hover:shadow-blue-500/20 px-8 py-3.5 rounded-full font-semibold transition-all duration-300 active:scale-[0.98] border border-blue-400/20 text-sm sm:text-base;
   }
 }
 
-/* Swiper Library Styles - Integrated into globals to eliminate separate file */
+/* Custom Swiper & Utility Styles */
 @layer utilities {
-  :root{--swiper-theme-color:#2567e8}:host{display:block;margin-left:auto;margin-right:auto;position:relative;z-index:1}.swiper{display:block;list-style:none;margin-left:auto;margin-right:auto;overflow:hidden;padding:0;position:relative;z-index:1}.swiper-vertical>.swiper-wrapper{flex-direction:column}.swiper-wrapper{box-sizing:initial;display:flex;height:100%;position:relative;transition-property:transform;transition-timing-function:initial;width:100%;z-index:1}.swiper-android .swiper-slide,.swiper-ios .swiper-slide,.swiper-wrapper{transform:translateZ(0)}.swiper-horizontal{touch-action:pan-y}.swiper-vertical{touch-action:pan-x}.swiper-slide{display:block;flex-shrink:0;height:100%;position:relative;transition-property:transform;width:100%}.swiper-slide-invisible-blank{visibility:hidden}.swiper-autoheight,.swiper-autoheight .swiper-slide{height:auto}.swiper-autoheight .swiper-wrapper{align-items:flex-start;transition-property:transform,height}.swiper-backface-hidden .swiper-slide{backface-visibility:hidden;transform:translateZ(0)}.swiper-3d.swiper-css-mode .swiper-wrapper{perspective:1200px}.swiper-3d .swiper-wrapper{transform-style:preserve-3d}.swiper-3d{perspective:1200px}.swiper-pagination{position:absolute;text-align:center;transform:translateZ(0);transition:opacity .3s;z-index:10}.swiper-pagination-bullet{background:#000;border-radius:50%;display:inline-block;height:8px;opacity:.2;width:8px;cursor:pointer;margin:0 4px}.swiper-pagination-bullet-active{background:var(--color-brand-blue);opacity:1}.swiper-button-next,.swiper-button-prev{position:absolute;top:50%;width:44px;height:44px;margin-top:-22px;z-index:10;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--color-brand-blue)}.swiper-button-disabled{opacity:.35;cursor:auto;pointer-events:none}
+  :root{--swiper-theme-color:#2563eb}:host{display:block;margin-left:auto;margin-right:auto;position:relative;z-index:1}.swiper{display:block;list-style:none;margin-left:auto;margin-right:auto;overflow:hidden;padding:0;position:relative;z-index:1}.swiper-vertical>.swiper-wrapper{flex-direction:column}.swiper-wrapper{box-sizing:initial;display:flex;height:100%;position:relative;transition-property:transform;transition-timing-function:initial;width:100%;z-index:1}.swiper-android .swiper-slide,.swiper-ios .swiper-slide,.swiper-wrapper{transform:translateZ(0)}.swiper-horizontal{touch-action:pan-y}.swiper-vertical{touch-action:pan-x}.swiper-slide{display:block;flex-shrink:0;height:100%;position:relative;transition-property:transform;width:100%}.swiper-slide-invisible-blank{visibility:hidden}.swiper-autoheight,.swiper-autoheight .swiper-slide{height:auto}.swiper-autoheight .swiper-wrapper{align-items:flex-start;transition-property:transform,height}.swiper-backface-hidden .swiper-slide{backface-visibility:hidden;transform:translateZ(0)}.swiper-3d.swiper-css-mode .swiper-wrapper{perspective:1200px}.swiper-3d .swiper-wrapper{transform-style:preserve-3d}.swiper-3d{perspective:1200px}.swiper-pagination{position:absolute;text-align:center;transform:translateZ(0);transition:opacity .3s;z-index:10}.swiper-pagination-bullet{background:#000;border-radius:50%;display:inline-block;height:8px;opacity:.2;width:8px;cursor:pointer;margin:0 4px}.swiper-pagination-bullet-active{background:var(--color-brand-blue);opacity:1}.swiper-button-next,.swiper-button-prev{position:absolute;top:50%;width:44px;height:44px;margin-top:-22px;z-index:10;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--color-brand-blue)}.swiper-button-disabled{opacity:.35;cursor:auto;pointer-events:none}
   
-  /* Custom Swiper pagination styling for the design */
   .swiper-pagination-bullet {
-    @apply bg-foreground/20 w-3 h-3 opacity-100 rounded-full transition-all duration-300;
+    @apply bg-foreground/20 w-2.5 h-2.5 opacity-100 rounded-full transition-all duration-300;
   }
   .swiper-pagination-bullet-active {
-    @apply bg-brand-blue w-8;
+    @apply bg-brand-blue w-7 rounded-full;
   }
   
-  /* Hide scrollbar for Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
-
-  /* Hide scrollbar for IE, Edge and Firefox */
   .no-scrollbar {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 
-/* ── Ambient Gradient Mesh Backgrounds ────────────────────────────────── */
-/* Outside @layer so Tailwind v4 doesn't tree-shake these.                */
-/* Light-mode blobs have high visibility to break white blandness with    */
-/* flowing organic color washes in the brand palette.                     */
-
-.gradient-mesh-hero {
+/* Enterprise Ambient Glow Background Mesh */
+.gradient-mesh-hero, .gradient-mesh-section {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  overflow: visible;
+  overflow: hidden;
   z-index: 0;
 }
-/* Blob 1 — warm peach/salmon, top-right */
-.gradient-mesh-hero .blob-1 {
-  position: absolute;
-  width: 80%;
-  height: 90%;
-  top: -30%;
-  right: -20%;
-  border-radius: 50%;
-  background: radial-gradient(ellipse at center, rgba(255,190,150,0.52) 0%, rgba(255,160,120,0.22) 35%, transparent 65%);
-  filter: blur(72px);
-}
-/* Blob 2 — soft sky blue, bottom-left */
-.gradient-mesh-hero .blob-2 {
-  position: absolute;
-  width: 72%;
-  height: 82%;
-  bottom: -35%;
-  left: -18%;
-  border-radius: 50%;
-  background: radial-gradient(ellipse at center, rgba(170,210,255,0.45) 0%, rgba(190,220,255,0.18) 38%, transparent 65%);
-  filter: blur(70px);
-}
-/* Blob 3 — pale rose, centre-left */
-.gradient-mesh-hero .blob-3 {
-  position: absolute;
-  width: 55%;
-  height: 65%;
-  top: 20%;
-  left: 5%;
-  border-radius: 50%;
-  background: radial-gradient(ellipse at center, rgba(255,210,220,0.38) 0%, rgba(255,200,210,0.12) 38%, transparent 62%);
-  filter: blur(75px);
-}
-/* Blob 4 — airy lavender-white, top-left */
-.gradient-mesh-hero .blob-4 {
-  position: absolute;
-  width: 50%;
-  height: 58%;
-  top: -8%;
-  left: -8%;
-  border-radius: 50%;
-  background: radial-gradient(ellipse at center, rgba(220,232,255,0.42) 0%, rgba(210,225,255,0.14) 38%, transparent 62%);
-  filter: blur(68px);
-}
 
-/* Dark mode hero — more vivid so they read on dark bg */
-.dark .gradient-mesh-hero .blob-1 {
-  background: radial-gradient(ellipse at center, rgba(255,150,100,0.30) 0%, rgba(255,120,80,0.10) 40%, transparent 70%);
-}
-.dark .gradient-mesh-hero .blob-2 {
-  background: radial-gradient(ellipse at center, rgba(100,170,255,0.28) 0%, rgba(80,150,255,0.08) 42%, transparent 70%);
-}
-.dark .gradient-mesh-hero .blob-3 {
-  background: radial-gradient(ellipse at center, rgba(255,160,180,0.22) 0%, transparent 65%);
-}
-.dark .gradient-mesh-hero .blob-4 {
-  background: radial-gradient(ellipse at center, rgba(160,190,255,0.22) 0%, transparent 65%);
-}
-
-/* Section gradient mesh — prominent color washes */
-.gradient-mesh-section {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: visible;
-  z-index: 0;
-}
+.gradient-mesh-hero .blob-1,
 .gradient-mesh-section .blob-a {
   position: absolute;
-  width: 65%;
-  height: 75%;
-  top: -25%;
-  right: -20%;
+  width: 60%;
+  height: 60%;
+  top: -20%;
+  right: -10%;
   border-radius: 50%;
-  background: radial-gradient(ellipse at center, rgba(37,103,232,0.12) 0%, rgba(37,103,232,0.05) 35%, transparent 60%);
-  filter: blur(55px);
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, rgba(37, 99, 235, 0.02) 50%, transparent 70%);
+  filter: blur(80px);
 }
+
+.gradient-mesh-hero .blob-2,
 .gradient-mesh-section .blob-b {
   position: absolute;
-  width: 60%;
-  height: 70%;
-  bottom: -25%;
-  left: -20%;
-  border-radius: 50%;
-  background: radial-gradient(ellipse at center, rgba(99,102,241,0.10) 0%, rgba(99,102,241,0.04) 35%, transparent 60%);
-  filter: blur(60px);
-}
-.gradient-mesh-section .blob-c {
-  position: absolute;
-  width: 45%;
+  width: 50%;
   height: 50%;
-  top: 25%;
-  left: 35%;
+  bottom: -15%;
+  left: -10%;
   border-radius: 50%;
-  background: radial-gradient(ellipse at center, rgba(215,232,102,0.08) 0%, rgba(215,232,102,0.03) 35%, transparent 55%);
-  filter: blur(65px);
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.07) 0%, rgba(99, 102, 241, 0.01) 50%, transparent 70%);
+  filter: blur(80px);
 }
 
-/* Dark mode section */
+.gradient-mesh-hero .blob-3,
+.gradient-mesh-hero .blob-4,
+.gradient-mesh-section .blob-c {
+  display: none;
+}
+
+.dark .gradient-mesh-hero .blob-1,
 .dark .gradient-mesh-section .blob-a {
-  background: radial-gradient(ellipse at center, rgba(37,103,232,0.28) 0%, rgba(37,103,232,0.08) 40%, transparent 65%);
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, rgba(37, 99, 235, 0.03) 50%, transparent 75%);
 }
+
+.dark .gradient-mesh-hero .blob-2,
 .dark .gradient-mesh-section .blob-b {
-  background: radial-gradient(ellipse at center, rgba(99,102,241,0.22) 0%, rgba(99,102,241,0.06) 40%, transparent 65%);
-}
-.dark .gradient-mesh-section .blob-c {
-  background: radial-gradient(ellipse at center, rgba(215,232,102,0.16) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, rgba(99, 102, 241, 0.02) 50%, transparent 75%);
 }
 
-/* Dot grid overlay for texture */
-.dot-grid-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
+/* Background Dot Grid Utility */
+.dot-grid-overlay, .bg-dot-grid {
   background-image: radial-gradient(circle, var(--dot-grid-color) 1.2px, transparent 1.2px);
-  background-size: 28px 28px;
+  background-size: 32px 32px;
 }
 
-/* Background Dot Grid Utility class using dynamic color variables */
-.bg-dot-grid {
-  background-image: radial-gradient(circle, var(--dot-grid-color) 1.2px, transparent 1.2px);
-  background-size: 28px 28px;
-}
-
-/* Smooth fade-out mask for ambient background gradient meshes to prevent hard division lines */
 .gradient-mask-bottom {
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
 }
+

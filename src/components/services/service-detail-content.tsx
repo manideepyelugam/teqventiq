@@ -84,9 +84,9 @@ export default function ServiceDetailContent({ service }: ServiceDetailContentPr
 
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
             {service.valueProps.map((vp, idx) => (
-              <Card key={idx} className="reveal-block rounded-[2rem] border-border/20 bg-card/60 backdrop-blur-md p-8 transition-all hover:border-brand-lime/40 hover:shadow-xl">
+              <Card key={idx} className="reveal-block rounded-2xl border border-border/60 bg-card/80 backdrop-blur-md p-6 sm:p-8 transition-all duration-300 hover:border-brand-blue/40 hover:shadow-md">
                 <CardContent className="p-0">
-                  <div className="w-10 h-10 rounded-xl bg-brand-lime/10 flex items-center justify-center text-brand-lime font-bold font-mono text-sm mb-6">
+                  <div className="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue font-bold font-mono text-sm mb-4">
                     0{idx + 1}
                   </div>
                   <h4 className="text-xl font-bold font-serif text-foreground mb-3">
@@ -104,28 +104,41 @@ export default function ServiceDetailContent({ service }: ServiceDetailContentPr
 
       {/* 3. Capability Breakdown */}
       {!!service.capabilities?.length && (
-        <section className="mx-auto max-w-[1248px] px-5">
-          <div className="rounded-[2.5rem] bg-card/40 border border-border/30 p-8 sm:p-12 lg:p-16">
+        <section className="mx-auto max-w-[1280px] px-5">
+          <div className="rounded-3xl bg-card border border-border/60 p-8 sm:p-12 lg:p-14 shadow-sm backdrop-blur-md">
             <div className="mb-12 reveal-block flex items-center gap-3">
-              <Layers className="w-6 h-6 text-brand-lime" />
+              <Layers className="w-6 h-6 text-brand-blue" />
               <h3 className="text-2xl sm:text-4xl font-bold font-serif text-foreground">
                 Capability Breakdown
               </h3>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-10">
+            <div className="grid lg:grid-cols-2 gap-8">
               {service.capabilities.map((cap, idx) => (
-                <div key={idx} className="reveal-block space-y-4 p-6 rounded-2xl bg-muted/30 border border-border/20">
-                  <span className="text-xs font-bold uppercase tracking-widest text-brand-lime block">
+                <div key={idx} className="reveal-block space-y-3 p-6 rounded-2xl bg-muted/40 border border-border/40">
+                  <span className="text-xs font-bold uppercase tracking-wider text-brand-blue block">
                     {cap.category}
                   </span>
-                  <p className="text-foreground/90 text-sm sm:text-base leading-relaxed">
-                    {cap.description}
-                  </p>
+                  {cap.description && (
+                    <p className="text-foreground/90 text-sm sm:text-base leading-relaxed">
+                      {cap.description}
+                    </p>
+                  )}
+                  {!!cap.items?.length && (
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {cap.items.map((item, iIdx) => (
+                        <span
+                          key={iIdx}
+                          className="px-3 py-1 rounded-full text-xs font-medium bg-background text-foreground border border-border/50"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
-
             {/* Core Features List */}
             {!!service.features?.length && (
               <div className="mt-12 pt-10 border-t border-border/30">

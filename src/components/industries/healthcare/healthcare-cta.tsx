@@ -8,25 +8,25 @@ export default function HealthcareCTA() {
   const { cta } = HEALTHCARE_CONTENT;
 
   return (
-    <section className="py-24 lg:py-32 bg-transparent transition-colors duration-500">
-      <div className="mx-auto max-w-[1248px] px-5">
+    <section className="py-20 bg-transparent">
+      <div className="mx-auto max-w-[1280px] px-5">
         
-        <div className="bg-gradient-to-br from-brand-lime/10 via-muted to-brand-blue/5 rounded-[3rem] p-10 lg:p-20 relative overflow-hidden border border-border shadow-2xl reveal">
-          <div className="relative z-10 grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+        <div className="bg-card border border-border/60 rounded-3xl p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-md backdrop-blur-md reveal">
+          <div className="relative z-10 grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
             {/* Contact Details */}
             <div className="lg:col-span-6">
-              <span className="text-brand-lime font-bold tracking-widest uppercase text-xs mb-6 block">Get In Touch</span>
-              <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-8 font-serif">
+              <span className="text-brand-blue font-bold tracking-wider uppercase text-xs mb-4 block">Get In Touch</span>
+              <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-6 font-serif tracking-tight">
                 {cta.title}
               </h2>
-              <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
+              <p className="text-base sm:text-lg text-muted-foreground mb-8 leading-relaxed">
                 {cta.subtitle}
               </p>
 
               <div className="flex flex-col gap-6">
                 <div className="flex gap-4 items-start">
-                  <MapPin className="w-5 h-5 text-brand-lime mt-1 flex-shrink-0" />
+                  <MapPin className="w-5 h-5 text-brand-blue mt-1 flex-shrink-0" />
                   <div>
                     <span className="text-xs font-bold text-muted-foreground uppercase block mb-1">Office Address</span>
                     <span className="text-sm font-medium text-foreground">{cta.address}</span>

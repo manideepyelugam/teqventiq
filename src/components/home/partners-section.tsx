@@ -72,10 +72,10 @@ export default function PartnersSection() {
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 className={cn(
-                  "px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 border",
+                  "px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 border",
                   activeCategory === cat
-                    ? "bg-brand-lime text-black border-brand-lime shadow-md scale-105"
-                    : "bg-card/60 text-muted-foreground border-border/40 hover:border-brand-lime/50 hover:text-foreground"
+                    ? "bg-brand-blue text-white border-brand-blue shadow-sm"
+                    : "bg-card/80 backdrop-blur-md text-muted-foreground border-border/60 hover:border-brand-blue/40 hover:text-foreground"
                 )}
               >
                 {cat}
@@ -95,7 +95,7 @@ export default function PartnersSection() {
           {selectedPartners.map((partner, index) => (
             <div
               key={`${partner.name}-${index}`}
-              className="bg-white rounded-2xl p-4 h-24 sm:h-28 flex items-center justify-center shadow-sm border border-border/20 hover:scale-105 hover:shadow-lg hover:border-brand-lime/50 transition-all duration-300 group"
+              className="bg-card/90 backdrop-blur-md rounded-2xl p-4 h-24 sm:h-28 flex items-center justify-center shadow-sm border border-border/60 hover:scale-[1.03] hover:shadow-md hover:border-brand-blue/40 transition-all duration-300 group"
             >
               <CompanyLogo
                 domain={partner.domain}

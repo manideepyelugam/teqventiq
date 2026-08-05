@@ -15,12 +15,12 @@ export default function MissionVisionSection() {
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-blue/5 blur-[150px] rounded-full pointer-events-none"></div>
 
       <div className="mx-auto max-w-[1248px] px-5 relative z-10">
-        <div className="text-center mb-16 lg:mb-24">
-          <span className="text-brand-lime font-bold tracking-[0.2em] uppercase text-xs mb-4 block">
-            Our Core Values
+        <div className="text-center mb-12 lg:mb-16">
+          <span className="text-brand-blue font-bold tracking-wider uppercase text-xs mb-3 block">
+            Our Core Purpose
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold font-serif text-foreground tracking-tight mb-6">
-            Mission & <span className="text-muted-foreground">Vision</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-serif text-foreground tracking-tight mb-6">
+            Mission & <span className="text-muted-foreground font-medium">Vision</span>
           </h2>
           <p className="text-lg lg:text-xl text-muted-foreground max-w-[700px] mx-auto leading-relaxed">
             Guiding our journey as we empower enterprises with next-generation technology solutions and strategic innovation.
@@ -32,7 +32,7 @@ export default function MissionVisionSection() {
             <div 
               key={index}
               id={item.title.toLowerCase().replace('our ', '')}
-              className="group relative bg-card rounded-[32px] overflow-hidden border border-border/50 hover:border-brand-blue/30 transition-all duration-500 hover:shadow-2xl"
+              className="group relative bg-card/80 backdrop-blur-md rounded-3xl overflow-hidden border border-border/60 hover:border-brand-blue/40 transition-all duration-300 hover:shadow-md"
             >
               {/* Image Header */}
               <div className="relative h-[250px] sm:h-[300px] w-full overflow-hidden">

@@ -37,42 +37,42 @@ const Logo = () => {
 
 export default function Footer() {
   return (
-    <footer className="pt-8 pb-16 lg:pb-24 transition-colors duration-500 relative overflow-visible">
-      <div className="dot-grid-overlay" />
-      <div className="absolute bottom-0 right-0 w-1/2 h-full bg-brand-blue/5 rounded-full blur-[120px] pointer-events-none" />
+    <footer className="pt-12 pb-16 lg:pb-24 border-t border-border/40 bg-card/30 backdrop-blur-md relative overflow-hidden">
+      <div className="dot-grid-overlay opacity-50" />
+      <div className="absolute bottom-0 right-0 w-1/3 h-2/3 bg-brand-blue/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="mx-auto max-w-[1248px] px-5 relative z-10">
-        <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-20">
+      <div className="mx-auto max-w-[1280px] px-6 relative z-10">
+        <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-16">
           
           {/* Brand & Address Column */}
-          <div className="max-w-[420px]">
+          <div className="max-w-[400px]">
             <Link
               href="/"
-              className="inline-block transition-transform hover:scale-105 group"
+              className="inline-block transition-transform hover:scale-[1.02] group"
             >
               <Logo />
             </Link>
-            <p className="text-base text-muted-foreground leading-relaxed mt-6">
+            <p className="text-sm text-muted-foreground leading-relaxed mt-5">
               Where Technology Meets Business Intelligence. Teqventiq designs and delivers secure, scalable, and modern technology ecosystems.
             </p>
 
-            <div className="mt-8 space-y-3 text-sm text-muted-foreground border-l-2 border-brand-lime/40 pl-4">
+            <div className="mt-6 space-y-2 text-xs sm:text-sm text-muted-foreground border-l-2 border-brand-blue/50 pl-4">
               <p className="font-bold text-foreground">{COMPANY_INFO.name}</p>
               <p>{COMPANY_INFO.address.line1}, {COMPANY_INFO.address.line2}</p>
               <p>{COMPANY_INFO.address.area}</p>
               <p>{COMPANY_INFO.address.cityStateZip}</p>
             </div>
 
-            <div className="mt-8 flex flex-col gap-2 text-sm">
+            <div className="mt-6 flex flex-col gap-1.5 text-sm">
               <a
                 href={`mailto:${COMPANY_INFO.email}`}
-                className="text-brand-lime font-bold hover:underline"
+                className="text-brand-blue font-semibold hover:underline"
               >
                 {COMPANY_INFO.email}
               </a>
               <a
                 href={`tel:${COMPANY_INFO.phoneRaw}`}
-                className="text-foreground hover:text-brand-lime transition-colors font-medium"
+                className="text-foreground/80 hover:text-brand-blue transition-colors font-medium"
               >
                 {COMPANY_INFO.phone}
               </a>
@@ -80,17 +80,17 @@ export default function Footer() {
           </div>
 
           {/* Navigation Links Columns */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-10 lg:gap-24">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 lg:gap-20">
             <div>
-              <h4 className="text-foreground font-bold mb-8 text-lg tracking-tight">
+              <h4 className="text-foreground font-bold mb-5 text-base tracking-tight">
                 Services
               </h4>
-              <ul className="flex flex-col gap-4">
+              <ul className="flex flex-col gap-3">
                 {SERVICES.map((service) => (
                   <li key={service.slug}>
                     <Link
                       href={`/services/${service.slug}`}
-                      className="text-muted-foreground hover:text-brand-lime transition-colors text-sm"
+                      className="text-muted-foreground hover:text-brand-blue transition-colors text-sm"
                     >
                       {service.title}
                     </Link>
@@ -100,15 +100,15 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="text-foreground font-bold mb-8 text-lg tracking-tight">
+              <h4 className="text-foreground font-bold mb-5 text-base tracking-tight">
                 Industries
               </h4>
-              <ul className="flex flex-col gap-4">
+              <ul className="flex flex-col gap-3">
                 {INDUSTRIES.map((industry) => (
                   <li key={industry.slug}>
                     <Link
                       href={`/industries/${industry.slug}`}
-                      className="text-muted-foreground hover:text-brand-lime transition-colors text-sm"
+                      className="text-muted-foreground hover:text-brand-blue transition-colors text-sm"
                     >
                       {industry.title.split(" (")[0]}
                     </Link>
@@ -118,14 +118,14 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="text-foreground font-bold mb-8 text-lg tracking-tight">
+              <h4 className="text-foreground font-bold mb-5 text-base tracking-tight">
                 About Us
               </h4>
-              <ul className="flex flex-col gap-4">
+              <ul className="flex flex-col gap-3">
                 <li>
                   <Link
                     href="/about#mission"
-                    className="text-muted-foreground hover:text-brand-lime transition-colors text-sm"
+                    className="text-muted-foreground hover:text-brand-blue transition-colors text-sm"
                   >
                     Mission
                   </Link>
@@ -133,7 +133,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/about#vision"
-                    className="text-muted-foreground hover:text-brand-lime transition-colors text-sm"
+                    className="text-muted-foreground hover:text-brand-blue transition-colors text-sm"
                   >
                     Vision
                   </Link>
@@ -141,7 +141,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/about#five-pillars"
-                    className="text-muted-foreground hover:text-brand-lime transition-colors text-sm"
+                    className="text-muted-foreground hover:text-brand-blue transition-colors text-sm"
                   >
                     Five Pillars
                   </Link>
@@ -149,7 +149,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/about#strengths"
-                    className="text-muted-foreground hover:text-brand-lime transition-colors text-sm"
+                    className="text-muted-foreground hover:text-brand-blue transition-colors text-sm"
                   >
                     Strengths
                   </Link>
@@ -159,12 +159,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-20 pt-10 border-t border-border/20 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-sm text-muted-foreground font-medium">
+        <div className="mt-16 pt-8 border-t border-border/40 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-xs sm:text-sm text-muted-foreground font-medium">
             © {new Date().getFullYear()} TEQVENTIQ SERVICES PRIVATE LIMITED. All rights reserved.
           </p>
           <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground">
-            <span className="w-2 h-2 bg-brand-lime rounded-full animate-pulse" />
+            <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
             <span>DELHI HQ · INDIA</span>
           </div>
         </div>

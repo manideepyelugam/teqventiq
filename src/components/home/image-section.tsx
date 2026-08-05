@@ -64,7 +64,7 @@ export default function ImageSection() {
           {steps.map((step, index) => (
             <div key={index} className={cn("absolute flex flex-col gap-3 group transition-all duration-300 hover:-translate-y-1", step.pos)}>
               <div className="flex items-center gap-3">
-                <span className="w-10 h-10 bg-brand-blue text-white font-bold text-xl rounded-2xl flex items-center justify-center shadow-lg shadow-brand-blue/20 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors"> {index + 1} </span>
+                <span className="w-10 h-10 bg-brand-blue text-white font-bold text-lg rounded-xl flex items-center justify-center shadow-sm group-hover:bg-blue-600 transition-colors"> {index + 1} </span>
                 <strong className="text-foreground text-xl font-bold tracking-tight">{step.title}</strong>
               </div>
               <p className="text-muted-foreground text-[15px] leading-relaxed max-w-[200px]">{step.text}</p>
@@ -76,8 +76,8 @@ export default function ImageSection() {
       {/* Mobile Step List View */}
       <div className="lg:hidden flex flex-col gap-4 sm:gap-6 px-5 relative z-10 mx-auto">
         {steps.map((step, index) => (
-          <div key={index} className="flex gap-4 items-start bg-card p-5 sm:p-6 rounded-[24px] border border-border/50 shadow-sm transition-all duration-300 hover:shadow-md">
-            <span className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 bg-brand-blue text-white font-bold text-lg sm:text-xl rounded-xl flex items-center justify-center shadow-lg shadow-brand-blue/20">
+          <div key={index} className="flex gap-4 items-start bg-card/80 backdrop-blur-md p-5 sm:p-6 rounded-2xl border border-border/60 shadow-sm transition-all duration-300 hover:shadow-md">
+            <span className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 bg-brand-blue text-white font-bold text-lg sm:text-xl rounded-xl flex items-center justify-center shadow-sm">
               {index + 1}
             </span>
             <div className="flex flex-col gap-1 sm:gap-2">

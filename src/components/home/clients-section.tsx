@@ -47,11 +47,11 @@ export default function ClientsSection() {
         }}
       >
         <div className="text-center mb-12 lg:mb-16">
-          <span className="text-brand-lime font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
+          <span className="text-brand-blue font-bold tracking-wider uppercase text-xs mb-3 block">
             Client Footprint
           </span>
           <h3 className="text-3xl lg:text-5xl font-bold font-serif text-foreground tracking-tight mb-6">
-            Trusted by <span className="text-brand-lime">Industry Leaders</span>
+            Trusted by <span className="bg-gradient-to-r from-brand-blue to-blue-600 bg-clip-text text-transparent">Industry Leaders</span>
           </h3>
           <p className="text-lg text-muted-foreground max-w-[640px] mx-auto leading-relaxed">
             Delivering mission-critical technology solutions across key regional enterprise verticals.
@@ -63,11 +63,11 @@ export default function ClientsSection() {
           {CLIENTS_BY_VERTICAL.map((item, idx) => (
             <div
               key={idx}
-              className="bg-card/70 backdrop-blur-md rounded-2xl p-6 border border-border/30 hover:border-brand-lime/50 transition-all duration-300 shadow-sm flex flex-col justify-between"
+              className="bg-card/80 backdrop-blur-md rounded-2xl p-6 border border-border/60 hover:border-brand-blue/40 transition-all duration-300 shadow-sm hover:shadow-md flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-brand-lime/10 flex items-center justify-center text-brand-lime">
+                  <div className="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue">
                     <Building2 className="w-5 h-5" />
                   </div>
                   <h4 className="font-bold text-foreground text-base font-serif">
@@ -77,7 +77,7 @@ export default function ClientsSection() {
                 <div className="space-y-2">
                   {item.clients.map((client, cIdx) => (
                     <div key={cIdx} className="flex items-center gap-2 text-xs text-muted-foreground">
-                      <ShieldCheck className="w-3.5 h-3.5 text-brand-lime" />
+                      <ShieldCheck className="w-3.5 h-3.5 text-brand-blue" />
                       <span>{client.name}</span>
                     </div>
                   ))}

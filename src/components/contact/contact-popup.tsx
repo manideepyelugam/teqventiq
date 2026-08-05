@@ -199,7 +199,7 @@ export default function ContactPopup() {
       {/* Main Modal Card Container */}
       <div
         ref={modalRef}
-        className="relative w-full max-w-4xl bg-card border border-border shadow-3xl rounded-[2rem] overflow-hidden flex flex-col md:flex-row max-h-[90vh] md:max-h-[85vh] transition-colors duration-500 z-10"
+        className="relative w-full max-w-4xl bg-card border border-border/60 shadow-xl rounded-3xl overflow-hidden flex flex-col md:flex-row max-h-[90vh] md:max-h-[85vh] backdrop-blur-xl z-10"
       >
         {/* Close Button */}
         <button

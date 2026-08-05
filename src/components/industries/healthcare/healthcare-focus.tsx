@@ -48,7 +48,7 @@ export default function HealthcareFocus() {
         {/* ── Why Healthcare Choose Us ── */}
         <div className="reveal">
           <div className="mb-16 text-center">
-            <span className="text-brand-lime font-bold tracking-widest uppercase text-xs mb-4 block">Why Savvtek</span>
+            <span className="text-brand-lime font-bold tracking-widest uppercase text-xs mb-4 block">Why Teqventiq</span>
             <h2 className="text-3xl lg:text-5xl font-bold font-serif text-foreground">Why Healthcare Providers Choose Us</h2>
           </div>
 

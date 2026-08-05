@@ -4,119 +4,22 @@ import { useRef } from 'react';
 import { gsap } from 'gsap';
 import { useGsap } from '@/core/hooks/use-gsap';
 import { Button } from '@/components/ui';
-import { ArrowRight, ChevronDown } from 'lucide-react';
-import Image from 'next/image';
+import { 
+  ArrowRight, 
+  ChevronDown, 
+  ShieldCheck, 
+  Server, 
+  Cpu, 
+  Network, 
+  CheckCircle2, 
+} from 'lucide-react';
 import Link from 'next/link';
 
-// ─── Industry Definitions ─────────────────────────────────────────────────────
-
-const INDUSTRIES = [
-  {
-    id: 'it-ites',
-    label: 'IT / ITES',
-    slug: 'it-ites',
-    color: '#38bdf8',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
-        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-        <line x1="8" y1="21" x2="16" y2="21" />
-        <line x1="12" y1="17" x2="12" y2="21" />
-      </svg>
-    ),
-  },
-  {
-    id: 'bfsi',
-    label: 'BFSI',
-    slug: 'bfsi',
-    color: '#818cf8',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
-        <line x1="3" y1="22" x2="21" y2="22" />
-        <line x1="6" y1="18" x2="6" y2="11" />
-        <line x1="10" y1="18" x2="10" y2="11" />
-        <line x1="14" y1="18" x2="14" y2="11" />
-        <line x1="18" y1="18" x2="18" y2="11" />
-        <polygon points="12 2 20 7 4 7" />
-      </svg>
-    ),
-  },
-  {
-    id: 'manufacturing',
-    label: 'Manufacturing',
-    slug: 'manufacturing',
-    color: '#fb923c',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
-        <path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4H2z" />
-      </svg>
-    ),
-  },
-  {
-    id: 'food-industry',
-    label: 'Food Industry',
-    slug: 'food-industry',
-    color: '#f43f5e',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
-        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-        <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-      </svg>
-    ),
-  },
-  {
-    id: 'real-estate',
-    label: 'Real Estate',
-    slug: 'real-estate',
-    color: '#a855f7',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
-        <path d="M3 21h18" />
-        <path d="M5 21V7l8-4v18" />
-        <path d="M19 21V11l-6-3" />
-      </svg>
-    ),
-  },
-  {
-    id: 'education',
-    label: 'Education',
-    slug: 'education',
-    color: '#34d399',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
-        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-        <path d="M6 12v5c3 3 9 3 12 0v-5" />
-      </svg>
-    ),
-  },
-  {
-    id: 'psu-government',
-    label: 'PSU & Govt',
-    slug: 'psu-government',
-    color: '#22d3ee',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-      </svg>
-    ),
-  },
-];
-
-// ─── Orbit Ring Config ────────────────────────────────────────────────────────
-
-const RINGS = [
-  { radius: 110, duration: 18, clockwise: true,  nodes: [0, 1, 5] },      // inner: IT/ITES, BFSI, Education
-  { radius: 220, duration: 32, clockwise: false, nodes: [2, 3, 4, 6] },   // outer: Manufacturing, Food, Real Estate, PSU & Govt
-];
-
-// ─── Component ────────────────────────────────────────────────────────────────
-
 export default function Hero() {
-  const containerRef  = useRef<HTMLDivElement>(null);
-  // One ref per planet node (indexed by INDUSTRIES order)
-  const nodeRefs = useRef<(HTMLDivElement | null)[]>(Array(INDUSTRIES.length).fill(null));
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useGsap(() => {
-    // ── Text entrance ─────────────────────────────────────────
+    // Text entrance
     gsap.from('.hero-enter', {
       opacity: 0,
       y: 40,
@@ -125,79 +28,30 @@ export default function Hero() {
       stagger: 0.14,
     });
 
-    // ── Center logo: radial pulse ─────────────────────────────
-    gsap.to('.solar-pulse', {
-      scale: 2,
+    // Floating animation for the Tech Dashboard card on the right
+    gsap.to('.hero-dashboard-card', {
+      y: -10,
+      duration: 4,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut',
+    });
+
+    // Pulse animation for status indicator
+    gsap.to('.status-pulse', {
+      scale: 1.4,
       opacity: 0,
-      duration: 2.6,
+      duration: 2,
       repeat: -1,
       ease: 'power2.out',
-      transformOrigin: '50% 50%',
-    });
-
-    // ── Center: float entire center group together ──────────────
-    gsap.to('.solar-center', {
-      y: -10,
-      duration: 3.6,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut',
-    });
-
-    // ── Planet node glows: staggered pulse ───────────────────
-    gsap.to('.planet-glow', {
-      opacity: 0.6,
-      scale: 1.3,
-      duration: 1.8,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut',
-      stagger: { each: 0.4, from: 'random' },
-    });
-
-    // ── Orbit animation: direct x/y positioning per frame ─────
-    RINGS.forEach((ring) => {
-      const count = ring.nodes.length;
-      const progress = { angle: 0 };
-
-      // Set initial positions immediately (before first GSAP tick)
-      ring.nodes.forEach((indIdx, posIdx) => {
-        const startAngle = (posIdx / count) * Math.PI * 2;
-        const x = Math.cos(startAngle) * ring.radius;
-        const y = Math.sin(startAngle) * ring.radius;
-        const el = nodeRefs.current[indIdx];
-        if (el) gsap.set(el, { x, y });
-      });
-
-      // Continuously update positions as angle progresses
-      gsap.to(progress, {
-        angle: ring.clockwise ? Math.PI * 2 : -Math.PI * 2,
-        duration: ring.duration,
-        repeat: -1,
-        ease: 'none',
-        onUpdate() {
-          ring.nodes.forEach((indIdx, posIdx) => {
-            const offsetAngle = (posIdx / count) * Math.PI * 2;
-            const totalAngle  = progress.angle + offsetAngle;
-            const x = Math.cos(totalAngle) * ring.radius;
-            const y = Math.sin(totalAngle) * ring.radius;
-            const el = nodeRefs.current[indIdx];
-            if (el) gsap.set(el, { x, y });
-          });
-        },
-      });
     });
   }, containerRef);
-
-  // Orbital container size (px) — the square that holds the orrery
-  const ORBIT_SIZE = 520;
-  const CENTER = ORBIT_SIZE / 2;
 
   return (
     <section
       id="hero-section"
       ref={containerRef}
-      className="relative overflow-visible min-h-screen flex items-center pt-28 pb-16 lg:pt-28 lg:pb-16 text-foreground transition-colors duration-500"
+      className="relative overflow-visible min-h-screen flex items-center pt-28 pb-16 lg:pt-32 lg:pb-20 text-foreground transition-colors duration-500"
     >
       {/* Delhi Cityscape Hero Background Visual */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-15 dark:opacity-25 mix-blend-luminosity">
@@ -209,290 +63,197 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
       </div>
 
-      {/* Ambient gradient mesh — multi-tone blobs for a vibrant backdrop */}
+      {/* Ambient gradient mesh */}
       <div className="gradient-mesh-hero">
         <div className="blob-1" />
         <div className="blob-2" />
         <div className="blob-3" />
         <div className="blob-4" />
       </div>
-      {/* Subtle dot grid texture */}
+      {/* Dot grid texture */}
       <div className="dot-grid-overlay" />
 
-      <div className="w-full mx-auto max-w-[1248px] px-5 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-6 items-center">
+      <div className="w-full mx-auto max-w-[1280px] px-5 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
 
-          {/* ── LEFT: Text ─────────────────────────────────────── */}
-          <div>
-            <div className="hero-enter inline-flex items-center gap-3 bg-white/80 dark:bg-card/80 backdrop-blur-xl border border-brand-lime/20 px-5 py-2.5 rounded-full mb-10 shadow-md">
-              <span className="w-2 h-2 bg-brand-lime rounded-full animate-pulse" />
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-lime">
+          {/* ── LEFT: Text Content ────────────────────────────────── */}
+          <div className="lg:col-span-6">
+            <div className="hero-enter inline-flex items-center gap-2.5 bg-brand-blue/10 border border-brand-blue/25 px-4 py-1.5 rounded-full mb-6 shadow-sm backdrop-blur-md">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="status-pulse absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-blue"></span>
+              </span>
+              <span className="text-xs font-bold uppercase tracking-wider text-brand-blue">
                 Teqventiq Services
               </span>
             </div>
 
-            <h1 className="hero-enter text-4xl lg:text-6xl  font-bold font-serif leading-[1.05] tracking-tight text-foreground mb-8">
+            <h1 className="hero-enter text-4xl sm:text-5xl lg:text-6xl font-bold font-serif leading-[1.08] tracking-tight text-foreground mb-6">
               Where Technology <br />
-              <span className="text-brand-lime">Meets Business Intelligence</span>
+              <span className="bg-gradient-to-r from-brand-blue via-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                Meets Business Intelligence
+              </span>
             </h1>
 
-            <p className="hero-enter text-lg text-muted-foreground font-sans max-w-[500px] mb-10 leading-relaxed">
-              Empowering organizations with secure, scalable, and modern technology solutions.
+            <p className="hero-enter text-base sm:text-lg text-muted-foreground font-sans max-w-[500px] mb-8 leading-relaxed">
+              Empowering organizations with secure, scalable, and modern enterprise technology ecosystems.
             </p>
 
-            <div className="hero-enter flex flex-wrap gap-6">
-              <Button asChild className="btn-lime h-auto group">
+            <div className="hero-enter flex flex-wrap items-center gap-4">
+              <Button asChild className="btn-primary group">
                 <a href="#contact-section">
                   <span>Start Your Project</span>
-                  <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1.5" />
+                  <ArrowRight className="w-4.5 h-4.5 transition-transform group-hover:translate-x-1" />
                 </a>
               </Button>
 
               <Button
                 asChild
                 variant="outline"
-                className="btn-outline h-auto group !text-foreground border-border/50 hover:bg-muted"
+                className="btn-outline group"
               >
                 <a href="#features">
                   Our Impact
-                  <ChevronDown className="w-5 h-5 opacity-60 group-hover:opacity-100 transition-opacity" />
+                  <ChevronDown className="w-4.5 h-4.5 opacity-60 group-hover:opacity-100 transition-opacity" />
                 </a>
               </Button>
             </div>
           </div>
 
-          {/* ── RIGHT: Solar System ─────────────────────────────── */}
-          <div className="hero-enter flex flex-col items-center lg:items-end gap-6 w-full overflow-visible">
+          {/* ── RIGHT: Unique Enterprise Tech Showcase Dashboard ──── */}
+          <div className="lg:col-span-6 hero-enter flex justify-center lg:justify-end">
+            <div className="hero-dashboard-card relative w-full max-w-[560px] rounded-3xl bg-card/85 backdrop-blur-xl border border-border/80 shadow-2xl p-6 sm:p-8 overflow-visible">
+              
+              {/* Background Glow inside Card */}
+              <div className="absolute -top-20 -right-20 w-64 h-64 bg-brand-blue/10 rounded-full blur-3xl pointer-events-none" />
 
-            {/* Orrery Wrapper for Responsive Scaling */}
-            <div className="relative w-full h-[280px] [@media(min-width:360px)]:h-[308px] [@media(min-width:390px)]:h-[352px] [@media(min-width:480px)]:h-[425px] sm:h-[476px] lg:h-[420px] xl:h-[504px] 2xl:h-[560px] lg:flex lg:justify-end overflow-visible select-none">
-              <style>{`
-                .orbit-scale-wrapper {
-                  position: absolute;
-                  left: 50%;
-                  top: 50%;
-                  transform: translate(-50%, -50%) scale(0.5);
-                  transform-origin: center center;
-                  flex-shrink: 0;
-                }
-                @media (min-width: 360px) {
-                  .orbit-scale-wrapper {
-                    transform: translate(-50%, -50%) scale(0.55);
-                  }
-                }
-                @media (min-width: 390px) {
-                  .orbit-scale-wrapper {
-                    transform: translate(-50%, -50%) scale(0.63);
-                  }
-                }
-                @media (min-width: 480px) {
-                  .orbit-scale-wrapper {
-                    transform: translate(-50%, -50%) scale(0.76);
-                  }
-                }
-                @media (min-width: 640px) {
-                  .orbit-scale-wrapper {
-                    transform: translate(-50%, -50%) scale(0.85);
-                  }
-                }
-                @media (min-width: 1024px) {
-                  .orbit-scale-wrapper {
-                    position: absolute;
-                    right: 0;
-                    left: auto;
-                    top: 50%;
-                    transform: translate(0, -50%) scale(0.75);
-                    transform-origin: right center;
-                  }
-                }
-                @media (min-width: 1280px) {
-                  .orbit-scale-wrapper {
-                    transform: translate(0, -50%) scale(0.9);
-                  }
-                }
-                @media (min-width: 1536px) {
-                  .orbit-scale-wrapper {
-                    transform: translate(0, -50%) scale(1);
-                  }
-                }
-              `}</style>
-              <div
-                className="orbit-scale-wrapper relative"
-                style={{
-                  width: ORBIT_SIZE,
-                  height: 560,
-                }}
-              >
-                {/* Subtle radial halo behind rings — works on both themes */}
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: CENTER - (RINGS[1].radius + 40),
-                    left: CENTER - (RINGS[1].radius + 40),
-                    width: (RINGS[1].radius + 40) * 2,
-                    height: (RINGS[1].radius + 40) * 2,
-                    borderRadius: '50%',
-                    background: 'radial-gradient(circle, rgba(37,103,232,0.06) 0%, transparent 70%)',
-                    pointerEvents: 'none',
-                  }}
-                />
-
-                {/* ── Dashed orbit rings (blue-tinted, visible on both themes) ── */}
-                {RINGS.map((ring, i) => (
-                  <div
-                    key={`ring-${i}`}
-                    style={{
-                      position: 'absolute',
-                      top: CENTER - ring.radius,
-                      left: CENTER - ring.radius,
-                      width: ring.radius * 2,
-                      height: ring.radius * 2,
-                      borderRadius: '50%',
-                      border: '1.5px dashed rgba(37,103,232,0.2)',
-                      boxShadow: `0 0 ${i === 0 ? 16 : 24}px rgba(37,103,232,0.04) inset`,
-                    }}
-                  />
-                ))}
-
-                {/* ── Planet nodes — anchored to center, moved by GSAP ── */}
-                {INDUSTRIES.map((ind, i) => (
-                  <Link
-                    key={ind.id}
-                    href={`/industries/${ind.slug}`}
-                    ref={(el) => { nodeRefs.current[i] = el as unknown as HTMLDivElement; }}
-                    style={{
-                      position: 'absolute',
-                      top: CENTER - 26,
-                      left: CENTER - 26,
-                      width: 52,
-                      height: 52,
-                      cursor: 'pointer',
-                      zIndex: 20,
-                    }}
-                  >
-                    {/* Outer glow halo */}
-                    <div
-                      className="planet-glow"
-                      style={{
-                        position: 'absolute',
-                        inset: -10,
-                        borderRadius: '50%',
-                        background: `radial-gradient(circle, ${ind.color}40 0%, ${ind.color}00 70%)`,
-                        opacity: 0.35,
-                      }}
-                    />
-                    {/* Planet disc — dark bg intentional (like a colored LED badge) */}
-                    <div
-                      style={{
-                        position: 'relative',
-                        width: 52,
-                        height: 52,
-                        borderRadius: '50%',
-                        background: `linear-gradient(135deg, ${ind.color}18 0%, ${ind.color}08 100%)`,
-                        border: `1.5px solid ${ind.color}`,
-                        boxShadow: `0 0 18px ${ind.color}55, 0 4px 12px rgba(0,0,0,0.15)`,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: ind.color,
-                        backdropFilter: 'blur(4px)',
-                      }}
-                    >
-                      {ind.icon}
-                    </div>
-                    {/* Label below node */}
-                    <div
-                      style={{
-                        position: 'absolute',
-                        top: 58,
-                        left: '50%',
-                        transform: 'translateX(-50%)',
-                        fontSize: 9,
-                        fontWeight: 700,
-                        letterSpacing: '0.12em',
-                        textTransform: 'uppercase',
-                        color: ind.color,
-                        whiteSpace: 'nowrap',
-                        opacity: 0.9,
-                        pointerEvents: 'none',
-                      }}
-                    >
-                      {ind.label}
-                    </div>
-                  </Link>
-                ))}
-
-                {/* ── Center group — all elements float together ── */}
-                <div
-                  className="solar-center"
-                  style={{
-                    position: 'absolute',
-                    /* Exact center of orrery container */
-                    top: CENTER,
-                    left: CENTER,
-                    width: 0,
-                    height: 0,
-                    /* Children use negative margins to center on this point */
-                  }}
-                >
-                  {/* Expanding pulse ring */}
-                  <div
-                    className="solar-pulse"
-                    style={{
-                      position: 'absolute',
-                      width: 110,
-                      height: 110,
-                      borderRadius: '50%',
-                      background: 'radial-gradient(circle, rgba(37,103,232,0.4) 0%, transparent 70%)',
-                      top: -55,
-                      left: -55,
-                    }}
-                  />
-                  {/* Static glow ring */}
-                  <div
-                    style={{
-                      position: 'absolute',
-                      width: 90,
-                      height: 90,
-                      borderRadius: '50%',
-                      background: 'rgba(37,103,232,0.1)',
-                      border: '1.5px solid rgba(37,103,232,0.45)',
-                      boxShadow: '0 0 32px rgba(37,103,232,0.3)',
-                      top: -45,
-                      left: -45,
-                    }}
-                  />
-                  {/* Center logo disc */}
-                  <div
-                    style={{
-                      position: 'absolute',
-                      width: 72,
-                      height: 72,
-                      borderRadius: '50%',
-                      background: 'linear-gradient(135deg, #1a1a3e 0%, #0d0d24 100%)',
-                      border: '2px solid rgba(37,103,232,0.7)',
-                      boxShadow: '0 0 40px rgba(37,103,232,0.5), inset 0 0 20px rgba(37,103,232,0.12)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      top: -36,
-                      left: -36,
-                    }}
-                  >
-                    <Image
-                      src="/logo.png"
-                      alt="Savvtek"
-                      width={46}
-                      height={46}
-                      style={{ width: 46, height: 46, objectFit: 'contain' }}
-                      className="brightness-0 invert"
-                      priority
-                    />
+              {/* Card Header Bar */}
+              <div className="flex items-center justify-between pb-6 border-b border-border/40">
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 rounded-full bg-emerald-500 relative">
+                    <div className="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-75" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-foreground block">
+                      Enterprise Ecosystem
+                    </span>
+                    <span className="text-[11px] text-muted-foreground">
+                      Live Telemetry • Delhi HQ
+                    </span>
                   </div>
                 </div>
-              </div>
-            </div>
 
+                <div className="flex items-center gap-2">
+                  <span className="px-2.5 py-1 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-[11px] font-bold uppercase tracking-wider">
+                    ISO 27001
+                  </span>
+                  <span className="px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-[11px] font-bold uppercase tracking-wider">
+                    Zero Trust
+                  </span>
+                </div>
+              </div>
+
+              {/* 2x2 Capabilities Matrix */}
+              <div className="grid grid-cols-2 gap-3.5 my-6">
+                
+                {/* 1. Cybersecurity */}
+                <Link 
+                  href="/services/cybersecurity"
+                  className="group/item p-4 rounded-2xl bg-muted/40 border border-border/50 hover:border-brand-blue/40 hover:bg-card transition-all duration-300 shadow-sm"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-3 group-hover/item:scale-110 transition-transform">
+                    <ShieldCheck className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-sm font-bold text-foreground mb-1 group-hover/item:text-brand-blue transition-colors">
+                    Cybersecurity
+                  </h3>
+                  <p className="text-[12px] text-muted-foreground leading-tight">
+                    NGFW & Zero Trust Defense
+                  </p>
+                </Link>
+
+                {/* 2. Datacentre & Cloud */}
+                <Link 
+                  href="/services/datacentre"
+                  className="group/item p-4 rounded-2xl bg-muted/40 border border-border/50 hover:border-brand-blue/40 hover:bg-card transition-all duration-300 shadow-sm"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-3 group-hover/item:scale-110 transition-transform">
+                    <Server className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-sm font-bold text-foreground mb-1 group-hover/item:text-brand-blue transition-colors">
+                    Datacentre & Cloud
+                  </h3>
+                  <p className="text-[12px] text-muted-foreground leading-tight">
+                    High-Uptime Servers & DR
+                  </p>
+                </Link>
+
+                {/* 3. Networking */}
+                <Link 
+                  href="/services/networking"
+                  className="group/item p-4 rounded-2xl bg-muted/40 border border-border/50 hover:border-brand-blue/40 hover:bg-card transition-all duration-300 shadow-sm"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-3 group-hover/item:scale-110 transition-transform">
+                    <Network className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-sm font-bold text-foreground mb-1 group-hover/item:text-brand-blue transition-colors">
+                    Networking
+                  </h3>
+                  <p className="text-[12px] text-muted-foreground leading-tight">
+                    SD-WAN & Active Fiber
+                  </p>
+                </Link>
+
+                {/* 4. Data & AI */}
+                <Link 
+                  href="/services/data-ai"
+                  className="group/item p-4 rounded-2xl bg-muted/40 border border-border/50 hover:border-brand-blue/40 hover:bg-card transition-all duration-300 shadow-sm"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-3 group-hover/item:scale-110 transition-transform">
+                    <Cpu className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-sm font-bold text-foreground mb-1 group-hover/item:text-brand-blue transition-colors">
+                    Data & AI
+                  </h3>
+                  <p className="text-[12px] text-muted-foreground leading-tight">
+                    Analytics & Automation
+                  </p>
+                </Link>
+
+              </div>
+
+              {/* Bottom Real-Time SLA Metrics Strip */}
+              <div className="pt-5 border-t border-border/40 grid grid-cols-3 gap-3 text-center">
+                <div className="p-2.5 rounded-xl bg-background/60 border border-border/40">
+                  <span className="text-xs text-muted-foreground block mb-0.5">Uptime SLA</span>
+                  <span className="text-base font-bold text-brand-blue">99.99%</span>
+                </div>
+                <div className="p-2.5 rounded-xl bg-background/60 border border-border/40">
+                  <span className="text-xs text-muted-foreground block mb-0.5">Response</span>
+                  <span className="text-base font-bold text-foreground">&lt; 10ms</span>
+                </div>
+                <div className="p-2.5 rounded-xl bg-background/60 border border-border/40">
+                  <span className="text-xs text-muted-foreground block mb-0.5">Support</span>
+                  <span className="text-base font-bold text-emerald-500">24/7/365</span>
+                </div>
+              </div>
+
+              {/* Floating Security Badge Pill */}
+              <div className="absolute -bottom-5 -left-4 sm:left-6 bg-card border border-brand-blue/30 px-4 py-2.5 rounded-2xl shadow-xl flex items-center gap-3 backdrop-blur-xl">
+                <div className="w-8 h-8 rounded-xl bg-emerald-500/15 flex items-center justify-center text-emerald-500">
+                  <CheckCircle2 className="w-4.5 h-4.5" />
+                </div>
+                <div>
+                  <span className="text-xs font-bold text-foreground block leading-none mb-0.5">
+                    Proactive Threat Defense
+                  </span>
+                  <span className="text-[10px] text-muted-foreground">
+                    Active Defense Engine Operational
+                  </span>
+                </div>
+              </div>
+
+            </div>
           </div>
 
         </div>

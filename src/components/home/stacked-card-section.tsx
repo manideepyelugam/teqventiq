@@ -246,7 +246,7 @@ export default function StackedCardSection({ id, cards, header }: StackedCardSec
                       top: `${stickyTop}px`,
                       zIndex: i + 10,
                     }}
-                    className="w-full overflow-hidden rounded-[20px] sm:rounded-[32px] bg-card border border-border/50 shadow-[0_12px_24px_-6px_rgba(0,0,0,0.08)] transition-all duration-350 ease-out hover:scale-[1.005] hover:border-brand-blue/30 dark:hover:border-brand-lime/30 active:scale-[0.995]"
+                    className="w-full overflow-hidden rounded-3xl bg-card/90 backdrop-blur-md border border-border/60 shadow-md transition-all duration-300 hover:scale-[1.005] hover:border-brand-blue/40 active:scale-[0.995]"
                   >
                     <CardContent card={card} index={i} total={cards.length} />
                   </div>
@@ -255,11 +255,11 @@ export default function StackedCardSection({ id, cards, header }: StackedCardSec
             </div>
           ) : (
             /* Desktop: GSAP Stacked Card Animation */
-            <div className="stacked-container relative overflow-hidden rounded-[48px]">
+            <div className="stacked-container relative overflow-hidden rounded-3xl">
               {cards.map((card, i) => (
                 <div
                   key={card.title}
-                  className="stacked-card w-full overflow-hidden rounded-[48px] bg-card border border-border/50 shadow-[0_24px_48px_-12px_rgba(0,0,0,0.08)]"
+                  className="stacked-card w-full overflow-hidden rounded-3xl bg-card border border-border/60 shadow-lg backdrop-blur-md"
                 >
                   <CardContent card={card} index={i} total={cards.length} />
                 </div>

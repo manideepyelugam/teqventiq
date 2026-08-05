@@ -216,7 +216,7 @@ export default function SchnellSection() {
   const renderSlides = (slides: SlideData[], activeIdx: number) => {
     if (isMobile !== false) {
       return (
-        <div className="relative overflow-hidden rounded-[24px] sm:rounded-[32px] bg-card shadow-xl border border-border/50">
+        <div className="relative overflow-hidden rounded-3xl bg-card border border-border/60 shadow-md">
           <Swiper
             modules={[Pagination, Autoplay]}
             pagination={{ 
@@ -241,7 +241,7 @@ export default function SchnellSection() {
     }
 
     return (
-      <div className="slider-container relative overflow-hidden bg-card border border-border/50 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.08)] rounded-[48px]">
+      <div className="slider-container relative overflow-hidden bg-card border border-border/60 shadow-lg rounded-3xl backdrop-blur-md">
         <div className="content-wrapper flex flex-col">
           {slides.map((slide, i) => (
             <div key={i} className="w-full h-full flex-shrink-0 overflow-hidden relative">

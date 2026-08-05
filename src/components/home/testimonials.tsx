@@ -89,15 +89,14 @@ export default function Testimonials() {
           {TESTIMONIALS.map((item) => (
             <SwiperSlide key={item.id} className="py-4 !h-auto flex flex-col">
               <Card
-                className="relative flex-1 flex flex-col justify-between bg-card/40 backdrop-blur-md border border-border/50 rounded-[2rem] p-8 lg:p-10 shadow-2xl hover:shadow-[0_30px_60px_-15px_rgba(37,103,232,0.15)] hover:border-brand-blue/30 transition-all duration-500 ring-0 hover:-translate-y-2 group w-full"
+                className="relative flex-1 flex flex-col justify-between bg-card/80 backdrop-blur-md border border-border/60 rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-md hover:border-brand-blue/40 transition-all duration-300 hover:-translate-y-1 group w-full"
               >
                 {/* Inner card glow blobs */}
-                <div className="absolute top-0 right-0 w-40 h-40 bg-brand-blue/5 blur-[60px] rounded-full -z-10 transition-all duration-700 group-hover:bg-brand-blue/10"></div>
-                <div className="absolute bottom-0 left-0 w-40 h-40 bg-brand-lime/5 blur-[60px] rounded-full -z-10 transition-all duration-700 group-hover:bg-brand-lime/10"></div>
+                <div className="absolute top-0 right-0 w-40 h-40 bg-brand-blue/5 blur-[60px] rounded-full -z-10 transition-all duration-500 group-hover:bg-brand-blue/10"></div>
 
                 <div>
                   {/* Quote Mark Icon */}
-                  <div className="text-brand-lime mb-8 opacity-25 group-hover:opacity-45 group-hover:scale-110 transition-all duration-500 w-fit">
+                  <div className="text-brand-blue mb-6 opacity-30 group-hover:opacity-60 transition-opacity duration-300 w-fit">
                     <svg width="40" height="30" viewBox="0 0 64 48" fill="none" className="fill-current">
                       <path d="M18.6667 0C8.35533 0 0 8.35533 0 18.6667V48H26.6667V21.3333H10.6667C10.6667 16.9152 14.2485 13.3333 18.6667 13.3333V0ZM56 0C45.6887 0 37.3333 8.35533 37.3333 18.6667V48H64V21.3333H48C48 16.9152 51.5818 13.3333 56 13.3333V0Z" />
                     </svg>

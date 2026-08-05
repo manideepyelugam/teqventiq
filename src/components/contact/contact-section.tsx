@@ -32,13 +32,13 @@ export default function ContactSection() {
 
   return (
     <section
-      className="bg-background py-32 transition-colors duration-500"
+      className="bg-background py-24"
       id="contact-section"
     >
-      <div className="mx-auto max-w-[1248px] px-5">
-        <div className="bg-card rounded-[2rem] overflow-hidden shadow-3xl flex flex-col lg:flex-row border border-border transition-colors duration-500">
+      <div className="mx-auto max-w-[1280px] px-5">
+        <div className="bg-card rounded-3xl overflow-hidden shadow-lg flex flex-col lg:flex-row border border-border/60 backdrop-blur-md">
           {/* Left Panel */}
-          <div className="lg:w-2/5 p-10 lg:p-20 bg-brand-blue text-white relative overflow-hidden flex flex-col justify-between min-h-[500px]">
+          <div className="lg:w-2/5 p-8 lg:p-16 bg-brand-blue text-white relative overflow-hidden flex flex-col justify-between min-h-[480px]">
             <div className="absolute top-0 right-0 pointer-events-none opacity-20">
               <svg width="400" height="400" viewBox="0 0 400 400" fill="none">
                 <circle
@@ -67,7 +67,7 @@ export default function ContactSection() {
             </div>
 
             <div className="relative z-10">
-              <span className="text-brand-lime font-bold tracking-widest uppercase text-xs mb-6 block">
+              <span className="text-blue-200 font-bold tracking-wider uppercase text-xs mb-4 block">
                 Contact Us
               </span>
               <h3 className="text-4xl lg:text-5xl font-bold font-serif leading-tight mb-8">

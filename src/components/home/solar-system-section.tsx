@@ -170,16 +170,16 @@ export default function SolarSystemSection() {
 
           {/* ── Left: Text Content ─────────────────────────── */}
           <div className="order-2 lg:order-1">
-            <span className="solar-label block text-xs font-bold uppercase tracking-[0.25em] mb-5"
-              style={{ color: '#d7e866' }}>
+            <span className="solar-label block text-xs font-bold uppercase tracking-wider mb-3 text-brand-blue">
               Industries We Serve
             </span>
-            <h2 className="solar-label text-4xl lg:text-5xl xl:text-6xl font-bold font-serif leading-[1.05] tracking-tight mb-6 text-white">
+            <h2 className="solar-label text-4xl lg:text-5xl xl:text-6xl font-bold font-serif leading-[1.08] tracking-tight mb-6 text-white">
               Built for Every{' '}
-              <span style={{ color: '#2567e8' }}>Industry</span>
+              <span className="bg-gradient-to-r from-brand-blue via-blue-400 to-indigo-400 bg-clip-text text-transparent">
+                Industry
+              </span>
             </h2>
-            <p className="solar-label text-base lg:text-lg leading-relaxed mb-10 max-w-[480px]"
-              style={{ color: '#94a3b8' }}>
+            <p className="solar-label text-base lg:text-lg leading-relaxed mb-8 max-w-[480px] text-slate-300">
               From IT/ITES to BFSI, manufacturing to government — Teqventiq Services delivers
               sector-specific technology, cybersecurity, and intelligence solutions engineered for
               the demands of each vertical.

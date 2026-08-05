@@ -85,9 +85,9 @@ export default function IndustryDetailContent({ industry }: IndustryDetailConten
 
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
             {industry.challenges.map((ch, idx) => (
-              <Card key={idx} className="rounded-[2rem] border-border/20 bg-card/60 backdrop-blur-md p-8 transition-all hover:border-brand-lime/40 hover:shadow-xl">
+              <Card key={idx} className="rounded-2xl border border-border/60 bg-card/80 backdrop-blur-md p-6 sm:p-8 transition-all duration-300 hover:border-brand-blue/40 hover:shadow-md">
                 <CardContent className="p-0">
-                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 font-bold mb-6">
+                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 font-bold mb-4">
                     <AlertCircle className="w-5 h-5" />
                   </div>
                   <h4 className="text-xl font-bold font-serif text-foreground mb-3">
@@ -105,10 +105,10 @@ export default function IndustryDetailContent({ industry }: IndustryDetailConten
 
       {/* 3. How We Help */}
       {industry.howWeHelp && (
-        <section className="detail-sec mx-auto max-w-[1248px] px-5">
-          <div className="rounded-[2.5rem] bg-card/40 border border-brand-lime/30 p-8 sm:p-12 lg:p-16">
+        <section className="detail-sec mx-auto max-w-[1280px] px-5">
+          <div className="rounded-3xl bg-card border border-border/60 p-8 sm:p-12 lg:p-14 shadow-sm backdrop-blur-md">
             <div className="flex items-center gap-3 mb-6">
-              <ShieldCheck className="w-6 h-6 text-brand-lime" />
+              <ShieldCheck className="w-6 h-6 text-brand-blue" />
               <h3 className="text-2xl sm:text-3xl font-bold font-serif text-foreground">
                 How Teqventiq Helps
               </h3>

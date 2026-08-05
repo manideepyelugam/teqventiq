@@ -124,51 +124,44 @@ export default function Header() {
       {/* Background Layer */}
       <div
         className={cn(
-          "absolute inset-0 -z-10 transition-all duration-500",
+          "absolute inset-0 -z-10 transition-all duration-300",
           isScrolled
-            ? "bg-background/95 backdrop-blur-md shadow-2xl"
+            ? "bg-background/85 backdrop-blur-xl border-b border-border/50 shadow-sm"
             : "bg-transparent",
         )}
       />
       <div
         className={cn(
-          "mx-auto max-w-[1248px] px-5 transition-all duration-500",
-          isScrolled ? "py-1.5" : "py-3 lg:py-4",
+          "mx-auto max-w-[1280px] px-6 transition-all duration-300",
+          isScrolled ? "py-2.5" : "py-4 lg:py-5",
         )}
       >
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-14 sm:h-16">
           <Link
             href="/"
-            className="flex-shrink-0 transition-transform duration-300 hover:scale-105 group"
+            className="flex-shrink-0 transition-transform duration-300 hover:scale-[1.02] group"
           >
             <Logo />
           </Link>
 
-          <ul className="hidden lg:flex items-center gap-12">
+          <ul className="hidden lg:flex items-center gap-10">
             {navLinks.map((link) => (
               <li key={link.name}>
                 <Link
                   href={link.href}
                   onClick={(e) => handleLinkClick(e, link.href)}
                   className={cn(
-                    "font-bold text-[15px] tracking-widest uppercase transition-all duration-300 relative group",
+                    "font-semibold text-sm tracking-wide transition-all duration-200 relative py-1 group",
                     isActive(link.href)
-                      ? currentTheme === "light"
-                        ? "text-brand-blue"
-                        : "text-brand-lime"
-                      : currentTheme === "light"
-                        ? "text-foreground hover:text-brand-blue"
-                        : "text-white/80 hover:text-white",
+                      ? "text-brand-blue font-bold"
+                      : "text-foreground/80 hover:text-brand-blue",
                   )}
                 >
                   {link.name}
                   <span
                     className={cn(
-                      "absolute -bottom-2 left-0 h-0.5 transition-all duration-300 group-hover:w-full",
+                      "absolute bottom-0 left-0 h-0.5 bg-brand-blue rounded-full transition-all duration-300 group-hover:w-full",
                       isActive(link.href) ? "w-full" : "w-0",
-                      currentTheme === "light"
-                        ? "bg-brand-blue"
-                        : "bg-brand-lime",
                     )}
                   ></span>
                 </Link>
@@ -176,43 +169,36 @@ export default function Header() {
             ))}
           </ul>
 
-          <div className="flex items-center gap-4 lg:gap-6">
+          <div className="flex items-center gap-3 sm:gap-5">
             <ThemeToggle
               className={cn(
-                "transition-colors duration-500",
-                currentTheme === "light" ? "text-foreground" : "text-white",
+                "transition-colors duration-300 text-foreground/80 hover:text-foreground",
               )}
             />
 
             <div className="hidden sm:block">
               <Button
                 asChild
-                className={cn(
-                  "h-auto px-6 py-2.5 rounded-full font-bold text-sm tracking-widest uppercase flex items-center gap-2 transition-all duration-500",
-                  currentTheme === "light" ? "btn-primary" : "btn-lime",
-                )}
+                className="btn-primary h-11 px-6 text-sm font-semibold flex items-center gap-2"
               >
                 <Link href="/contact">
                   Get in Touch
-                  <ArrowUpRight className="w-4.5 h-4.5" />
+                  <ArrowUpRight className="w-4 h-4" />
                 </Link>
               </Button>
             </div>
 
             <button
               className={cn(
-                "lg:hidden w-12 h-12 flex items-center justify-center rounded-full relative z-[110] transition-all duration-300",
-                currentTheme === "light"
-                  ? "bg-brand-blue text-white"
-                  : "bg-brand-lime text-brand-dark",
+                "lg:hidden w-10 h-10 flex items-center justify-center rounded-full border border-border/80 bg-background/80 backdrop-blur-md text-foreground hover:bg-accent relative z-[110] transition-all duration-200 active:scale-95 shadow-sm",
               )}
               onClick={toggleMenu}
               aria-label="Toggle menu"
             >
               {isMenuOpen ? (
-                <X className="w-6 h-6" />
+                <X className="w-5 h-5" />
               ) : (
-                <Menu className="w-6 h-6" />
+                <Menu className="w-5 h-5" />
               )}
             </button>
           </div>
@@ -222,30 +208,30 @@ export default function Header() {
       {/* Mobile Menu Overlay */}
       <div
         className={cn(
-          "fixed top-0 left-0 w-full h-full bg-background z-[101] transition-all duration-500 ease-in-out lg:hidden overflow-hidden flex flex-col",
-          isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible",
+          "fixed top-0 left-0 w-full h-full bg-background/98 backdrop-blur-2xl z-[101] transition-all duration-400 ease-in-out lg:hidden overflow-hidden flex flex-col",
+          isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none",
         )}
       >
-        <div className="flex-1 flex flex-col justify-center items-center p-10">
-          <ul className="flex flex-col gap-10 items-center text-center">
+        <div className="flex-1 flex flex-col justify-center items-center p-8">
+          <ul className="flex flex-col gap-8 items-center text-center">
             {navLinks.map((link, i) => (
               <li
                 key={link.name}
                 className={cn(
-                  "transition-all duration-500 delay-[" + i * 100 + "ms]",
+                  "transition-all duration-300 delay-[" + i * 80 + "ms]",
                   isMenuOpen
                     ? "translate-y-0 opacity-100"
-                    : "translate-y-10 opacity-0",
+                    : "translate-y-6 opacity-0",
                 )}
               >
                 <Link
                   href={link.href}
                   onClick={(e) => handleLinkClick(e, link.href)}
                   className={cn(
-                    "text-5xl font-bold transition-colors duration-300",
+                    "text-3xl sm:text-4xl font-bold transition-colors duration-200",
                     isActive(link.href)
-                      ? "text-brand-blue dark:text-brand-lime"
-                      : "text-foreground hover:text-brand-blue dark:hover:text-brand-lime",
+                      ? "text-brand-blue"
+                      : "text-foreground hover:text-brand-blue",
                   )}
                 >
                   {link.name}
@@ -254,15 +240,15 @@ export default function Header() {
             ))}
             <li
               className={cn(
-                "mt-10 transition-all duration-500 delay-400",
+                "mt-8 transition-all duration-300 delay-300",
                 isMenuOpen
                   ? "translate-y-0 opacity-100"
-                  : "translate-y-10 opacity-0",
+                  : "translate-y-6 opacity-0",
               )}
             >
               <Button
                 asChild
-                className="btn-primary dark:btn-lime h-auto px-14 py-6 rounded-full font-bold text-2xl transition-all duration-300"
+                className="btn-primary px-10 py-4 rounded-full font-bold text-lg"
               >
                 <Link href="/contact" onClick={closeMenu}>
                   Get in Touch
@@ -275,11 +261,11 @@ export default function Header() {
         {/* Mobile Menu Bottom Info */}
         <div
           className={cn(
-            "p-10 border-t border-border/50 text-center transition-all duration-500 delay-500",
+            "p-8 border-t border-border/40 text-center transition-all duration-300 delay-400",
             isMenuOpen ? "opacity-100" : "opacity-0",
           )}
         >
-          <p className="text-muted-foreground text-sm tracking-widest uppercase">
+          <p className="text-muted-foreground text-xs tracking-widest uppercase font-semibold">
             info@teqventiq.com
           </p>
         </div>

@@ -28,16 +28,16 @@ const FeatureCard = ({
   <Link href={`/industries/${slug}`} className={cn("feature-card block group", className)}>
     <Card
       className={cn(
-        "relative rounded-[2rem] overflow-hidden border-border/10 bg-background p-0 transition-all duration-700 hover:border-brand-lime/50 hover:shadow-[0_20px_50px_rgba(100,200,50,0.08)] ring-0 shadow-sm h-full"
+        "relative rounded-2xl overflow-hidden border border-border/60 bg-card/80 backdrop-blur-md p-0 transition-all duration-300 hover:border-brand-blue/40 hover:shadow-md hover:-translate-y-1 h-full"
       )}
     >
-      <CardContent className="p-8 lg:p-10 relative z-10 flex flex-col h-full justify-between">
+      <CardContent className="p-6 lg:p-8 relative z-10 flex flex-col h-full justify-between">
         {/* Animated Background Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-lime/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
 
         <div className="relative z-10 flex flex-col h-full justify-between">
-          <div className="mb-12">
-            <div className="w-12 h-1.5 bg-brand-lime mb-8 rounded-full"></div>
+          <div className="mb-8">
+            <div className="w-10 h-1 bg-brand-blue mb-6 rounded-full"></div>
             <h5 className="text-2xl lg:text-3xl font-bold font-serif text-foreground mb-6 leading-tight tracking-tight">
               {title.split(' — ')[0]}
             </h5>

@@ -104,20 +104,20 @@ export default function ServiceWorkflow() {
             return (
               <div
                 key={index}
-                className="workflow-card group relative bg-card border border-border rounded-[2rem] p-8 transition-all duration-500 hover:-translate-y-2 hover:border-brand-lime/50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] flex flex-col justify-between"
+                className="workflow-card group relative bg-card/80 backdrop-blur-md border border-border/60 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-brand-blue/40 hover:shadow-md flex flex-col justify-between"
               >
                 <div>
                   {/* Step Badge & Icon */}
-                  <div className="flex items-center justify-between mb-8">
-                    <span className="text-xs font-mono font-bold tracking-widest text-brand-lime bg-brand-lime/10 px-3 py-1.5 rounded-full">
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="text-xs font-mono font-bold tracking-wider text-brand-blue bg-brand-blue/10 px-3 py-1 rounded-full">
                       STEP {item.step}
                     </span>
-                    <div className="w-12 h-12 rounded-2xl bg-muted/60 flex items-center justify-center text-foreground group-hover:bg-brand-lime group-hover:text-black transition-colors duration-500">
+                    <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center text-foreground group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300">
                       <Icon className="w-6 h-6" />
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-brand-lime transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-brand-blue transition-colors duration-300">
                     {item.title}
                   </h3>
 

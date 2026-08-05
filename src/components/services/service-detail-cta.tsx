@@ -57,25 +57,25 @@ export default function ServiceDetailCTA({ service }: ServiceDetailCTAProps) {
   }, containerRef);
 
   return (
-    <section ref={containerRef} className="pb-32 px-5 bg-transparent transition-colors duration-500">
-      <div className="detail-cta-card mx-auto max-w-[1248px] bg-card rounded-[2rem] p-12 lg:p-24 text-center relative overflow-hidden border border-border shadow-2xl">
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/10 via-transparent to-transparent opacity-50"></div>
+    <section ref={containerRef} className="pb-24 px-5 bg-transparent">
+      <div className="detail-cta-card mx-auto max-w-[1280px] bg-card border border-border/60 rounded-3xl p-10 sm:p-14 lg:p-16 text-center relative overflow-hidden shadow-md backdrop-blur-md">
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/5 via-transparent to-transparent opacity-50"></div>
         <div className="relative z-10">
-          <h2 className="detail-cta-item text-4xl lg:text-6xl font-bold text-foreground mb-8">
+          <h2 className="detail-cta-item text-3xl sm:text-4xl lg:text-5xl font-bold font-serif text-foreground tracking-tight mb-6">
             Ready to modernize?
           </h2>
-          <p className="detail-cta-item text-xl text-muted-foreground mb-12 max-w-[600px] mx-auto">
+          <p className="detail-cta-item text-base sm:text-lg text-muted-foreground mb-8 max-w-[580px] mx-auto leading-relaxed">
             Schedule a consultation with our experts and discover how{' '}
             {service.title} can transform your operations.
           </p>
           <div className="detail-cta-item inline-block">
             <Button
               asChild
-              className="btn-lime h-auto text-lg py-5 px-10 group"
+              className="btn-primary group"
             >
               <Link href="/contact">
                 Talk to an Expert
-                <ArrowRight className="ml-2 w-6 h-6 transition-transform group-hover:translate-x-1.5" />
+                <ArrowRight className="w-4.5 h-4.5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
           </div>
