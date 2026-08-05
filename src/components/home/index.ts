@@ -6,3 +6,5 @@ export { default as StackedCardSection } from './stacked-card-section';
 export { default as PartnersSection } from './partners-section';
 export { default as ClientsSection } from './clients-section';
 export { default as SolarSystemSection } from './solar-system-section';
+export { default as FivePillarsSection } from './five-pillars-section';
+

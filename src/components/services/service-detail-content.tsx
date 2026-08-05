@@ -1,11 +1,12 @@
 'use client';
 
 import { useRef } from 'react';
-import { Check } from 'lucide-react';
+import { Check, ArrowRight, Layers, Workflow, CheckCircle2 } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGsap } from '@/core/hooks/use-gsap';
 import { Service } from '@/core/types';
+import { Button, Card, CardContent } from '@/components/ui';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,129 +20,201 @@ export default function ServiceDetailContent({ service }: ServiceDetailContentPr
   useGsap(() => {
     if (!containerRef.current) return;
 
-    // Text & Solutions list reveal on scroll
-    gsap.from('.detail-text-col', {
-      y: 50,
+    gsap.from('.reveal-block', {
+      y: 40,
       opacity: 0,
       duration: 0.8,
+      stagger: 0.15,
       ease: 'power3.out',
       scrollTrigger: {
         trigger: containerRef.current,
         start: 'top 80%',
-        toggleActions: 'play none none reverse',
-      },
-    });
-
-    // Image card entrance on scroll
-    gsap.from('.detail-img-col', {
-      scale: 0.92,
-      y: 60,
-      opacity: 0,
-      duration: 0.9,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: 'top 78%',
-        toggleActions: 'play none none reverse',
       },
     });
   }, containerRef);
 
   return (
-    <section ref={containerRef} className="py-24 lg:py-32 bg-transparent transition-colors duration-500">
-      <div className="mx-auto max-w-[1248px] px-5">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
-          <div className="detail-text-col">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-10 leading-tight text-foreground">
-              Solving complex problems with{' '}
-              <span className="text-brand-lime">
-                intelligent engineering.
-              </span>
+    <div ref={containerRef} className="space-y-20 lg:space-y-28 py-12 pb-24 bg-transparent transition-colors duration-500">
+      
+      {/* 1. Opening Context & Image */}
+      <section className="mx-auto max-w-[1248px] px-5">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div className="lg:col-span-7 reveal-block space-y-6">
+            <span className="text-brand-lime font-bold tracking-widest uppercase text-xs block">
+              Overview
+            </span>
+            <h2 className="text-3xl lg:text-5xl font-bold font-serif text-foreground leading-tight">
+              Architected for Uptime, Security, and <span className="text-brand-lime">Scale.</span>
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-12">
-              {service.detailedContent || `At Savvtek Services, we don't just provide services; we architect solutions that scale with your ambitions. Our approach to ${service.title} combines deep technical expertise with a thorough understanding of your business goals.`}
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+              {service.openingContext || service.detailedContent || service.description}
             </p>
-
-            {!!service.solutions?.length && !!service.services?.length ? (
-              <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-                {/* Solutions Column */}
-                <div className="space-y-6">
-                  <h3 className="text-xl font-bold text-foreground flex items-center gap-2 border-b border-border/50 pb-3">
-                    <span className="w-2 h-2 bg-brand-lime rounded-full" />
-                    {service.solutionsTitle || 'Solutions'}
-                  </h3>
-                  <div className="space-y-4">
-                    {service.solutions.map((item, idx) => (
-                      <div key={idx} className="flex gap-3 items-start">
-                        <div className="w-6 h-6 rounded-md bg-brand-lime/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <Check className="w-3.5 h-3.5 text-brand-lime" />
-                        </div>
-                        <span className="text-foreground/80 font-bold text-sm leading-relaxed">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Services Column */}
-                {service.servicesTitle && (
-                  <div className="space-y-6">
-                    <h3 className="text-xl font-bold text-foreground flex items-center gap-2 border-b border-border/50 pb-3">
-                      <span className="w-2 h-2 bg-brand-lime rounded-full" />
-                      {service.servicesTitle}
-                    </h3>
-                    <div className="space-y-4">
-                      {service.services.map((item, idx) => (
-                        <div key={idx} className="flex gap-3 items-start">
-                          <div className="w-6 h-6 rounded-md bg-brand-lime/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <Check className="w-3.5 h-3.5 text-brand-lime" />
-                          </div>
-                          <span className="text-foreground/80 font-bold text-sm leading-relaxed">{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
+            {service.platformPartner && (
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-card border border-brand-lime/30 text-xs font-bold text-foreground">
+                <span className="w-2 h-2 rounded-full bg-brand-lime animate-ping" />
+                Featured Platform Partner: <span className="text-brand-lime">{service.platformPartner}</span>
               </div>
-            ) : (
-              <div className="space-y-6">
-                <h3 className="text-xl font-bold text-foreground flex items-center gap-2 border-b border-border/50 pb-3">
-                  <span className="w-2 h-2 bg-brand-lime rounded-full" />
-                  {service.solutionsTitle || service.services}
-                </h3>
-                <div className="space-y-4">
-                  {service.features.map((item, idx) => (
-                    <div key={idx} className="flex gap-3 items-start">
-                      <div className="w-6 h-6 rounded-md bg-brand-lime/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check className="w-3.5 h-3.5 text-brand-lime" />
-                      </div>
-                      <span className="text-foreground/80 font-bold text-sm leading-relaxed">{item}</span>
+            )}
+          </div>
+
+          <div className="lg:col-span-5 reveal-block">
+            <div className="relative rounded-[2.5rem] overflow-hidden border border-border/30 shadow-2xl aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] bg-muted/20">
+              <img
+                src={service.image}
+                alt={service.title}
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. Value Proposition Grid */}
+      {!!service.valueProps?.length && (
+        <section className="mx-auto max-w-[1248px] px-5">
+          <div className="mb-12 reveal-block">
+            <span className="text-brand-lime font-bold tracking-widest uppercase text-xs block mb-3">
+              Why Teqventiq
+            </span>
+            <h3 className="text-3xl lg:text-4xl font-bold font-serif text-foreground">
+              Our Value Proposition
+            </h3>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+            {service.valueProps.map((vp, idx) => (
+              <Card key={idx} className="reveal-block rounded-[2rem] border-border/20 bg-card/60 backdrop-blur-md p-8 transition-all hover:border-brand-lime/40 hover:shadow-xl">
+                <CardContent className="p-0">
+                  <div className="w-10 h-10 rounded-xl bg-brand-lime/10 flex items-center justify-center text-brand-lime font-bold font-mono text-sm mb-6">
+                    0{idx + 1}
+                  </div>
+                  <h4 className="text-xl font-bold font-serif text-foreground mb-3">
+                    {vp.title}
+                  </h4>
+                  <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                    {vp.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* 3. Capability Breakdown */}
+      {!!service.capabilities?.length && (
+        <section className="mx-auto max-w-[1248px] px-5">
+          <div className="rounded-[2.5rem] bg-card/40 border border-border/30 p-8 sm:p-12 lg:p-16">
+            <div className="mb-12 reveal-block flex items-center gap-3">
+              <Layers className="w-6 h-6 text-brand-lime" />
+              <h3 className="text-2xl sm:text-4xl font-bold font-serif text-foreground">
+                Capability Breakdown
+              </h3>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-10">
+              {service.capabilities.map((cap, idx) => (
+                <div key={idx} className="reveal-block space-y-4 p-6 rounded-2xl bg-muted/30 border border-border/20">
+                  <span className="text-xs font-bold uppercase tracking-widest text-brand-lime block">
+                    {cap.category}
+                  </span>
+                  <p className="text-foreground/90 text-sm sm:text-base leading-relaxed">
+                    {cap.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Core Features List */}
+            {!!service.features?.length && (
+              <div className="mt-12 pt-10 border-t border-border/30">
+                <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-6">
+                  Key Technical Capabilities
+                </h4>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {service.features.map((feat, fIdx) => (
+                    <div key={fIdx} className="flex items-start gap-3 p-3 rounded-xl bg-background/50 border border-border/20 text-xs sm:text-sm text-foreground/90 font-medium">
+                      <Check className="w-4 h-4 text-brand-lime flex-shrink-0 mt-0.5" />
+                      <span>{feat}</span>
                     </div>
                   ))}
                 </div>
               </div>
             )}
+          </div>
+        </section>
+      )}
 
-            {service.footerText && (
-              <p className="mt-10 text-sm sm:text-base text-muted-foreground pt-6 font-medium italic leading-relaxed">
-                {service.footerText}
-              </p>
-            )}
+      {/* 4. Delivery Methodology */}
+      {!!service.deliverySteps?.length && (
+        <section className="mx-auto max-w-[1248px] px-5">
+          <div className="mb-12 reveal-block flex items-center gap-3">
+            <Workflow className="w-6 h-6 text-brand-lime" />
+            <h3 className="text-3xl lg:text-4xl font-bold font-serif text-foreground">
+              Delivery Methodology
+            </h3>
           </div>
 
-          <div className="detail-img-col relative">
-            <div className="rounded-[2rem] overflow-hidden shadow-3xl aspect-[4/5] border border-border bg-muted/20">
-              <img
-                src={service.image}
-                alt={service.title}
-                className="w-full h-full object-cover transition-transform duration-700 hover:scale-110 opacity-90 dark:opacity-70"
-              />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            {service.deliverySteps.map((stepItem, idx) => (
+              <div key={idx} className="reveal-block rounded-2xl bg-card border border-border/30 p-6 flex flex-col justify-between">
+                <div>
+                  <span className="text-2xl font-bold font-mono text-brand-lime block mb-4">
+                    {stepItem.step}
+                  </span>
+                  <h4 className="font-bold text-foreground text-base mb-2 font-serif">
+                    {stepItem.title}
+                  </h4>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    {stepItem.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* 5. Business Outcomes & CTA */}
+      {!!service.outcomes?.length && (
+        <section className="mx-auto max-w-[1248px] px-5">
+          <div className="rounded-[2.5rem] bg-gradient-to-br from-brand-lime/10 via-card to-card border border-brand-lime/30 p-8 sm:p-12 lg:p-16">
+            <div className="grid lg:grid-cols-12 gap-10 items-center">
+              <div className="lg:col-span-7 space-y-6">
+                <span className="text-brand-lime font-bold tracking-widest uppercase text-xs block">
+                  Measured Value
+                </span>
+                <h3 className="text-3xl lg:text-4xl font-bold font-serif text-foreground">
+                  Business Outcomes
+                </h3>
+                <div className="space-y-4 pt-2">
+                  {service.outcomes.map((out, oIdx) => (
+                    <div key={oIdx} className="flex items-start gap-3">
+                      <div className="w-5 h-5 rounded-full bg-brand-lime/20 flex items-center justify-center text-brand-lime flex-shrink-0 mt-0.5">
+                        <CheckCircle2 className="w-3.5 h-3.5" />
+                      </div>
+                      <span className="text-foreground text-sm sm:text-base font-medium">
+                        {out}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="lg:col-span-5 text-center lg:text-right pt-6 lg:pt-0">
+                <Button asChild className="btn-lime h-auto text-base py-4 px-8 group shadow-xl">
+                  <a href="#contact-section" className="inline-flex items-center gap-3">
+                    <span>{service.ctaText || "Get Started →"}</span>
+                    <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                  </a>
+                </Button>
+              </div>
             </div>
-            {/* Floating highlight */}
-            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-brand-lime rounded-full blur-3xl opacity-20"></div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
+      )}
+
+    </div>
   );
 }
-

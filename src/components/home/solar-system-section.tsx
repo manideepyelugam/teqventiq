@@ -180,7 +180,7 @@ export default function SolarSystemSection() {
             </h2>
             <p className="solar-label text-base lg:text-lg leading-relaxed mb-10 max-w-[480px]"
               style={{ color: '#94a3b8' }}>
-              From public sector to healthcare, retail to logistics — Savvtek Services delivers
+              From IT/ITES to BFSI, manufacturing to government — Teqventiq Services delivers
               sector-specific technology, cybersecurity, and intelligence solutions engineered for
               the demands of each vertical.
             </p>
@@ -389,7 +389,7 @@ export default function SolarSystemSection() {
                 >
                   <Image
                     src="/logo.png"
-                    alt="Savvtek Services"
+                    alt="Teqventiq Services"
                     width={52}
                     height={52}
                     className="w-12 h-12 object-contain brightness-0 invert"

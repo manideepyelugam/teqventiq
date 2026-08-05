@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import { useGsap } from '@/core/hooks/use-gsap';
 import { gsap } from 'gsap';
 import { MissionVisionSection, AboutContent } from "@/components/about";
-import { StackedCardSection } from "@/components/home";
+import { FivePillarsSection, StackedCardSection } from "@/components/home";
 import { WHY_CHOOSE_US } from "@/core/constants";
 
 export default function AboutPage() {
@@ -24,7 +24,7 @@ export default function AboutPage() {
 
   return (
     <div className="relative bg-muted bg-dot-grid transition-colors duration-500 min-h-screen" ref={containerRef}>
-      {/* Ambient gradient mesh — covers the top viewport area, no footer bleed */}
+      {/* Ambient gradient mesh */}
       <div className="absolute inset-x-0 top-0 h-screen pointer-events-none z-0">
         <div className="gradient-mesh-hero">
           <div className="blob-1 float-shape" />
@@ -47,21 +47,24 @@ export default function AboutPage() {
 
         <AboutContent />
 
-        {/* Why Choose Savvtek — Stacked Card Flip */}
+        {/* Five Pillars. One Promise Section */}
+        <FivePillarsSection />
+
+        {/* Why Choose Teqventiq — Stacked Card Flip */}
         <StackedCardSection
           id="why-choose-us"
           cards={WHY_CHOOSE_US}
           header={
             <div key="why-choose-us-header" className="mb-12 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
               <div className="max-w-[700px]">
-                <span className="text-brand-lime font-bold tracking-widest uppercase text-xs mb-3 sm:mb-4 block">The Savvtek Advantage</span>
+                <span className="text-brand-lime font-bold tracking-widest uppercase text-xs mb-3 sm:mb-4 block">The Teqventiq Advantage</span>
                 <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold font-serif text-foreground leading-[1.1] tracking-tight">
                   Why Choose <br />
-                  <span className="text-muted-foreground">Savvtek?</span>
+                  <span className="text-muted-foreground">Teqventiq?</span>
                 </h2>
               </div>
               <p className="text-base sm:text-lg text-muted-foreground max-w-[460px] leading-relaxed">
-                Savvtek specializes in managing and transforming complex network and IT infrastructure environments into stable, scalable solutions.
+                Teqventiq specializes in managing and transforming complex technology and IT infrastructure environments into stable, scalable solutions.
               </p>
             </div>
           }

@@ -54,7 +54,7 @@ export default function AboutContent() {
            
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
               <p>
-                <span className="text-brand-lime">Savvtek Services Pvt. Ltd.</span> is a technology management, consulting, intelligence, and solutions company. Combining deep industry experience, comprehensive capabilities across technology and business functions, <span className="text-brand-lime">Savvtek Services Pvt. Ltd.</span> collaborates with clients to help them become high-performance organizations. With a strong team coupled with expertise across various verticals, <span className="text-brand-lime">Savvtek Services Pvt. Ltd.</span> delivers secure, scalable, and future-ready technology solutions.
+                <span className="text-brand-lime">Teqventiq Services Private Limited</span> is a technology management, consulting, intelligence, and solutions company. Combining deep industry experience, comprehensive capabilities across technology and business functions, <span className="text-brand-lime">Teqventiq Services Private Limited</span> collaborates with clients to help them become high-performance organizations. With a strong team coupled with expertise across various verticals, <span className="text-brand-lime">Teqventiq Services Private Limited</span> delivers secure, scalable, and future-ready technology solutions.
               </p>
               <p>
                 Our <span className="text-brand-lime">"high performance business" </span>strategy builds on our expertise in consulting, technology and outsourcing to help clients perform at the highest levels so they can create sustainable value for their customers and shareholders. Using our industry knowledge, service-offering expertise and technology capabilities, we identify new business and technology trends and develop solutions to help clients around the region:
@@ -122,7 +122,7 @@ export default function AboutContent() {
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-white/10 blur-[100px] rounded-full pointer-events-none"></div>
           <p className="text-lg lg:text-xl font-serif font-medium leading-relaxed relative z-10  mx-auto space-y-4 ">
             <span className="block">"By enhancing our consulting and outsourcing expertise with alliances and other capabilities, we help move clients forward in every part of their businesses, from strategic planning to day-to-day operations.</span>
-            <span className="block">With deep industry and business process expertise, broad resources and a proven track record, Savvtek Services Pvt. Ltd. mobilizes technology and business intelligence to help clients improve performance and drive growth."</span>
+            <span className="block">With deep industry and business process expertise, broad resources and a proven track record, Teqventiq Services Private Limited mobilizes technology and business intelligence to help clients improve performance and drive growth."</span>
           </p>
         </div>
 

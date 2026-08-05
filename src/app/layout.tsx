@@ -16,9 +16,8 @@ const sora = Sora({
 
 
 export const metadata: Metadata = {
-  title: "Savvtek Services | Where Technology Meets Business Intelligence",
-  description: "Empowering organizations with secure, scalable, and modern technology solutions. Cybersecurity, Infrastructure & Cloud, AI & Automation, Data Intelligence, and Enterprise Applications.",
-
+  title: "Teqventiq Services | Where Technology Meets Business Intelligence",
+  description: "Empowering organizations with secure, scalable, and modern technology solutions. Cybersecurity, Networking, Data & AI, Datacentre, and Managed Support Services.",
 };
 
 import { Header, Footer, WhatsAppButton } from "@/components/shared";

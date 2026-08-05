@@ -1,11 +1,12 @@
 'use client';
 
 import { useRef } from 'react';
-import { Check, ChevronRight, AlertTriangle, Shield, Cpu, Lightbulb, Users } from 'lucide-react';
+import { Check, ShieldCheck, AlertCircle, ArrowRight, CheckCircle2, Building2 } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGsap } from '@/core/hooks/use-gsap';
 import { Industry } from '@/core/types';
+import { Card, CardContent, Button } from '@/components/ui';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,24 +14,17 @@ interface IndustryDetailContentProps {
   industry: Industry;
 }
 
-const priorityColors: Record<string, string> = {
-  Critical: 'bg-red-500/10 text-red-400 border-red-500/20',
-  High: 'bg-orange-500/10 text-orange-400 border-orange-500/20',
-  Medium: 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20',
-};
-
 export default function IndustryDetailContent({ industry }: IndustryDetailContentProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useGsap(() => {
     if (!containerRef.current) return;
 
-    // Scroll-triggered entry reveal for sections
     const sections = containerRef.current.querySelectorAll('.detail-sec');
     sections.forEach((sec) => {
       gsap.fromTo(
         sec,
-        { y: 50, opacity: 0 },
+        { y: 40, opacity: 0 },
         {
           y: 0,
           opacity: 1,
@@ -47,341 +41,135 @@ export default function IndustryDetailContent({ industry }: IndustryDetailConten
   }, containerRef);
 
   return (
-    <div ref={containerRef}>
-      {/* ── About Us ── */}
-      {industry.aboutText && (
-        <section className="detail-sec py-24 lg:py-32 bg-transparent transition-colors duration-500">
-          <div className="mx-auto max-w-[1248px] px-5">
-            <div className="grid lg:grid-cols-2 gap-20 items-start">
-              <div>
-                <span className="text-brand-lime font-bold tracking-widest uppercase text-xs mb-6 block">About Us</span>
-                <h2 className="text-4xl lg:text-5xl font-bold font-serif text-foreground leading-tight mb-10">
-                  Your specialist technology partner for{' '}
-                  <span className="text-brand-lime">{industry.title.split(' — ')[0]}</span>
-                </h2>
-                <div className="flex flex-col gap-6">
-                  {industry.aboutText.map((para, i) => (
-                    <p key={i} className="text-lg text-muted-foreground leading-relaxed">{para}</p>
+    <div ref={containerRef} className="space-y-20 lg:space-y-28 py-12 pb-24 transition-colors duration-500">
+      
+      {/* 1. Context & Image */}
+      <section className="detail-sec mx-auto max-w-[1248px] px-5">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div className="lg:col-span-7 space-y-6">
+            <span className="text-brand-lime font-bold tracking-widest uppercase text-xs block">
+              Industry Context
+            </span>
+            <h2 className="text-3xl lg:text-5xl font-bold font-serif text-foreground leading-tight">
+              {industry.headline || industry.title}
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+              {industry.context || industry.details || industry.description}
+            </p>
+          </div>
+
+          <div className="lg:col-span-5">
+            <div className="relative rounded-[2.5rem] overflow-hidden border border-border/30 shadow-2xl aspect-[4/3] bg-muted/20">
+              <img
+                src={industry.image}
+                alt={industry.title}
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. Key Challenges We Address */}
+      {!!industry.challenges?.length && (
+        <section className="detail-sec mx-auto max-w-[1248px] px-5">
+          <div className="mb-12">
+            <span className="text-brand-lime font-bold tracking-widest uppercase text-xs block mb-3">
+              Operational Realities
+            </span>
+            <h3 className="text-3xl lg:text-4xl font-bold font-serif text-foreground">
+              Key Challenges We Address
+            </h3>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+            {industry.challenges.map((ch, idx) => (
+              <Card key={idx} className="rounded-[2rem] border-border/20 bg-card/60 backdrop-blur-md p-8 transition-all hover:border-brand-lime/40 hover:shadow-xl">
+                <CardContent className="p-0">
+                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 font-bold mb-6">
+                    <AlertCircle className="w-5 h-5" />
+                  </div>
+                  <h4 className="text-xl font-bold font-serif text-foreground mb-3">
+                    {ch.title}
+                  </h4>
+                  <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                    {ch.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* 3. How We Help */}
+      {industry.howWeHelp && (
+        <section className="detail-sec mx-auto max-w-[1248px] px-5">
+          <div className="rounded-[2.5rem] bg-card/40 border border-brand-lime/30 p-8 sm:p-12 lg:p-16">
+            <div className="flex items-center gap-3 mb-6">
+              <ShieldCheck className="w-6 h-6 text-brand-lime" />
+              <h3 className="text-2xl sm:text-3xl font-bold font-serif text-foreground">
+                How Teqventiq Helps
+              </h3>
+            </div>
+            <p className="text-base sm:text-xl text-foreground/90 leading-relaxed font-sans">
+              {industry.howWeHelp}
+            </p>
+
+            {/* Features tags */}
+            {!!industry.features?.length && (
+              <div className="mt-10 pt-8 border-t border-border/30 flex flex-wrap gap-3">
+                {industry.features.map((feat, fIdx) => (
+                  <span key={fIdx} className="px-4 py-2 rounded-full bg-brand-lime/10 border border-brand-lime/20 text-brand-lime text-xs font-bold">
+                    ✓ {feat}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* 4. Outcomes Checklist & CTA */}
+      {!!industry.outcomes?.length && (
+        <section className="detail-sec mx-auto max-w-[1248px] px-5">
+          <div className="rounded-[2.5rem] bg-gradient-to-br from-brand-lime/10 via-card to-card border border-brand-lime/30 p-8 sm:p-12 lg:p-16">
+            <div className="grid lg:grid-cols-12 gap-10 items-center">
+              <div className="lg:col-span-7 space-y-6">
+                <span className="text-brand-lime font-bold tracking-widest uppercase text-xs block">
+                  Proven Impact
+                </span>
+                <h3 className="text-3xl lg:text-4xl font-bold font-serif text-foreground">
+                  Expected Business Outcomes
+                </h3>
+                <div className="space-y-4 pt-2">
+                  {industry.outcomes.map((out, oIdx) => (
+                    <div key={oIdx} className="flex items-start gap-3">
+                      <div className="w-5 h-5 rounded-full bg-brand-lime/20 flex items-center justify-center text-brand-lime flex-shrink-0 mt-0.5">
+                        <CheckCircle2 className="w-3.5 h-3.5" />
+                      </div>
+                      <span className="text-foreground text-sm sm:text-base font-medium">
+                        {out}
+                      </span>
+                    </div>
                   ))}
                 </div>
               </div>
 
-
-              {/* What We Bring */}
-              {industry.whatWeBring && (
-                <div className="reveal">
-                  <div className="  border border-border/50 bg-background hover:border-brand-lime/30 transition-all duration-300 hover:shadow-xl hover:shadow-brand-liime/5 rounded-[2rem] p-8 lg:p-10">
-                    <h3 className="text-xl font-bold text-foreground mb-8">What We Bring to {industry.title.split(' — ')[0]} Clients</h3>
-                    <div className="flex flex-col gap-5">
-                      {industry.whatWeBring.map((item, i) => (
-                        <div key={i} className="flex gap-4 items-start">
-                          <div className="w-7 h-7 rounded-lg bg-brand-lime/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <Check className="w-3.5 h-3.5 text-brand-lime" />
-                          </div>
-                          <p className="text-foreground/80 text-sm leading-snug">{item}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
+              <div className="lg:col-span-5 text-center lg:text-right pt-6 lg:pt-0">
+                <Button asChild className="btn-lime h-auto text-base py-4 px-8 group shadow-xl">
+                  <a href="#contact-section" className="inline-flex items-center gap-3">
+                    <span>Talk to an Industry Specialist</span>
+                    <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
         </section>
       )}
 
-      {/* ── Badges ── */}
-      {industry.badges && (
-        <section className="py-6 bg-transparent  transition-colors duration-500">
-          <div className="mx-auto max-w-[1248px] px-5">
-            <div className="flex flex-wrap gap-4 justify-center">
-              {industry.badges.map((badge, i) => (
-                <div
-                  key={i}
-                  className="inline-flex items-center gap-2.5 bg-background border border-border px-5 py-3 rounded-full text-sm font-medium text-foreground/80"
-                >
-                  <span className="w-1.5 h-1.5 bg-brand-lime rounded-full flex-shrink-0"></span>
-                  {badge}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ── Why This Sector Needs a Specialist ── */}
-      {industry.riskTable && (
-        <section className="py-24 lg:py-32 bg-transparent transition-colors duration-500">
-          <div className="mx-auto max-w-[1248px] px-5">
-            <div className="mb-16 reveal">
-              <span className="text-brand-lime font-bold tracking-widest uppercase text-xs mb-6 block">Risk & Compliance</span>
-              <h2 className="text-3xl lg:text-5xl font-bold font-serif text-foreground leading-tight max-w-[700px] mb-6">
-                {industry.whyNeedTitle ?? `Why ${industry.title} Needs a Specialist`}
-              </h2>
-              {industry.whyNeedIntro && (
-                <p className="text-lg text-muted-foreground max-w-[650px]">{industry.whyNeedIntro}</p>
-              )}
-            </div>
-            <div className="reveal overflow-x-auto">
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr className="border-b border-border">
-                    <th className="text-left py-4 px-6 text-xs font-bold uppercase tracking-widest text-muted-foreground w-[35%]">Risk Driver</th>
-                    <th className="text-left py-4 px-6 text-xs font-bold uppercase tracking-widest text-muted-foreground">Why It Matters</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {industry.riskTable.map((row, i) => (
-                    <tr
-                      key={i}
-                      className="border-b border-border/50 hover:bg-muted/50 transition-colors group"
-                    >
-                      <td className="py-5 px-6 align-top">
-                        <div className="flex items-start gap-3">
-                          <AlertTriangle className="w-4 h-4 text-brand-lime mt-0.5 flex-shrink-0" />
-                          <span className="font-bold text-foreground text-sm leading-snug">{row.driver}</span>
-                        </div>
-                      </td>
-                      <td className="py-5 px-6 text-muted-foreground text-sm leading-relaxed align-top">{row.why}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ── Solutions & Services ── */}
-      {industry.solutionsTable && (
-        <section className="py-24 bg-transparent transition-colors duration-500">
-          <div className="mx-auto max-w-[1248px] px-5">
-            <div className="mb-16 reveal">
-              <span className="text-brand-lime font-bold tracking-widest uppercase text-xs mb-6 block">Solutions & Services</span>
-              <h2 className="text-3xl lg:text-5xl font-bold font-serif text-foreground leading-tight max-w-[700px] mb-6">
-                Solutions & Services — Aligned to {industry.title.split(' — ')[0]} Priorities
-              </h2>
-              {industry.solutionsIntro && (
-                <p className="text-lg text-muted-foreground max-w-[650px]">{industry.solutionsIntro}</p>
-              )}
-            </div>
-            <div className="reveal overflow-x-auto">
-              <table className="w-full border-collapse bg-background rounded-2xl overflow-hidden border border-border">
-                <thead>
-                  <tr className="bg-muted border-b border-border">
-                    <th className="text-left py-4 px-6 text-xs font-bold uppercase tracking-widest text-muted-foreground">Category</th>
-                    <th className="text-left py-4 px-6 text-xs font-bold uppercase tracking-widest text-muted-foreground">Use Case</th>
-                    {/* <th className="text-left py-4 px-6 text-xs font-bold uppercase tracking-widest text-muted-foreground">Suggested Top Brands</th> */}
-                  </tr>
-                </thead>
-                <tbody>
-                  {industry.solutionsTable.map((row, i) => (
-                    <tr
-                      key={i}
-                      className="border-b border-border/50 hover:bg-brand-lime/5 transition-colors"
-                    >
-                      <td className="py-4 px-6 align-top">
-                        <span className="font-bold text-foreground text-sm">{row.category}</span>
-                      </td>
-                      <td className="py-4 px-6 text-muted-foreground text-sm leading-snug align-top">{row.useCase}</td>
-                      {/* <td className="py-4 px-6 align-top">
-                        <span className="text-brand-lime text-sm font-medium leading-snug">{row.brands}</span>
-                      </td> */}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ── IT Hardware, Networking & Infrastructure ── */}
-      {industry.infraSections && (
-        <section className="py-24 lg:py-32 bg-transparent transition-colors duration-500">
-          <div className="mx-auto max-w-[1248px] px-5">
-            <div className="mb-16 reveal">
-              <span className="text-brand-lime font-bold tracking-widest uppercase text-xs mb-6 block">Infrastructure</span>
-              <h2 className="text-3xl lg:text-5xl font-bold font-serif text-foreground leading-tight max-w-[700px] mb-6">
-                IT Hardware, Networking &amp; Infrastructure
-              </h2>
-              {industry.infraIntro && (
-                <p className="text-lg text-muted-foreground max-w-[700px]">{industry.infraIntro}</p>
-              )}
-            </div>
-            <div className="grid md:grid-cols-2 gap-8 reveal">
-              {industry.infraSections.map((section, i) => (
-                <div
-                  key={i}
-                  className="p-8 rounded-[2rem] border border-border bg-background hover:border-brand-lime/30 hover:bg-brand-lime/5 transition-all duration-300 group"
-                >
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-9 h-9 rounded-xl bg-brand-lime/10 flex items-center justify-center group-hover:bg-brand-lime/20 transition-colors">
-                      <Cpu className="w-4 h-4 text-brand-lime" />
-                    </div>
-                    <h3 className="font-bold text-foreground text-base leading-snug">{section.title}</h3>
-                  </div>
-                  <ul className="flex flex-col gap-3">
-                    {section.items.map((item, j) => (
-                      <li key={j} className="flex gap-3 items-start text-sm text-muted-foreground leading-snug">
-                        <ChevronRight className="w-3.5 h-3.5 text-brand-lime mt-0.5 flex-shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ── Managed Security Services ── */}
-      {industry.managedSecurityTable && (
-        <section className="py-24 bg-transparent transition-colors duration-500">
-          <div className="mx-auto max-w-[1248px] px-5">
-            <div className="mb-16 reveal">
-              <span className="text-brand-lime font-bold tracking-widest uppercase text-xs mb-6 block">Managed Security</span>
-              <h2 className="text-3xl lg:text-5xl font-bold font-serif text-foreground leading-tight max-w-[700px] mb-6">
-                Managed Security Services
-              </h2>
-              {industry.managedSecurityIntro && (
-                <p className="text-lg text-muted-foreground max-w-[700px]">{industry.managedSecurityIntro}</p>
-              )}
-            </div>
-            <div className="reveal overflow-x-auto">
-              <table className="w-full border-collapse bg-background rounded-2xl overflow-hidden border border-border">
-                <thead>
-                  <tr className="bg-muted border-b border-border">
-                    <th className="text-left py-4 px-6 text-xs font-bold uppercase tracking-widest text-muted-foreground">Managed Service</th>
-                    {/* <th className="text-left py-4 px-6 text-xs font-bold uppercase tracking-widest text-muted-foreground w-28">Priority</th> */}
-                    <th className="text-left py-4 px-6 text-xs font-bold uppercase tracking-widest text-muted-foreground">Why It Matters Here</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {industry.managedSecurityTable.map((row, i) => (
-                    <tr key={i} className="border-b border-border/50 hover:bg-brand-lime/5 transition-colors">
-                      <td className="py-4 px-6 align-top">
-                        <div className="flex items-start gap-3">
-                          <Shield className="w-4 h-4 text-brand-lime mt-0.5 flex-shrink-0" />
-                          <span className="font-bold text-foreground text-sm">{row.service}</span>
-                        </div>
-                      </td>
-                      {/* <td className="py-4 px-6 align-top">
-                        <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold border ${priorityColors[row.priority] ?? 'bg-muted text-muted-foreground border-border'}`}>
-                          {row.priority}
-                        </span>
-                      </td> */}
-                      <td className="py-4 px-6 text-muted-foreground text-sm leading-relaxed align-top">{row.why}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ── Our Recommended Approach (Phases) ── */}
-      {industry.approach && (
-        <section className="py-24 lg:py-32 bg-transparent transition-colors duration-500">
-          <div className="mx-auto max-w-[1248px] px-5">
-            <div className="mb-16 reveal">
-              <span className="text-brand-lime font-bold tracking-widest uppercase text-xs mb-6 block">Our Approach</span>
-              <h2 className="text-3xl lg:text-5xl font-bold font-serif text-foreground leading-tight max-w-[700px] mb-6">
-                Our Recommended Approach
-              </h2>
-              {industry.approachIntro && (
-                <p className="text-lg text-muted-foreground max-w-[700px]">{industry.approachIntro}</p>
-              )}
-            </div>
-            <div className="grid md:grid-cols-3 gap-8 reveal">
-              {industry.approach.map((phase, i) => (
-                <div
-                  key={i}
-                  className="relative p-8 rounded-[2rem] border border-border bg-background hover:border-brand-lime/30 transition-all duration-300 group"
-                >
-                {/*   <div className="w-10 h-10 rounded-full border-2 border-brand-lime/30 flex items-center justify-center mb-6 group-hover:border-brand-lime transition-colors">
-                    <span className="text-brand-lime font-bold text-sm">{String(i + 1).padStart(2, '0')}</span>
-                  </div> */}
-                  <h3 className="text-base font-bold text-foreground mb-6 leading-snug">{phase.phase}</h3>
-                  <ul className="flex flex-col gap-3">
-                    {phase.items.map((item, j) => (
-                      <li key={j} className="flex gap-3 items-start text-sm text-muted-foreground leading-snug">
-                        <span className="w-1.5 h-1.5 rounded-full bg-brand-lime mt-1.5 flex-shrink-0"></span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ── Our Suggestions ── */}
-      {industry.suggestions && (
-        <section className="py-24 bg-transparent transition-colors duration-500">
-          <div className="mx-auto max-w-[1248px] px-5">
-            <div className="mb-16 reveal">
-              <span className="text-brand-lime font-bold tracking-widest uppercase text-xs mb-6 block">Key Recommendations</span>
-              <h2 className="text-3xl lg:text-5xl font-bold font-serif text-foreground leading-tight max-w-[700px]">
-                Our Suggestions for This Sector
-              </h2>
-            </div>
-            <div className="grid md:grid-cols-2 gap-6 reveal">
-              {industry.suggestions.map((suggestion, i) => {
-                const [bold, ...rest] = suggestion.split(':');
-                return (
-                  <div
-                    key={i}
-                    className="p-8 rounded-2xl border border-border bg-background hover:border-brand-lime/30 hover:bg-brand-lime/5 transition-all duration-300 group"
-                  >
-                    <div className="flex gap-4 items-start">
-                      <div className="w-9 h-9 rounded-xl bg-brand-lime/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-lime/20 transition-colors mt-0.5">
-                        <Lightbulb className="w-4 h-4 text-brand-lime" />
-                      </div>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        <span className="font-bold text-foreground">{bold}:</span>
-                        {rest.join(':')}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ── Why Partner With Us ── */}
-      {industry.whyPartner && (
-        <section className="py-24 lg:py-32 bg-transparent transition-colors duration-500">
-          <div className="mx-auto max-w-[1248px] px-5">
-            <div className="mb-16 reveal">
-              <span className="text-brand-lime font-bold tracking-widest uppercase text-xs mb-6 block">Why Savvtek</span>
-              <h2 className="text-3xl lg:text-5xl font-bold font-serif text-foreground leading-tight max-w-[700px]">
-                Why Partner With Us
-              </h2>
-            </div>
-            <div className="grid sm:grid-cols-2 gap-6 reveal">
-              {industry.whyPartner.map((point, i) => (
-                <div
-                  key={i}
-                  className="flex gap-4 items-start p-6 rounded-2xl border border-border bg-card hover:border-brand-lime/30 hover:bg-brand-lime/5 transition-all duration-300 group"
-                >
-                  <div className="w-9 h-9 rounded-xl bg-brand-lime/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-lime/20 transition-colors mt-0.5">
-                    <Users className="w-4 h-4 text-brand-lime" />
-                  </div>
-                  <p className="text-sm text-foreground/80 font-medium leading-snug">{point}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
     </div>
   );
 }
-

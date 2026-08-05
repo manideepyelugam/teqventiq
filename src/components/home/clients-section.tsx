@@ -1,8 +1,8 @@
 'use client';
 
-import { CLIENTS,EDUCATION_CLIENTS } from '@/core/constants';
-import { CompanyLogo } from '@/components/shared';
+import { CLIENTS_BY_VERTICAL } from '@/core/constants';
 import { useRef, useEffect, useState } from 'react';
+import { Building2, ShieldCheck } from 'lucide-react';
 
 export default function ClientsSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -26,94 +26,66 @@ export default function ClientsSection() {
     return () => observer.disconnect();
   }, []);
 
-  // Double items for seamless loop
-  const marqueeItems = [...EDUCATION_CLIENTS, ...EDUCATION_CLIENTS];
-  const marqueeItemsReversed = [...CLIENTS].reverse().concat([...CLIENTS].reverse());
-
   return (
     <section
       ref={sectionRef}
       className="py-16 lg:py-24 overflow-visible relative transition-colors duration-500"
       id="clients-section"
     >
-      {/* Ambient gradient mesh */}
       <div className="gradient-mesh-section">
         <div className="blob-a" />
         <div className="blob-b" />
       </div>
-      {/* Dot field texture */}
       <div className="dot-grid-overlay" />
+      
       <div
-        className="mx-auto max-w-[1248px] px-4 sm:px-6 lg:px-8 relative z-10 mb-12 lg:mb-16"
+        className="mx-auto max-w-[1248px] px-4 sm:px-6 lg:px-8 relative z-10"
         style={{
           opacity: isVisible ? 1 : 0,
           transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
           transition: 'opacity 0.6s ease, transform 0.6s ease',
         }}
       >
-        <div className="text-center">
+        <div className="text-center mb-12 lg:mb-16">
           <span className="text-brand-lime font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
-            Our Clients
+            Client Footprint
           </span>
           <h3 className="text-3xl lg:text-5xl font-bold font-serif text-foreground tracking-tight mb-6">
             Trusted by <span className="text-brand-lime">Industry Leaders</span>
           </h3>
-          <p className="text-lg text-muted-foreground max-w-[600px] mx-auto leading-relaxed">
-            Partnering with leading organizations across the region to deliver transformative technology solutions.
+          <p className="text-lg text-muted-foreground max-w-[640px] mx-auto leading-relaxed">
+            Delivering mission-critical technology solutions across key regional enterprise verticals.
           </p>
         </div>
-      </div>
 
-      {/* Marquee Container */}
-      <div 
-        className="relative py-6 md:py-10 overflow-hidden"
-        style={{
-          opacity: isVisible ? 1 : 0,
-          transition: 'opacity 0.8s ease 0.2s',
-        }}
-      >
-        {/* Edge fades */}
-        {/* <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-r from-muted to-transparent z-10 pointer-events-none"></div> */}
-        {/* <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-l from-muted to-transparent z-10 pointer-events-none"></div> */}
-
-        {/* Row 1 — scrolls left */}
-        <div 
-          className="flex w-max animate-marquee-left will-change-transform hover:[animation-play-state:paused] items-center mb-6 md:mb-10"
-          style={{ animationDuration: `${marqueeItems.length * 1.5}s` }}
-        >
-          {marqueeItems.map((client, index) => (
+        {/* Industry Vertical Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {CLIENTS_BY_VERTICAL.map((item, idx) => (
             <div
-              key={`row1-${index}`}
-              className="flex-shrink-0 mx-4 md:mx-6"
+              key={idx}
+              className="bg-card/70 backdrop-blur-md rounded-2xl p-6 border border-border/30 hover:border-brand-lime/50 transition-all duration-300 shadow-sm flex flex-col justify-between"
             >
-              <div className="bg-white rounded-xl px-5 py-3 w-44 md:w-56 h-24 md:h-28 flex items-center justify-center shadow-sm border border-white/10 hover:scale-105 transition-transform duration-300">
-                <CompanyLogo
-                  src={client.src}
-                  domain=""
-                  name={client.name}
-                  className="w-full h-full opacity-90 hover:opacity-100 transition-all duration-500"
-                />
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-brand-lime/10 flex items-center justify-center text-brand-lime">
+                    <Building2 className="w-5 h-5" />
+                  </div>
+                  <h4 className="font-bold text-foreground text-base font-serif">
+                    {item.vertical}
+                  </h4>
+                </div>
+                <div className="space-y-2">
+                  {item.clients.map((client, cIdx) => (
+                    <div key={cIdx} className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <ShieldCheck className="w-3.5 h-3.5 text-brand-lime" />
+                      <span>{client.name}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Row 2 — scrolls right */}
-        <div 
-          className="flex w-max animate-marquee-right will-change-transform hover:[animation-play-state:paused] items-center"
-          style={{ animationDuration: `${marqueeItemsReversed.length * 1.5}s` }}
-        >
-          {marqueeItemsReversed.map((client, index) => (
-            <div
-              key={`row2-${index}`}
-              className="flex-shrink-0 mx-4 md:mx-6"
-            >
-              <div className="bg-white rounded-xl px-5 py-3 w-44 md:w-56 h-24 md:h-28 flex items-center justify-center shadow-sm border border-white/10 hover:scale-105 transition-transform duration-300">
-                <CompanyLogo
-                  domain={client.domain}
-                  name={client.name}
-                  className="w-full h-full opacity-90 hover:opacity-100 transition-all duration-500"
-                />
+              <div className="mt-6 pt-4 border-t border-border/20 flex items-center justify-between text-[11px] text-muted-foreground font-mono">
+                <span>VERIFIED PARTNER</span>
+                <span className="text-brand-lime font-bold">2026 ACTIVE</span>
               </div>
             </div>
           ))}

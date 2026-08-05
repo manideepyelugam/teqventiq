@@ -1,9 +1,82 @@
-import { Service, Industry, Testimonial, IndustryRiskRow, IndustrySolutionRow, IndustryManagedServiceRow, IndustryInfraSection, IndustryApproachPhase, HealthcareContent, SolutionsEcosystemItem } from '../types';
+import { 
+  Service, 
+  Industry, 
+  Testimonial, 
+  Partner,
+  CategorizedPartner,
+  Client,
+  FivePillarItem,
+  HealthcareContent
+} from '../types';
+
+export const COMPANY_INFO = {
+  name: "TEQVENTIQ SERVICES PRIVATE LIMITED",
+  shortName: "Teqventiq",
+  tagline: "Where Technology Meets Business Intelligence",
+  founded: "2026",
+  email: "info@teqventiq.com",
+  phone: "+91 98186 69400",
+  phoneRaw: "+919818669400",
+  whatsappUrl: "https://wa.me/919818669400",
+  address: {
+    line1: "24/9 & 24/10",
+    line2: "MCIE, Mathura Road",
+    area: "Badarpur (South Delhi)",
+    cityStateZip: "South Delhi - 110044",
+    full: "24/9 & 24/10, MCIE, Mathura Road, Badarpur (South Delhi), South Delhi - 110044"
+  }
+};
+
+export const FIVE_PILLARS: FivePillarItem[] = [
+  {
+    id: "networking",
+    title: "Networking",
+    description: "Active and passive infrastructure that keeps every connection fast, secure, and always on.",
+    tags: ["Active", "Passive", "Structured Cabling"]
+  },
+  {
+    id: "cybersecurity",
+    title: "Cybersecurity",
+    description: "Defence layered across endpoint, network, and identity, built for how threats actually move.",
+    tags: ["NGFW", "XDR", "Zero Trust"]
+  },
+  {
+    id: "data-ai",
+    title: "Data & AI",
+    description: "Turning scattered enterprise data into decisions, automation, and intelligence you can act on.",
+    tags: ["Analytics", "AI/ML", "Automation"]
+  },
+  {
+    id: "datacentre",
+    title: "Datacentre",
+    description: "Servers, storage, backup, and virtualization engineered for uptime, not just capacity.",
+    tags: ["Servers", "Storage", "Backup & DR"]
+  },
+  {
+    id: "managed-support",
+    title: "Managed Support Services",
+    description: "Day-to-day monitoring, maintenance, and support so your systems stay someone else's problem to worry about.",
+    tags: ["Monitoring", "Helpdesk", "AMC"]
+  }
+];
+
+export const ONE_PROMISE = {
+  title: "One Promise",
+  headline: "One partner. Every layer.",
+  body: "We don't hand you off between five different vendors for five different problems. Teqventiq designs, deploys, and supports every layer of your technology stack — network to cloud to endpoint — under one roof, one point of contact, and one standard of accountability.\n\nThat's the difference between a vendor and a partner: a vendor solves the problem you called about. A partner notices the next one coming."
+};
+
+export const STATS = [
+  { label: "Founded", value: "2026" },
+  { label: "Support", value: "24/7" },
+  { label: "Industries Served", value: "7+" },
+  { label: "Projects", value: "200+" }
+];
 
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: 1,
-    quote: "Savvtek Services has been a crucial partner in securing our digital infrastructure. Their expertise in cybersecurity and cloud ecosystems is unparalleled.",
+    quote: "Teqventiq Services has been a crucial partner in securing our digital infrastructure. Their expertise in cybersecurity and cloud ecosystems is unparalleled.",
     author: "Director of IT",
     role: "Govt & Public Sector",
     company: "Public Sector Enterprise",
@@ -11,7 +84,7 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     id: 2,
-    quote: "The team at Savvtek understands our unique operational realities. Their scalable IT and intelligent automation solutions have significantly improved our efficiency.",
+    quote: "The team at Teqventiq understands our unique operational realities. Their scalable IT and intelligent automation solutions have significantly improved our efficiency.",
     author: "CTO",
     role: "Corporate Enterprise",
     company: "Enterprise Client",
@@ -19,7 +92,7 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     id: 3,
-    quote: "Transitioning to intelligent, automated ecosystems was seamless with Savvtek. Their AI & RPA solutions delivered measurable efficiency for our operations.",
+    quote: "Transitioning to intelligent, automated ecosystems was seamless with Teqventiq. Their AI & RPA solutions delivered measurable efficiency for our operations.",
     author: "Head of Operations",
     role: "Retail & Ecommerce",
     company: "Retail Group",
@@ -29,564 +102,582 @@ export const TESTIMONIALS: Testimonial[] = [
 
 export const SERVICES: Service[] = [
   {
-    slug: "cybersecurity-solutions",
-    title: "Cybersecurity Solutions",
-    description: "In a landscape where cyber threats evolve daily, resilience is not optional. Our cybersecurity solutions are designed to strengthen your digital perimeter, protect sensitive data, and support regulatory compliance and business continuity.",
+    slug: "networking",
+    title: "Networking (Active / Passive)",
+    description: "From structured cabling to enterprise-grade routing and switching, we design networks that don't buckle under growth — engineered for uptime, security, and room to scale.",
+    icon: "Network",
+    image: "/images/networking.png",
+    heroHeadline: "The network is the business. Build it right.",
+    heroSubhead: "From structured cabling to enterprise-grade routing and switching, we design networks that don't buckle under growth — engineered for uptime, security, and room to scale.",
+    openingContext: "Every system your business runs on — email, ERP, POS, video, cloud apps, security cameras — depends on a network that was designed to carry it, not just connect it. Most network problems organizations experience aren't hardware failures; they're the result of infrastructure that was scaled up in pieces, patched together over years, and never re-architected for what the business actually became. We design networks the way they should be designed the first time: as a single system, not a collection of add-ons.",
+    features: [
+      "Enterprise Switching & Routing (Cisco, Aruba, Arista)",
+      "High-Density Wireless Systems (Ruckus, Aruba)",
+      "Structured Cabling Infrastructure (CommScope, Legrand, R&M)",
+      "Fiber Optic Backbones & Site Audits (Molex, CommScope)",
+      "SD-WAN Multi-Site Connectivity",
+      "Network Segmentation & VLAN Security"
+    ],
+    valueProps: [
+      {
+        title: "OEM-Agnostic Design",
+        description: "We carry no vendor allegiance. With hands-on expertise across Cisco, Aruba, Ruckus, and Arista, we specify what your environment actually needs — not the platform that pays us the best margin."
+      },
+      {
+        title: "Both Layers, One Team",
+        description: "The same engineers who terminate your passive cabling configure the active layer running on top of it. Nothing gets lost in the handoff between 'who ran the cable' and 'who configured the switch.'"
+      },
+      {
+        title: "Designed for Headroom",
+        description: "Every network we build accounts for three years of growth, not just today's device count — because re-architecting a network mid-business is far more disruptive than over-provisioning it upfront."
+      },
+      {
+        title: "Documentation as Standard",
+        description: "Every deployment ships with as-built diagrams, IP schemas, and configuration backups — so your team is never locked out of understanding your own network."
+      }
+    ],
+    capabilities: [
+      {
+        category: "Active Networking",
+        description: "The layer that makes traffic move — switching, routing, wireless, and policies. We design enterprise switching/routing (Cisco, Aruba, Arista), architect segmented networks with proper VLAN design, and roll out high-density enterprise wireless (Ruckus, Aruba). SD-WAN ties multi-site locations together with centralized policy."
+      },
+      {
+        category: "Passive Networking",
+        description: "The physical foundation everything else depends on. We design and install structured cabling (CommScope, Legrand, R&M) and fiber optic backbones (Molex, CommScope) to certified standards, build maintainable server room rack cabling, and run comprehensive site surveys."
+      }
+    ],
+    deliverySteps: [
+      { step: "01", title: "Assess", description: "Site survey, existing infrastructure audit, and requirements gathering across current and projected load." },
+      { step: "02", title: "Design", description: "A network architecture (active + passive) sized for your environment and growth trajectory." },
+      { step: "03", title: "Deploy", description: "Structured cabling, hardware installation, and configuration with minimal disruption to live operations." },
+      { step: "04", title: "Validate", description: "Performance testing, certification, and complete documentation handover." },
+      { step: "05", title: "Support", description: "Ongoing monitoring and optimization through Managed Support Services." }
+    ],
+    outcomes: [
+      "Reduced downtime and network bottlenecks",
+      "Faster, more reliable connectivity across sites",
+      "Infrastructure that scales without a rebuild",
+      "Lower long-term maintenance costs",
+      "Simplified vendor management — one partner, not five"
+    ],
+    ctaText: "Get a Network Assessment →"
+  },
+  {
+    slug: "cybersecurity",
+    title: "Cybersecurity",
+    description: "We design and operate security postures that protect the perimeter, the endpoint, and everything in between — grounded in real-world threat patterns, not checkbox compliance.",
     icon: "Shield",
-    features: [
-      "Endpoint Protection & Extended Detection and Response (XDR)",
-      "Email Security & Anti Phishing Systems",
-      "Next Gen Firewalls (NGFW)",
-      "Identity and Access Management",
-      "Zero Trust Architecture",
-      "Brand Protection & Digital Risk Monitoring",
-      "Vulnerability Assessment & Penetration Testing (VAPT)",
-      "GRC Framework Implementation",
-      "Red Team & Blue Team Exercises",
-      "Security Audits & Policy Development",
-      "Data Protection & Privacy Readiness",
-      "Risk Advisory & Cyber Maturity Assessments"
-    ],
     image: "/images/cyber_security_banner.png",
-    detailedContent: "In a landscape where cyber threats evolve daily, resilience is not optional. Our cybersecurity solutions are designed to strengthen your digital perimeter, protect sensitive data, and support regulatory compliance and business continuity.",
-    footerText: "Protect your business with proactive cybersecurity built for today's evolving digital threats.",
-    solutionsTitle: "Solutions",
-    solutions: [
-      "Endpoint Protection & Extended Detection and Response (XDR)",
-      "Email Security & Anti Phishing Systems",
-      "Next Gen Firewalls (NGFW)",
-      "Identity and Access Management",
-      "Zero Trust Architecture",
-      "Brand Protection & Digital Risk Monitoring"
-    ],
-    servicesTitle: "Services",
-    services: [
+    heroHeadline: "Threats don't wait. Neither should your defences.",
+    heroSubhead: "We design and operate security postures that protect the perimeter, the endpoint, and everything in between — grounded in real-world threat patterns, not checkbox compliance.",
+    openingContext: "Cybersecurity has stopped being a single product decision and become a design discipline — the firewall, the endpoint agent, the identity policy, and the monitoring layer all have to work as one coherent system, or the gaps between them become exactly where an attacker gets in. We build security postures the way attackers think: end to end, not tool by tool.",
+    features: [
+      "Next-Generation Firewalls (NGFW - Fortinet, Palo Alto, Check Point)",
+      "Endpoint Protection & XDR (CrowdStrike, Sophos)",
+      "Zero Trust Access & Secure Web Gateways (Zscaler, Netskope)",
+      "Identity & Access Management / PAM (Arcon, Saviynt)",
       "Vulnerability Assessment & Penetration Testing (VAPT)",
-      "GRC Framework Implementation",
-      "Red Team & Blue Team Exercises",
-      "Security Audits & Policy Development",
-      "Data Protection & Privacy Readiness",
-      "Risk Advisory & Cyber Maturity Assessments"
-    ]
+      "Brand Protection, Phishing Defense & DPDP Act Compliance"
+    ],
+    valueProps: [
+      {
+        title: "Risk-Outcome Driven",
+        description: "Every recommendation is mapped to a business risk, not a technical spec sheet — so security investment stays proportionate and defensible to leadership."
+      },
+      {
+        title: "Multi-OEM Independence",
+        description: "Hands-on expertise across Fortinet, Palo Alto, Check Point, Zscaler, Netskope, CrowdStrike, Barracuda, F5, Imperva, Indusface, Forcepoint, Akamai, Arcon, and Saviynt."
+      },
+      {
+        title: "Compliance as a Foundation",
+        description: "DPDP Act alignment and industry-standard frameworks are factored into architecture from day one, so audit-readiness is a byproduct of good design."
+      },
+      {
+        title: "End-to-End Coverage",
+        description: "Endpoint, network, cloud, identity, and data — treated as one programme with one accountability model, not siloed tools."
+      }
+    ],
+    capabilities: [
+      {
+        category: "Protect",
+        description: "Next-gen firewalls (Fortinet, Palo Alto) enforce policy. Endpoint protection & XDR (CrowdStrike) isolate compromised devices in real time. Phishing defense stops entry points, and Zero Trust access (Zscaler, Netskope) continuously verifies identity."
+      },
+      {
+        category: "Detect & Respond",
+        description: "Threat detection & monitoring tuned to your environment, incident response support, and digital risk monitoring for external threats targeting your business."
+      },
+      {
+        category: "Assess & Comply",
+        description: "Vulnerability Assessment & Penetration Testing (VAPT), security audits, DPDP Act readiness assessments, and cyber maturity benchmarking."
+      }
+    ],
+    deliverySteps: [
+      { step: "01", title: "Discover & Assess", description: "Structured review of current posture, exposure, and existing controls against your environment." },
+      { step: "02", title: "Architect & Design", description: "Security architecture built around Zero Trust principles, proportionate to your risk profile." },
+      { step: "03", title: "Implement", description: "Hands-on deployment, configuration, and integration across chosen platforms." },
+      { step: "04", title: "Validate", description: "VAPT, control testing, and validation to confirm defences hold under attack conditions." },
+      { step: "05", title: "Operate & Improve", description: "Ongoing monitoring, patching, and periodic maturity reviews." }
+    ],
+    outcomes: [
+      "Reduced exposure to breaches and downtime",
+      "Regulatory and compliance readiness",
+      "Faster detection and response to incidents",
+      "Stronger identity and access controls",
+      "Board-level visibility into security posture"
+    ],
+    ctaText: "Request a Security Assessment →"
   },
   {
-    slug: "infrastructure-cloud",
-    title: "Infrastructure & Cloud Services",
-    description: "We design and implement secure, high performance infrastructure environments that balance scalability with operational efficiency. Whether on premise, hybrid, or fully cloud based, our solutions enable seamless digital operations.",
-    icon: "Cloud",
-    features: [
-      "Hybrid & Public Cloud Deployment",
-      "Private Cloud Infrastructure",
-      "Backup & Disaster Recovery",
-      "Cloud Migration & Managed Services",
-      "Network Architecture & Secure Connectivity",
-      "Server Virtualization & Containerization",
-      "Remote Monitoring & Management (RMM)"
-    ],
-    image: "/images/infra_and_cloud_banner.png",
-    detailedContent: "We design and implement secure, high performance infrastructure environments that balance scalability with operational efficiency. Whether on premise, hybrid, or fully cloud based, our solutions enable seamless digital operations.",
-    footerText: "Our focus is to build a resilient IT foundation that supports performance, flexibility, and long term growth.",
-    solutionsTitle: "Includes",
-    solutions: [
-      "Hybrid & Public Cloud Deployment",
-      "Private Cloud Infrastructure",
-      "Backup & Disaster Recovery",
-      "Cloud Migration & Managed Services",
-      "Network Architecture & Secure Connectivity",
-      "Server Virtualization & Containerization",
-      "Remote Monitoring & Management (RMM)"
-    ],
-    servicesTitle: "",
-    services: []
-  },
-  {
-    slug: "ai-intelligent-automation",
-    title: "AI & Intelligent Automation",
-    description: "We help organizations transform manual, fragmented operations into intelligent, automated ecosystems. By combining Artificial Intelligence (AI) with Intelligent Automation and Robotic Process Automation (RPA), we enable faster decision-making, improved accuracy, enhanced customer experiences, and measurable operational efficiency.",
+    slug: "data-ai",
+    title: "Data & AI",
+    description: "We build the pipelines, platforms, and intelligence layers that turn scattered operational data into forecasts, automation, and answers your teams can act on immediately.",
     icon: "Cpu",
-    features: [
-      "AI / ML Solutions",
-      "Gen AI & LLMs",
-      "Conversational AI & AI Contact Centers",
-      "Smart Analytics & Predictive Insights",
-      "AI Strategy & Readiness Assessment",
-      "Market Trend Analysis & Intelligence Models",
-      "Intelligent Automation",
-      "Robotic Process Automation (RPA)",
-      "Business Process Automation",
-      "Enterprise Workflow Integration",
-      "Custom Automation Frameworks"
-    ],
     image: "/images/ai_banner.png",
-    detailedContent: "We help organizations transform manual, fragmented operations into intelligent, automated ecosystems. By combining Artificial Intelligence (AI) with Intelligent Automation and Robotic Process Automation (RPA), we enable faster decision-making, improved accuracy, enhanced customer experiences, and measurable operational efficiency.",
-    footerText: "Our automation solutions eliminate repetitive tasks, reduce operational errors and empower teams to focus on high-value strategic initiatives that drive business growth.",
-    solutionsTitle: "Artificial Intelligence",
-    solutions: [
-      "AI / ML Solutions",
-      "Gen AI & LLMs",
+    platformPartner: "Quiler.AI",
+    heroHeadline: "Turn data into your next decision — not your next backlog.",
+    heroSubhead: "We build the pipelines, platforms, and intelligence layers that turn scattered operational data into forecasts, automation, and answers your teams can act on immediately.",
+    openingContext: "Most organizations don't have a data shortage — they have a data-in-the-wrong-places problem. Sales data sits in one system, operations data in another, finance in a spreadsheet nobody else can access. Before AI or automation can add value, the underlying data has to be structured, connected, and trustworthy. We build that foundation first, then layer intelligence on top of it — in that order, deliberately, because AI built on disorganized data just automates the disorder faster.",
+    features: [
+      "AI / ML Solutions & Demand Forecasting",
+      "GenAI & LLMs Enterprise Integration",
       "Conversational AI & AI Contact Centers",
-      "Smart Analytics & Predictive Insights",
-      "AI Strategy & Readiness Assessment",
-      "Market Trend Analysis & Intelligence Models"
+      "Smart Analytics & Executive Dashboards",
+      "RPA & Intelligent Process Automation",
+      "Market Intelligence & Data Governance (Quiler.AI)"
     ],
-    servicesTitle: "Automation",
-    services: [
-      "Intelligent Automation",
-      "Robotic Process Automation (RPA)",
-      "Business Process Automation",
-      "Enterprise Workflow Integration",
-      "Custom Automation Frameworks"
-    ]
+    valueProps: [
+      {
+        title: "Outcome Over Output",
+        description: "We build for the decision the data needs to support — a dashboard nobody acts on is a failed project, regardless of how clean it looks."
+      },
+      {
+        title: "Automation Mapped to Reality",
+        description: "Workflows are mapped to how your teams actually operate before writing scripts, so automation removes friction instead of creating new exceptions."
+      },
+      {
+        title: "Right-Sized AI",
+        description: "From a single predictive model to a fuller automation programme, scope is set to what will genuinely move your business forward."
+      },
+      {
+        title: "Governed by Design",
+        description: "Data governance and compliance are built into the pipeline from the start, so data access is deliberately managed."
+      }
+    ],
+    capabilities: [
+      {
+        category: "Data Foundation",
+        description: "Data engineering connecting fragmented systems into a coherent queryable structure, executive dashboards, data governance, and market intelligence models."
+      },
+      {
+        category: "AI & Intelligent Automation",
+        description: "Demand forecasting, anomaly detection, GenAI/LLM integration, conversational AI contact centers, RPA workflow automation, and enterprise process orchestration."
+      }
+    ],
+    deliverySteps: [
+      { step: "01", title: "Audit", description: "Map where data lives, how clean it is, and where operational friction occurs." },
+      { step: "02", title: "Architect", description: "Design data pipeline and governance model to support the intelligence layer." },
+      { step: "03", title: "Build", description: "Implement dashboards, models, or automation workflows against a defined outcome." },
+      { step: "04", title: "Validate", description: "Test against real operational data before rollout, not synthetic examples." },
+      { step: "05", title: "Scale", description: "Expand automation and intelligence coverage once the foundation is proven." }
+    ],
+    outcomes: [
+      "Faster, evidence-based decision-making",
+      "Reduced manual, repetitive work",
+      "Improved forecasting accuracy",
+      "Better customer experience through automation",
+      "A single source of truth across teams"
+    ],
+    ctaText: "Explore What Your Data Can Do →"
   },
   {
-    slug: "enterprise-applications",
-    title: "Enterprise Applications & Digital Engineering",
-    description: "We help organizations modernize business applications, accelerate digital transformation, and deliver seamless user experiences. Our expertise spans enterprise platforms, custom application development, integration services, and managed application support, enabling businesses to innovate faster and operate more efficiently.",
-    icon: "Layers",
-    features: [
-      "Dynamics 365 CRM",
-      "Dynamics Business Central",
-      "Microsoft Power Platform",
-      "Power Apps & Low Code Solutions",
-      "Application Development & Modernization",
-      "Agile & DevSecOps Implementation",
-      "Mobile Application Development",
-      "Digital Experience Platforms",
-      "API & System Integration",
-      "Application Managed Services",
-      "Application Maintenance Services",
-      "Managed Application Support",
-      "Application Security Monitoring",
-      "Quality Engineering & Testing Services",
-      "Mobile Device Management (MDM)"
-    ],
-    image: "/images/application_engineering.png",
-    detailedContent: "We help organizations modernize business applications, accelerate digital transformation, and deliver seamless user experiences. Our expertise spans enterprise platforms, custom application development, integration services, and managed application support.",
-    footerText: "Modernize applications, accelerate digital transformation, and deliver seamless user experiences.",
-    solutionsTitle: "Business Applications",
-    solutions: [
-      "Dynamics 365 CRM",
-      "Dynamics Business Central",
-      "Microsoft Power Platform",
-      "Power Apps & Low Code Solutions"
-    ],
-    servicesTitle: "Application Engineering & Support",
-    services: [
-      "Application Development & Modernization",
-      "Agile & DevSecOps Implementation",
-      "Mobile Application Development",
-      "Digital Experience Platforms",
-      "API & System Integration",
-      "Application Managed Services",
-      "Application Maintenance Services",
-      "Managed Application Support",
-      "Application Security Monitoring",
-      "Quality Engineering & Testing Services",
-      "Mobile Device Management (MDM)"
-    ]
-  },
-  {
-    slug: "data-intelligence-analytics",
-    title: "Data Intelligence & Market Research",
-    description: "Data becomes a competitive advantage when transformed into actionable insights. We transform operational and market data into intelligence that supports better decisions, stronger positioning, and sustainable growth.",
-    icon: "BarChart3",
-    features: [
-      "Data Engineering & Data Architecture",
-      "Business Intelligence & Executive Dashboards",
-      "Competitive Intelligence & Market Monitoring",
-      "Pricing Intelligence & Benchmark Analysis",
-      "Market Research & Industry Insights",
-      "Data Analytics & Reporting",
-      "Forecasting & Performance Insights",
-      "Data Governance & Compliance"
-    ],
-    image: "/images/data_intelligence.png",
-    detailedContent: "Data becomes a competitive advantage when transformed into actionable insights. We transform operational and market data into intelligence that supports better decisions, stronger positioning, and sustainable growth.",
-    footerText: "We transform operational and market data into intelligence that supports better decisions, stronger positioning, and sustainable growth.",
-    solutionsTitle: "Solutions & Insights",
-    solutions: [
-      "Data Engineering & Data Architecture",
-      "Business Intelligence & Executive Dashboards",
-      "Competitive Intelligence & Market Monitoring",
-      "Pricing Intelligence & Benchmark Analysis",
-      "Market Research & Industry Insights",
-      "Data Analytics & Reporting",
-      "Forecasting & Performance Insights",
-      "Data Governance & Compliance"
-    ],
-    servicesTitle: "",
-    services: []
-  },
-  {
-    slug: "digital-workplace-solutions",
-    title: "Digital Workplace Solutions",
-    description: "Modern workplaces require seamless collaboration, secure access, and connected employee experiences. We help organizations build intelligent digital workplaces that empower employees to work efficiently from anywhere while maintaining security, compliance, and productivity.",
-    icon: "Monitor",
-    features: [
-      "Workplace Collaboration Platforms",
-      "Document & Record Management Systems",
-      "Enterprise Content Management",
-      "Secure Remote Access Solutions",
-      "Employee Experience Platforms",
-      "Virtual Meeting & Unified Communication Solutions"
-    ],
-    image: "/images/digital_workspace.png",
-    detailedContent: "Modern workplaces require seamless collaboration, secure access, and connected employee experiences. We help organizations build intelligent digital workplaces that empower employees to work efficiently from anywhere while maintaining security, compliance, and productivity.",
-    footerText: "Build intelligent digital workplaces that empower employees to work efficiently from anywhere.",
-    solutionsTitle: "Solutions",
-    solutions: [
-      "Workplace Collaboration Platforms",
-      "Document & Record Management Systems",
-      "Enterprise Content Management",
-      "Secure Remote Access Solutions",
-      "Employee Experience Platforms",
-      "Virtual Meeting & Unified Communication Solutions"
-    ],
-    servicesTitle: "",
-    services: []
-  },
-  {
-    slug: "managed-it-cloud-services",
-    title: "Managed IT and Cloud Services",
-    description: "We provide proactive IT and cloud management services that enhance system reliability, optimize performance, and ensure business continuity. Our managed services approach enables organizations to reduce operational complexity, improve uptime, and focus on core business priorities.",
+    slug: "datacentre",
+    title: "Datacentre",
+    description: "From servers and storage to backup and virtualization, we design datacentre environments built for resilience first, capacity second.",
     icon: "Server",
+    image: "/images/infra_and_cloud_banner.png",
+    heroHeadline: "Infrastructure that doesn't go down when it matters most.",
+    heroSubhead: "From servers and storage to backup and virtualization, we design datacentre environments built for resilience first, capacity second.",
+    openingContext: "A datacentre environment is judged on the one day it's tested — a hardware failure, a ransomware event, a power outage — not the 364 days it runs quietly. Most infrastructure failures aren't about buying the wrong server; they're about backup, redundancy, and recovery planning that was treated as optional. We plan for that one bad day from the first design conversation, not after it happens.",
     features: [
-      "Cloud Migration & Deployment",
-      "Backup & Disaster Recovery",
-      "Remote Monitoring & Management",
-      "Managed IT Support",
-      "Infrastructure Optimization"
+      "Enterprise Servers & Storage (Dell, NetApp, HP)",
+      "Backup & Disaster Recovery (Commvault, Veeam)",
+      "Server Virtualization & Containerization (VMware)",
+      "End-User Computing (Laptops, Desktops, Peripherals)",
+      "Hyperconverged Infrastructure (HCI)",
+      "Hardware Lifecycle Management & Refresh"
     ],
+    valueProps: [
+      {
+        title: "Resilience by Design",
+        description: "Backup and disaster recovery are planned alongside infrastructure, not added as an afterthought."
+      },
+      {
+        title: "Right-Sized, Not Over-Sold",
+        description: "Capacity planning based on actual growth trajectory and workload patterns — not the biggest configuration."
+      },
+      {
+        title: "Vendor-Backed, Not Vendor-Locked",
+        description: "Relationships with Dell, NetApp, HP, Commvault, Veeam, and VMware mean platform selection based on fit."
+      },
+      {
+        title: "Full Lifecycle Ownership",
+        description: "From procurement to deployment to eventual refresh, one partner manages hardware end to end."
+      }
+    ],
+    capabilities: [
+      {
+        category: "Compute & Storage",
+        description: "Enterprise servers and storage (Dell, NetApp, HP) sized to workload demand, with HCI options consolidating compute, storage, and virtualization."
+      },
+      {
+        category: "Backup & Continuity",
+        description: "Backup & DR on Commvault and Veeam designed against real recovery time objectives (RTO/RPO) and failover testing."
+      },
+      {
+        category: "Virtualization & End-User Computing",
+        description: "VMware server virtualization, workload consolidation, plus enterprise desktop, laptop, and office hardware deployment."
+      }
+    ],
+    deliverySteps: [
+      { step: "01", title: "Assess", description: "Current infrastructure audit, capacity analysis, and recovery-readiness review." },
+      { step: "02", title: "Design", description: "Compute, storage, backup, and virtualization architecture matched to RTO/RPO targets." },
+      { step: "03", title: "Deploy", description: "Procurement, installation, and configuration with minimal operational disruption." },
+      { step: "04", title: "Test", description: "Recovery drills and failover testing before go-live." },
+      { step: "05", title: "Maintain", description: "Lifecycle management and monitoring through Managed Support Services." }
+    ],
+    outcomes: [
+      "Reduced risk of data loss and downtime",
+      "Optimized infrastructure spend",
+      "Faster recovery from failures or incidents",
+      "Scalable capacity as business grows",
+      "Simplified hardware lifecycle management"
+    ],
+    ctaText: "Talk to Us About Your Infrastructure →"
+  },
+  {
+    slug: "managed-support",
+    title: "Managed Support Services",
+    description: "Proactive monitoring, maintenance, and support that keeps your technology running quietly in the background — so your team can focus on the business, not the ticket queue.",
+    icon: "Headphones",
     image: "/images/managed_it_services.png",
-    detailedContent: "We provide proactive IT and cloud management services that enhance system reliability, optimize performance, and ensure business continuity. Our managed services approach enables organizations to reduce operational complexity, improve uptime, and focus on core business priorities.",
-    footerText: "Proactive IT and cloud management services that enhance system reliability, optimize performance, and ensure business continuity.",
-    solutionsTitle: "Includes",
-    solutions: [
-      "Cloud Migration & Deployment",
-      "Backup & Disaster Recovery",
-      "Remote Monitoring & Management",
-      "Managed IT Support",
-      "Infrastructure Optimization"
-    ],
-    servicesTitle: "",
-    services: []
-  },
-  {
-    slug: "hardware-peripherals",
-    title: "Hardware & IT Peripherals",
-    description: "We provide enterprise-grade IT hardware and infrastructure solutions sourced from globally recognized technology brands. From end-user devices to data center infrastructure, we deliver reliable, scalable, and secure hardware solutions backed by expert deployment, configuration, and lifecycle support.",
-    icon: "HardDrive",
+    heroHeadline: "Your systems, someone else's 2 a.m. problem.",
+    heroSubhead: "Proactive monitoring, maintenance, and support that keeps your technology running quietly in the background — so your team can focus on the business, not the ticket queue.",
+    openingContext: "Most internal IT teams spend the majority of their time firefighting instead of improving anything — because nobody's watching the systems until something breaks. Managed support flips that: issues get caught in monitoring before they become a 9 a.m. crisis, and the people watching your systems are doing it as their full-time job, not as one more thing squeezed between everything else.",
     features: [
-      "Desktops & High Performance Workstations",
-      "Business Laptops & Tablets",
-      "Gaming Series & Custom Built Systems",
-      "Enterprise Servers & Storage Solutions",
-      "Server Accessories & Infrastructure Components",
-      "Smart Boards & Interactive Displays",
-      "Meeting Room Solutions",
-      "Printers, Scanners & Office Accessories",
-      "Signature Pads & Biometric Devices",
-      "Networking Equipment"
+      "24/7 Remote Monitoring & Management (RMM)",
+      "Managed IT Support Desk & Incident Escalation",
+      "Comprehensive Annual Maintenance Contracts (AMC)",
+      "Patch & Vulnerability Management",
+      "Cloud Migration & Hybrid Cloud Cost Optimization",
+      "IT Asset & Lifecycle Management"
     ],
-    image: "/images/hardware_and_IT_peripherals.png",
-    detailedContent: "We provide enterprise-grade IT hardware and infrastructure solutions sourced from globally recognized technology brands. From end-user devices to data center infrastructure, we deliver reliable, scalable, and secure hardware solutions backed by expert deployment, configuration, and lifecycle support.",
-    footerText: "We ensure authenticity, transparent pricing, rapid delivery, and dependable after sales support to maximize uptime.",
-    solutionsTitle: "Product Portfolio",
-    solutions: [
-      "Desktops & High Performance Workstations",
-      "Business Laptops & Tablets",
-      "Gaming Series & Custom Built Systems",
-      "Enterprise Servers & Storage Solutions",
-      "Server Accessories & Infrastructure Components",
-      "Smart Boards & Interactive Displays",
-      "Meeting Room Solutions",
-      "Printers, Scanners & Office Accessories",
-      "Signature Pads & Biometric Devices",
-      "Networking Equipment"
+    valueProps: [
+      {
+        title: "Proactive, Not Reactive",
+        description: "Continuous monitoring catches degradation and anomalies before they become outages — most issues are resolved before anyone notices."
+      },
+      {
+        title: "One AMC, Full Stack",
+        description: "A single support agreement covers network, security, and infrastructure — not three separate vendor contracts."
+      },
+      {
+        title: "Transparent Reporting",
+        description: "You see the same uptime, ticket, and system-health data we do. No black box, no 'trust us.'"
+      },
+      {
+        title: "Scales With You",
+        description: "Support scope grows as your infrastructure does, without renegotiating from scratch every time."
+      }
     ],
-    servicesTitle: "",
-    services: []
-  },
-  {
-    slug: "surveillance-physical-security",
-    title: "Surveillance and Physical Security",
-    description: "We deliver integrated surveillance and physical security solutions that help organizations protect people, assets, and critical infrastructure. Our solutions provide real-time visibility, enhanced control, and proactive threat detection to ensure a safe and secure operating environment.",
-    icon: "Camera",
-    features: [
-      "CCTV Design & Installation",
-      "Access Control Systems",
-      "Video Monitoring",
-      "Compliance & Maintenance"
+    capabilities: [
+      {
+        category: "Monitoring & Support Desk",
+        description: "RMM across network, servers, and endpoints, backed by a responsive helpdesk, patch management, and infrastructure optimization."
+      },
+      {
+        category: "Continuity & Lifecycle",
+        description: "Actively maintained backup/DR monitoring, high-availability checks, and proactive IT asset lifecycle management."
+      },
+      {
+        category: "Cloud & Migration",
+        description: "Cloud migration support, hybrid cloud management, and continuous cloud cost optimization."
+      }
     ],
-    image: "/images/surveilance_and_physical_security.png",
-    detailedContent: "We deliver integrated surveillance and physical security solutions that help organizations protect people, assets, and critical infrastructure. Our solutions provide real-time visibility, enhanced control, and proactive threat detection to ensure a safe and secure operating environment.",
-    footerText: "Integrated surveillance and physical security solutions that protect people, assets, and critical infrastructure.",
-    solutionsTitle: "Includes",
-    solutions: [
-      "CCTV Design & Installation",
-      "Access Control Systems",
-      "Video Monitoring",
-      "Compliance & Maintenance"
+    deliverySteps: [
+      { step: "01", title: "Onboard", description: "Full infrastructure audit and documentation baseline before support begins." },
+      { step: "02", title: "Monitor", description: "24/7 (or business-hours) monitoring across agreed scope." },
+      { step: "03", title: "Maintain", description: "Scheduled patching, updates, and optimization on defined cadence." },
+      { step: "04", title: "Respond", description: "Defined SLAs for issue triage, escalation, and resolution." },
+      { step: "05", title: "Report", description: "Regular uptime and system-health reporting with periodic reviews." }
     ],
-    servicesTitle: "",
-    services: []
-  },
-  {
-    slug: "document-management-system",
-    title: "Document Management System (DMS)",
-    description: "Our Document Management System (DMS) enables organizations to securely capture, store, manage, and retrieve enterprise documents from a centralized platform. By digitizing document workflows, businesses gain greater visibility, control, compliance, and operational efficiency.",
-    icon: "FileText",
-    features: [
-      "Digital Operations",
-      "Cloud Database Integration",
-      "Role Based Access Control (RBAC)",
-      "Faster Workflows",
-      "Reduced Paperwork",
-      "Enhanced Compliance",
-      "Secure Access Anywhere"
+    outcomes: [
+      "Reduced downtime and faster issue resolution",
+      "Predictable IT support costs",
+      "Less internal overhead on day-to-day IT",
+      "Improved system reliability and uptime",
+      "One number to call, regardless of the problem"
     ],
-    image: "/images/dms_banner.png",
-    detailedContent: "Our Document Management System (DMS) enables organizations to securely capture, store, manage, and retrieve enterprise documents from a centralized platform. By digitizing document workflows, businesses gain greater visibility, control, compliance, and operational efficiency.",
-    footerText: "Digitize document workflows to gain greater visibility, control, compliance, and operational efficiency.",
-    solutionsTitle: "Includes",
-    solutions: [
-      "Digital Operations",
-      "Cloud Database Integration",
-      "Role Based Access Control (RBAC)",
-      "Faster Workflows",
-      "Reduced Paperwork",
-      "Enhanced Compliance",
-      "Secure Access Anywhere"
-    ],
-    servicesTitle: "",
-    services: []
+    ctaText: "Get a Support Plan →"
   }
 ];
 
 export const INDUSTRIES: Industry[] = [
   {
-    slug: "government-public-sector",
-    title: "Government & Public Sector",
-    description: "Empowering public sector organizations with secure, resilient, and compliant technology ecosystems.",
-    image: "/images/mission_vision_us_1777468862412.png",
-    details: "Empowering public sector organizations with secure, resilient, and compliant technology ecosystems.",
-    icon: "Building2",
-    features: [
-      "Government-Grade Cybersecurity & Zero Trust",
-      "Public & Hybrid Cloud Infrastructure",
-      "Smart City & Physical Security Integration",
-      "Regulatory Compliance & Data Protection",
-      "Digital Citizen Services Infrastructure"
-    ],
-    tagline: "Empowering government organizations with secure, resilient, and compliant technology",
-    badges: [
-      "Zero Trust Architecture — High-security government frameworks",
-      "Regulatory Compliance — Aligned to national cybersecurity standards",
-      "Mission-Critical Resilience — 99.999% uptime for public services"
-    ],
-    aboutText: [
-      "Savvtek Services supports public sector and government institutions with robust, highly secure IT and cybersecurity frameworks. We enable public entities to modernize digital services while upholding stringent security, governance, and operational standards.",
-      "From infrastructure design to managed security services, our team delivers solutions that safeguard critical public data and maintain continuous service availability."
-    ],
-    whatWeBring: [
-      "Proven experience in government infrastructure and security standards",
-      "End-to-end compliance management and cyber maturity assessments",
-      "24x7 monitoring and incident response capabilities"
-    ]
-  },
-  {
-    slug: "banking-finance",
-    title: "Banking & Finance",
-    description: "Securing financial assets, transactions, and regulatory compliance for modern banking institutions.",
-    image: "/images/bfsi_industry.jpg",
-    details: "Securing financial assets, transactions, and regulatory compliance for modern banking institutions.",
-    icon: "Landmark",
-    features: [
-      "BFSI Security & Compliance",
-      "High-Performance Cloud & Data Architecture",
-      "Real-time Fraud & Risk Monitoring",
-      "Core Banking Infrastructure Resilience",
-      "Secure API & System Integration"
-    ],
-    tagline: "Securing financial assets, transactions, and regulatory compliance",
-    badges: [
-      "Financial Data Protection — PCI-DSS & Central Bank compliance",
-      "Zero Trust Banking Security — Multi-layer defense",
-      "High Uptime Infrastructure — Continuous transactional availability"
-    ],
-    aboutText: [
-      "Savvtek Services designs and delivers secure, resilient, and high-performance IT ecosystems purpose-built for the banking, financial services, and insurance sector. We partner with financial institutions to strengthen digital operations and safeguard sensitive financial data."
-    ]
-  },
-  {
     slug: "it-ites",
     title: "IT / ITES",
-    description: "Powering technology and enabled services companies with scalable, agile, and high-performance infrastructure.",
+    description: "Infrastructure built to scale as fast as you hire. IT and ITES businesses live and die by uptime, security, and onboarding capacity.",
     image: "/images/strategic_expertise_us_1777468846673.png",
     details: "Powering technology and enabled services companies with scalable, agile, and high-performance infrastructure.",
     icon: "Laptop",
-    features: [
-      "Cloud Infrastructure & DevSecOps",
-      "High-Density Compute & AI Workloads",
-      "Enterprise Application Engineering",
-      "Remote Workplace & MDM",
-      "24x7 Managed Support & RMM"
+    headline: "Infrastructure built to scale as fast as you hire.",
+    subhead: "IT and ITES businesses live and die by uptime, security, and the ability to onboard capacity overnight.",
+    context: "IT and ITES operations run on a different clock than most industries — client SLAs measured in minutes, headcount that can double in a quarter, and infrastructure that has to be ready before new seats are filled. The organizations that struggle here aren't the ones without technology budgets; they're the ones whose infrastructure was built for the headcount they had a year ago.",
+    challenges: [
+      { title: "Scaling without lag", description: "Rapid headcount and seat growth that infrastructure needs to be provisioned ahead of, not behind." },
+      { title: "Client-grade data security", description: "Especially for outsourced or BPO work, where client contracts mandate specific security and audit standards." },
+      { title: "24/7 uptime across shifts", description: "Multi-shift, multi-geography operations that can't tolerate maintenance windows during business hours." },
+      { title: "Multi-tenant separation", description: "Managing several client environments securely and separately without data cross-contamination." }
     ],
-    tagline: "Powering technology and enabled services with scalable infrastructure",
-    badges: [
-      "DevSecOps Ready — Rapid application lifecycle deployment",
-      "Scalable Cloud Architecture — Hybrid & multi-cloud deployment",
-      "Global Security Standards — ISO 27001 & SOC 2 readiness"
-    ]
+    howWeHelp: "Networking infrastructure designed for rapid seat provisioning; Cybersecurity built around client-contract compliance; Datacentre and backup architecture sized for 24/7 operations; Managed Support Services providing round-the-clock shift monitoring.",
+    outcomes: [
+      "Faster seat & workstation provisioning",
+      "Client-grade data security",
+      "Reduced downtime across shifts",
+      "Simplified multi-environment management"
+    ],
+    features: ["Rapid Seat Provisioning", "Client Security Audits", "24/7 Multi-Shift Support", "Multi-Tenant Isolation"]
   },
   {
-    slug: "education-institutions",
-    title: "Education Institutions",
-    description: "Connecting and protecting campuses, classrooms, student data, and digital learning environments.",
-    image: "/images/education_industry.jpg",
-    details: "Connecting and protecting campuses, classrooms, student data, and digital learning environments.",
-    icon: "GraduationCap",
-    features: [
-      "Campus Network & Wi-Fi Infrastructure",
-      "Student & Staff Identity Management",
-      "E-Learning & Smart Board Solutions",
-      "Student Data Privacy & Protection",
-      "Document Management System (DMS)"
+    slug: "bfsi",
+    title: "BFSI (Banking, Financial Services & Insurance)",
+    description: "Where security isn't a feature — it's the license to operate. Securing financial assets, transactions, and regulatory compliance.",
+    image: "/images/bfsi_industry.jpg",
+    details: "Securing financial assets, transactions, and regulatory compliance for modern banking institutions.",
+    icon: "Landmark",
+    headline: "Where security isn't a feature — it's the license to operate.",
+    subhead: "Banking, financial services, and insurance run on trust and regulation in equal measure.",
+    context: "In BFSI, a security gap isn't just an operational risk — it's a regulatory and reputational one, often simultaneously. Every technology decision has to satisfy two audiences at once: the customer who needs their transaction to go through instantly, and the regulator who needs to see it was handled correctly. We design for both from the start.",
+    challenges: [
+      { title: "Regulatory compliance & DPDP Act", description: "RBI/IRDAI-aligned practices and DPDP Act compliance built into architecture." },
+      { title: "Zero tolerance for downtime", description: "Transaction systems where minutes of unavailability cause financial and reputational cost." },
+      { title: "Protecting sensitive financial data", description: "Customer financial records that require layered, continuously verified protection." },
+      { title: "Legacy modernization without disruption", description: "Core systems that can't simply be switched off for upgrade windows." }
     ],
-    tagline: "Connecting and protecting campuses, classrooms & student data",
-    badges: [
-      "K-12 & Higher Ed — Scaled solutions for schools & universities",
-      "Student Data Privacy — Compliance with data protection norms",
-      "Smart Campus AV — Interactive boards and collaboration"
-    ]
-  },
-  {
-    slug: "retail-ecommerce",
-    title: "Retail & Ecommerce",
-    description: "Optimizing retail operations, digital store platforms, supply chain visibility, and customer data security.",
-    image: "/images/retail_ecommerce_industry_new_1777472979277.png",
-    details: "Optimizing retail operations, digital store platforms, supply chain visibility, and customer data security.",
-    icon: "ShoppingBag",
-    features: [
-      "Omnichannel Digital Experience Platforms",
-      "POS & Hardware Peripheral Deployment",
-      "Pricing & Competitive Intelligence",
-      "E-commerce Cloud Architecture & Uptime",
-      "Customer Data Security & Compliance"
+    howWeHelp: "Cybersecurity architecture designed around regulatory frameworks from day one; Datacentre infrastructure with high availability and disaster recovery; Data & AI for fraud pattern detection; Managed Support Services for continuous transaction system monitoring.",
+    outcomes: [
+      "Regulatory and audit readiness",
+      "Reduced fraud and breach exposure",
+      "High-availability transaction systems",
+      "Safer, faster digital transformation"
     ],
-    tagline: "Optimizing retail operations, ecommerce platforms & customer data security",
-    badges: [
-      "High-Consequential Uptime — Peak sales season readiness",
-      "Data & Pricing Intelligence — Market benchmark analytics",
-      "POS & Store Tech — Enterprise hardware integration"
-    ]
-  },
-  {
-    slug: "healthcare",
-    title: "Healthcare",
-    description: "Safeguarding patient data, clinical systems, medical imaging storage, and hospital infrastructure.",
-    image: "/images/healthcare_industry.jpg",
-    details: "Safeguarding patient data, clinical systems, medical imaging storage, and hospital infrastructure.",
-    icon: "Activity",
-    features: [
-      "Healthcare Data Privacy & Security",
-      "Electronic Health Record (EHR) Storage",
-      "Hospital Network & Telehealth Infrastructure",
-      "Surveillance & Access Control Systems",
-      "Document & Record Management"
-    ],
-    tagline: "Safeguarding patient data, clinical systems & hospital infrastructure",
-    badges: [
-      "Patient Data Security — HIPAA & regional healthcare compliance",
-      "24/7 Clinical Uptime — Zero-downtime infrastructure",
-      "Medical Grade AV & Security — Hospital campus protection"
-    ]
+    features: ["DPDP Act & Regulatory Alignment", "High-Availability Datacentre", "Real-Time Fraud Pattern Detection", "Zero-Downtime Core Modernization"]
   },
   {
     slug: "manufacturing",
     title: "Manufacturing",
-    description: "Driving smart factory automation, industrial IoT security, supply chain efficiency, and ERP integration.",
+    description: "Keep the plant floor running, and the data flowing. Blending IT and operational technology under one secure roof.",
     image: "/images/cybersecurity_hero_card_1777468690258.png",
-    details: "Driving smart factory automation, industrial IoT security, supply chain efficiency, and ERP integration.",
+    details: "Driving smart factory automation, industrial OT security, supply chain efficiency, and ERP integration.",
     icon: "Factory",
-    features: [
-      "OT & Industrial Cybersecurity",
-      "Robotic Process Automation (RPA)",
-      "ERP & Dynamics Business Central",
-      "Factory Surveillance & Access Control",
-      "Supply Chain Data Intelligence"
+    headline: "Keep the plant floor running, and the data flowing.",
+    subhead: "Manufacturing environments blend IT and operational technology under one roof.",
+    context: "Manufacturing has a problem most industries don't: the systems keeping the plant floor running (OT) and the systems keeping the business running (IT) were historically built separately — and now they need to talk to each other for efficiency gains, which is exactly where new security gaps open up. We connect them without creating new vulnerabilities.",
+    challenges: [
+      { title: "Secure OT/IT convergence", description: "Connecting plant-floor systems with enterprise IT without exposing OT to IT-side threats." },
+      { title: "Legacy machinery security gaps", description: "Older industrial equipment never designed with network security in mind." },
+      { title: "Supply chain visibility", description: "Fragmented data across procurement, production, and logistics." },
+      { title: "Minimizing production downtime", description: "IT/network failures on the plant floor cause direct, measurable production costs." }
     ],
-    tagline: "Smart factory automation, OT security & ERP integration",
-    badges: [
-      "OT/IT Security Convergence — Industrial network defense",
-      "Process Automation — RPA & workflow optimization",
-      "ERP Integration — End-to-end operational visibility"
-    ]
+    howWeHelp: "Networking infrastructure that segments OT from IT properly; Cybersecurity designed around industrial realities; Datacentre and backup systems sized for production-critical uptime; Data & AI for supply chain forecasting and predictive maintenance.",
+    outcomes: [
+      "Reduced unplanned downtime",
+      "Better production and supply chain visibility",
+      "Secured OT/IT convergence",
+      "Predictive maintenance readiness"
+    ],
+    features: ["Industrial OT/IT Segmentation", "Plant-Floor Network Security", "Supply Chain Data Integration", "Predictive Maintenance Modeling"]
   },
   {
-    slug: "food-technology",
-    title: "Food Technology",
-    description: "Enabling cloud kitchens, food tech platforms, and quick service restaurants with scalable tech and analytics.",
+    slug: "food-industry",
+    title: "Food Industry",
+    description: "Technology that keeps up with a business that never stops moving. Reliable multi-site infrastructure for plants, warehouses, and POS.",
     image: "/images/mission.png",
-    details: "Enabling cloud kitchens, food tech platforms, and quick service restaurants with scalable tech and analytics.",
+    details: "Enabling food processors, cloud kitchens, and distribution networks with dependable tech and analytics.",
     icon: "Utensils",
-    features: [
-      "Order Management & Integration APIs",
-      "Cloud Infrastructure & High Availability",
-      "Intelligent Process Automation",
-      "Pricing & Market Research Analytics",
-      "Hardware POS & Kiosk Systems"
+    headline: "Technology that keeps up with a business that never stops moving.",
+    subhead: "From processing plants to distribution to point of sale, food businesses need infrastructure as reliable as their supply chain.",
+    context: "Food businesses run on thin margins and tight timelines — a POS outage during peak hours or a distribution visibility gap doesn't just cost time, it costs product. Infrastructure here needs to be as dependable as the cold chain itself.",
+    challenges: [
+      { title: "Multi-location connectivity", description: "Reliable networking across processing plants, warehouses, distribution centers, and POS locations." },
+      { title: "Supply chain & inventory visibility", description: "Real-time data on stock, spoilage risk, and distribution status across sites." },
+      { title: "Food safety & compliance data", description: "Traceability data that needs to be accurate, accessible, and audit-ready." },
+      { title: "POS and network reliability at scale", description: "Systems that cannot afford downtime during peak trading hours." }
     ],
-    tagline: "Scalable tech, intelligent automation & analytics for food tech",
-    badges: [
-      "Cloud Kitchen Tech — Multi-brand delivery infrastructure",
-      "Automated Order Flow — API & workflow integration",
-      "Real-Time Analytics — Demand & pricing intelligence"
-    ]
+    howWeHelp: "Networking for reliable multi-site connectivity between plants, warehouses, and retail; Datacentre infrastructure for inventory and supply chain systems; Data & AI for real-time inventory visibility and demand forecasting; Managed Support Services to keep POS uptime high.",
+    outcomes: [
+      "Reliable multi-site connectivity",
+      "Real-time inventory and supply chain insight",
+      "Simplified compliance documentation",
+      "Reduced POS and network downtime"
+    ],
+    features: ["Multi-Site Network Backbone", "Real-Time Inventory Forecasting", "Traceability & Safety Data", "Peak-Hour POS Uptime Guarantee"]
   },
   {
-    slug: "hospitality",
-    title: "Hospitality",
-    description: "Elevating guest experiences with unified communications, Wi-Fi, property management integration, and security.",
+    slug: "real-estate",
+    title: "Real Estate",
+    description: "Smarter buildings start with smarter infrastructure. Connecting sales offices, smart buildings, and multi-site portfolios.",
     image: "/images/vision.png",
-    details: "Elevating guest experiences with unified communications, Wi-Fi, property management integration, and security.",
-    icon: "Hotel",
-    features: [
-      "High-Density Guest Wi-Fi & Access",
-      "Unified Communications & Room Tech",
-      "Property CCTV & Physical Security",
-      "Guest Data Protection & Compliance",
-      "Property Management Systems Support"
+    details: "Connecting sales offices, smart buildings, surveillance, and multi-site real estate portfolios.",
+    icon: "Building",
+    headline: "Smarter buildings start with smarter infrastructure.",
+    subhead: "From sales offices to smart buildings to multi-site portfolios, we connect and secure every property in the network.",
+    context: "Real estate technology needs span two very different worlds: the sales and CRM side managing leads and transactions, and the physical building side managing surveillance, access, and smart-building systems. Both need to be reliable, and both need to scale as the portfolio grows.",
+    challenges: [
+      { title: "Multi-site connectivity", description: "Reliable networking across sales offices, project sites, and completed properties." },
+      { title: "Surveillance and access control", description: "Centralized security across buildings and sites, not separate siloed systems." },
+      { title: "CRM & sales data management", description: "Lead and transaction data visible and reportable across multiple ongoing projects." },
+      { title: "Smart building integration", description: "IoT and building-management systems networked securely as adoption grows." }
     ],
-    tagline: "Elevating guest experiences with connected digital workplace & security",
-    badges: [
-      "Seamless Guest Wi-Fi — Frictionless onboarding",
-      "Smart Room & AV Tech — Premium hospitality AV",
-      "24x7 Infrastructure Support — Zero downtime for guests"
+    howWeHelp: "Networking connecting every site into one managed infrastructure; Physical security & surveillance for centralized monitoring; Data & AI for sales pipeline visibility; Managed Support Services for infrastructure scaling.",
+    outcomes: [
+      "Secure, connected multi-site operations",
+      "Centralized surveillance and access control",
+      "Better sales and lead data visibility",
+      "Scalable infrastructure as portfolios grow"
+    ],
+    features: ["Portfolio-Wide Site Networking", "Centralized Access & CCTV", "Real Estate CRM Integration", "Smart Building IoT Security"]
+  },
+  {
+    slug: "education",
+    title: "Education",
+    description: "Secure campuses. Connected classrooms. Protected data. Campus Wi-Fi, student privacy, and hybrid learning infrastructure.",
+    image: "/images/education_industry.jpg",
+    details: "Connecting and protecting campuses, classrooms, student data, and digital learning environments.",
+    icon: "GraduationCap",
+    headline: "Secure campuses. Connected classrooms. Protected data.",
+    subhead: "Educational institutions manage sensitive student data, distributed campuses, and always-on connectivity demands.",
+    context: "Education technology has to satisfy competing pressures: budgets that rarely match ambitions of a modern digital campus, connectivity demands from thousands of concurrent devices, and student data protection obligations. We design within those constraints, not around them.",
+    challenges: [
+      { title: "Campus-wide reliable connectivity", description: "Wi-Fi coverage holding up under high device density across classrooms and hostels." },
+      { title: "Student & staff data protection", description: "Privacy compliance for sensitive personal and academic data." },
+      { title: "Budget-conscious planning", description: "Getting enterprise reliability without an enterprise IT budget." },
+      { title: "Hybrid & digital learning support", description: "Infrastructure supporting in-person and digital teaching models without duplication." }
+    ],
+    howWeHelp: "Networking for high-density campus Wi-Fi; Cybersecurity for student data protection; Managed Support Services for reliable day-to-day operation; Datacentre infrastructure sized appropriately for institutional budgets.",
+    outcomes: [
+      "Reliable campus-wide connectivity",
+      "Protected student and institutional data",
+      "Lower total cost of IT ownership",
+      "Infrastructure ready for digital learning"
+    ],
+    features: ["High-Density Campus Wi-Fi", "Student Privacy Compliance", "Budget-Optimized Datacentre", "Hybrid Classroom AV & Network"]
+  },
+  {
+    slug: "psu-government",
+    title: "PSU & Government Sector",
+    description: "Public infrastructure. Private-sector discipline. Compliant, documented, and resilient public technology deployments.",
+    image: "/images/govt_public_sector_industry_new_1777473095832.png",
+    details: "Empowering public sector organizations with secure, resilient, and compliant technology ecosystems.",
+    icon: "Building2",
+    headline: "Public infrastructure. Private-sector discipline.",
+    subhead: "Government and public sector organizations need technology partners who understand procurement rigor and public accountability.",
+    context: "Public sector technology projects carry a different kind of scrutiny — every deployment needs to be compliant, documented, and defensible, because it's ultimately accountable to the public it serves. We bring private-sector delivery discipline to that standard.",
+    challenges: [
+      { title: "Government IT standards compliance", description: "Deployments satisfying defined government IT and data protection frameworks." },
+      { title: "Legacy infrastructure modernization", description: "Updating aging systems without disrupting public-facing services during transition." },
+      { title: "Citizen & public data security", description: "Data carrying a higher standard of protection given public accountability." },
+      { title: "Transparent, audit-ready delivery", description: "Procurement and project delivery withstanding scrutiny at every stage." }
+    ],
+    howWeHelp: "Networking and Cybersecurity built to satisfy compliance frameworks from the outset; Datacentre infrastructure for modernizing legacy systems without downtime; Managed Support Services providing transparent, auditable reporting.",
+    outcomes: [
+      "Compliance-ready technology deployments",
+      "Modernized, secure infrastructure",
+      "Protected citizen and institutional data",
+      "Transparent, auditable delivery process"
+    ],
+    features: ["Government Compliance Frameworks", "Zero-Downtime Migration", "Public Data Protection & Zero Trust", "Auditable Lifecycle Delivery"]
+  }
+];
+
+export const CATEGORIZED_PARTNERS: CategorizedPartner[] = [
+  {
+    category: "Networking — Active",
+    partners: [
+      { id: 1, name: 'Cisco', domain: 'cisco.com' },
+      { id: 2, name: 'Aruba', domain: 'arubanetworks.com' },
+      { id: 3, name: 'Ruckus', domain: 'commscope.com' },
+      { id: 4, name: 'Arista', domain: 'arista.com' }
     ]
   },
   {
-    slug: "shipping-logistics",
-    title: "Shipping & Logistics",
-    description: "Streamlining warehouse automation, fleet tracking security, document management, and supply chain intelligence.",
-    image: "/images/deploy.png",
-    details: "Streamlining warehouse automation, fleet tracking security, document management, and supply chain intelligence.",
-    icon: "Truck",
-    features: [
-      "Supply Chain Document Management (DMS)",
-      "Warehouse Network & Mobile Barcode Scanners",
-      "Logistics Analytics & Benchmark Tracking",
-      "Cloud & Hybrid Server Infrastructure",
-      "Cybersecurity for Logistics Networks"
-    ],
-    tagline: "Streamlining warehouse automation, document management & supply chain intelligence",
-    badges: [
-      "DMS Integration — Digital waybills & customs documents",
-      "Warehouse Mobility — Rugged handhelds & wireless coverage",
-      "Track & Trace Analytics — Data intelligence & dashboards"
+    category: "Networking — Passive",
+    partners: [
+      { id: 5, name: 'CommScope', domain: 'commscope.com' },
+      { id: 6, name: 'Molex', domain: 'molex.com' },
+      { id: 7, name: 'R&M', domain: 'rdm.com' },
+      { id: 8, name: 'Legrand', domain: 'legrand.com' }
+    ]
+  },
+  {
+    category: "Cybersecurity",
+    partners: [
+      { id: 9, name: 'Fortinet', domain: 'fortinet.com' },
+      { id: 10, name: 'Palo Alto Networks', domain: 'paloaltonetworks.com' },
+      { id: 11, name: 'Arcon', domain: 'arconnet.com' },
+      { id: 12, name: 'Saviynt', domain: 'saviynt.com' },
+      { id: 13, name: 'Akamai', domain: 'akamai.com' },
+      { id: 14, name: 'CrowdStrike', domain: 'crowdstrike.com' },
+      { id: 15, name: 'Check Point', domain: 'checkpoint.com' },
+      { id: 16, name: 'Zscaler', domain: 'zscaler.com' },
+      { id: 17, name: 'Netskope', domain: 'netskope.com' },
+      { id: 18, name: 'Barracuda', domain: 'barracuda.com' },
+      { id: 19, name: 'F5', domain: 'f5.com' },
+      { id: 20, name: 'Imperva', domain: 'imperva.com' },
+      { id: 21, name: 'Indusface', domain: 'indusface.com' },
+      { id: 22, name: 'Forcepoint', domain: 'forcepoint.com' }
+    ]
+  },
+  {
+    category: "Datacentre (Compute, Storage & DR)",
+    partners: [
+      { id: 23, name: 'Dell Technologies', domain: 'dell.com' },
+      { id: 24, name: 'NetApp', domain: 'netapp.com' },
+      { id: 25, name: 'HP', domain: 'hp.com' },
+      { id: 26, name: 'Commvault', domain: 'commvault.com' },
+      { id: 27, name: 'Veeam', domain: 'veeam.com' },
+      { id: 28, name: 'VMware', domain: 'vmware.com' }
+    ]
+  },
+  {
+    category: "Data & AI",
+    partners: [
+      { id: 29, name: 'Quiler.AI', domain: 'quiler.ai' }
+    ]
+  },
+  {
+    category: "Hardware & End-User Computing",
+    partners: [
+      { id: 30, name: 'Dell', domain: 'dell.com' },
+      { id: 31, name: 'HP', domain: 'hp.com' },
+      { id: 32, name: 'Lenovo', domain: 'lenovo.com' },
+      { id: 33, name: 'Samsung', domain: 'samsung.com' }
     ]
   }
 ];
+
+export const PARTNERS: Partner[] = CATEGORIZED_PARTNERS.flatMap(cat => cat.partners);
+
+export const CLIENTS_BY_VERTICAL = [
+  { vertical: "IT / ITES", clients: [{ name: "Technology Enterprise Partner", domain: "tech.com" }, { name: "Global Services Center", domain: "global.com" }] },
+  { vertical: "BFSI", clients: [{ name: "National Financial Institution", domain: "bank.com" }, { name: "Enterprise Insurance Group", domain: "insurance.com" }] },
+  { vertical: "Manufacturing", clients: [{ name: "Industrial Manufacturing Ltd.", domain: "industry.com" }, { name: "Auto Systems Group", domain: "autosys.com" }] },
+  { vertical: "Food Industry", clients: [{ name: "Food Processing Corp.", domain: "foodcorp.com" }, { name: "FMCG Distribution Network", domain: "fmcg.com" }] },
+  { vertical: "Real Estate", clients: [{ name: "Commercial Property Group", domain: "realty.com" }, { name: "Smart Infra Developers", domain: "smartinfra.com" }] },
+  { vertical: "Education", clients: [{ name: "Leading Technological University", domain: "univ.edu" }, { name: "International Campus Group", domain: "campus.edu" }] },
+  { vertical: "PSU & Government Sector", clients: [{ name: "Public Sector Enterprise", domain: "gov.in" }, { name: "National Utilities Board", domain: "psu.in" }] }
+];
+
+export const CLIENTS: Client[] = CLIENTS_BY_VERTICAL.flatMap(v => v.clients);
 
 export const WHY_CHOOSE_US = [
   {
@@ -629,7 +720,7 @@ export const WHY_CHOOSE_US = [
 export const MISSION_VISION = [
   {
     title: "Our Mission",
-    text: "Our mission is to help organizations leverage technology, automation, and intelligence to drive growth, improve efficiency, and strengthen decision making.",
+    text: "To help organizations leverage technology, automation, and intelligence to drive growth, improve efficiency, and strengthen decision making — delivering dependable solutions across cybersecurity, cloud, data, applications, hardware, and digital environments.",
     text1: "We deliver dependable solutions across cybersecurity, cloud, data, applications, hardware, and digital environments, ensuring our clients remain secure, agile, and future ready.",
     button: "Read More",
     img: "/images/mission.png",
@@ -637,7 +728,7 @@ export const MISSION_VISION = [
   },
   {
     title: "Our Vision",
-    text: "Our vision is to become a trusted technology and business intelligence partner, helping organizations navigate digital transformation with confidence.",
+    text: "To become a trusted technology and business intelligence partner, helping organizations navigate digital transformation with confidence through secure, intelligent, and scalable solutions that support long-term growth.",
     text1: "Through secure, intelligent, and scalable solutions that support long term growth, we empower enterprises to thrive in a digital-first world.",
     button: "Read More",
     img: "/images/vision.png",
@@ -645,124 +736,15 @@ export const MISSION_VISION = [
   }
 ];
 
-export const STATS = [
-  { label: "Founded", value: "2018" },
-  { label: "Support", value: "24/7" },
-  { label: "Industries Served", value: "10+" },
-  { label: "Projects", value: "250+" }
-];
-
-export const HOW_WE_WORK: import('../types').StackedCard[] = [
-  {
-    title: 'Advisory',
-    text: 'We begin with strategic consulting and digital roadmap development, understanding your unique operational realities to chart a clear path forward.',
-    button: 'Learn More',
-    img: '/images/about-team.png',
-    icon: 'Compass',
-    features: ['Technology Assessment', 'Digital Roadmap', 'Risk Analysis']
-  },
-  {
-    title: 'Design',
-    text: 'Architecting secure and scalable IT ecosystems tailored to your business, ensuring every component aligns with your growth trajectory.',
-    button: 'Learn More',
-    img: '/images/design.png',
-    icon: 'PenTool',
-    features: ['Solution Architecture', 'Security Blueprint', 'Scalability Planning']
-  },
-  {
-    title: 'Deploy',
-    text: 'Professional implementation and seamless integration with minimal disruption to your operations, backed by rigorous testing and validation.',
-    button: 'Learn More',
-    img: '/images/deploy.png',
-    icon: 'Rocket',
-    features: ['Agile Implementation', 'Seamless Integration', 'Quality Assurance']
-  },
-  {
-    title: 'Manage',
-    text: '24/7 managed services and proactive IT support ensuring your systems run at peak performance with industry-leading uptime.',
-    button: 'Learn More',
-    img: '/images/manage.png',
-    icon: 'Settings',
-    features: ['24/7 Monitoring', 'Proactive Support', 'Incident Management']
-  },
-  {
-    title: 'Optimize',
-    text: 'Continuous automation and performance improvement through data-driven insights, keeping you ahead in an ever-evolving technology landscape.',
-    button: 'Learn More',
-    img: '/images/optimize.png',
-    icon: 'TrendingUp',
-    features: ['Performance Tuning', 'Process Automation', 'Innovation Pipeline']
-  }
-];
-
-export const PARTNERS: import('../types').Partner[] = [
-  // Cybersecurity
-  { id: 1, name: 'CrowdStrike', domain: 'crowdstrike.com' },
-  { id: 2, name: 'Netskope', domain: 'netskope.com' },
-  { id: 3, name: 'Fortinet', domain: 'fortinet.com' },
-  { id: 4, name: 'Palo Alto Networks', domain: 'paloaltonetworks.com' },
-  { id: 5, name: 'Arcon', domain: 'arconnet.com' },
-  { id: 6, name: 'PICUS', domain: 'picussecurity.com' },
-  { id: 7, name: 'Varonis', domain: 'varonis.com' },
-  { id: 8, name: 'Sophos', domain: 'sophos.com' },
-
-  // Infrastructure & Cloud
-  { id: 9, name: 'Dell Technologies', domain: 'dell.com' },
-  { id: 10, name: 'HP', domain: 'hp.com' },
-  { id: 11, name: 'Cisco', domain: 'cisco.com' },
-  { id: 12, name: 'Veeam', domain: 'veeam.com' },
-  { id: 13, name: 'AWS', domain: 'amazon.com' },
-
-  // Networking
-  { id: 14, name: 'Cisco', domain: 'cisco.com' },
-  { id: 15, name: 'Ruckus', domain: 'commscope.com' },
-  { id: 16, name: 'HPE', domain: 'hpe.com' },
-
-  // Hardware & End User Computing
-  { id: 17, name: 'HP', domain: 'hp.com' },
-  { id: 18, name: 'Dell', domain: 'dell.com' },
-  { id: 19, name: 'ASUS', domain: 'asus.com' },
-  { id: 20, name: 'Acer', domain: 'acer.com' },
-  { id: 21, name: 'Samsung', domain: 'samsung.com' },
-
-  // Collaboration & Audio Visual
-  { id: 22, name: 'Crestron', domain: 'crestron.com' },
-  { id: 23, name: 'Logitech', domain: 'logitech.com' },
-  { id: 24, name: 'Polycom', domain: 'poly.com' },
-  { id: 25, name: 'Jabra', domain: 'jabra.com' },
-
-  // AI & Automation
-  { id: 26, name: 'Microsoft', domain: 'microsoft.com' },
-  { id: 27, name: 'Google', domain: 'google.com' }
-];
-
-export const CLIENTS: import('../types').Client[] = [
-  { name: 'Government & Public Sector Enterprise 1', domain: 'gov.ae' },
-  { name: 'Government & Public Sector Enterprise 2', domain: 'gov.ae' },
-  { name: 'Corporate Enterprise Client 1', domain: 'corporate.com' },
-  { name: 'Corporate Enterprise Client 2', domain: 'corporate.com' },
-  { name: 'Retail & Ecommerce Brand 1', domain: 'retail.com' },
-  { name: 'Retail & Ecommerce Brand 2', domain: 'retail.com' },
-  { name: 'Technology Company 1', domain: 'tech.com' },
-  { name: 'Technology Company 2', domain: 'tech.com' },
-  { name: 'Healthcare Organization 1', domain: 'health.org' },
-  { name: 'Healthcare Organization 2', domain: 'health.org' },
-  { name: 'Financial Services Firm 1', domain: 'finance.com' },
-  { name: 'Financial Services Firm 2', domain: 'finance.com' },
-  { name: 'Education Institution 1', domain: 'edu.ac' },
-  { name: 'Education Institution 2', domain: 'edu.ac' },
-  { name: 'Logistics & Supply Chain Co. 1', domain: 'logistics.com' },
-  { name: 'Logistics & Supply Chain Co. 2', domain: 'logistics.com' }
-];
-
-export const EDUCATION_CLIENTS = [
-  { src: '/logos/ajman uni.png', name: 'Ajman University' },
-  { src: '/logos/athena edy.png', name: 'Athena EDY' },
-  { src: '/logos/elizabeth school.png', name: 'Elizabeth School' },
-  { src: '/logos/middlesex uni.png', name: 'Middlesex University Dubai' },
-  { src: '/logos/sceffield.avif', name: 'Sheffield University' },
-  { src: '/logos/scholar school.png', name: 'Scholar School' }
-];
+export const SOLUTIONS_ECOSYSTEM_ITEMS = SERVICES.map((s, idx) => ({
+  id: s.slug,
+  title: s.title,
+  subtitle: s.heroHeadline || s.title,
+  description: s.description,
+  features: s.features.slice(0, 3),
+  img: s.image,
+  reverse: idx % 2 !== 0
+}));
 
 export const HEALTHCARE_CONTENT: HealthcareContent = {
   slug: "healthcare",
@@ -770,15 +752,14 @@ export const HEALTHCARE_CONTENT: HealthcareContent = {
   subtitle: "Empowering Healthcare Organizations with Secure & Scalable IT",
   tagline: "Safeguarding patient data, clinical systems & hospital infrastructure",
   badges: [
-    "Patient Data Security — HIPAA & regional healthcare compliance",
-    "24/7 Clinical Uptime — Zero-downtime infrastructure",
-    "Medical Grade AV & Security — Hospital campus protection"
+    "Patient Data Security — Compliance focus",
+    "24/7 Clinical Uptime — Zero-downtime infrastructure"
   ],
   whoWeAre: {
     title: "Who We Are",
     text: [
-      "Savvtek Services designs and delivers secure, scalable, and high-performance IT ecosystems purpose-built for the realities of modern healthcare.",
-      "We partner with hospitals, clinics, and healthcare groups to modernize clinical and operational technology without compromising on patient data security or system uptime."
+      "Teqventiq Services Private Limited designs and delivers secure, scalable, and high-performance IT ecosystems purpose-built for healthcare.",
+      "We partner with healthcare groups to modernize clinical technology without compromising data security or uptime."
     ],
     stats: [
       { value: "24/7", label: "Clinical Support" },
@@ -790,7 +771,7 @@ export const HEALTHCARE_CONTENT: HealthcareContent = {
   whatThisMeans: [
     {
       title: "Patient Data Security",
-      description: "Robust encryption, Zero Trust access, and compliance frameworks to protect medical records.",
+      description: "Encryption, Zero Trust access, and compliance frameworks to protect medical records.",
       icon: "Shield"
     },
     {
@@ -806,22 +787,17 @@ export const HEALTHCARE_CONTENT: HealthcareContent = {
       title: "EHR & Clinical Systems Hosting",
       description: "Secure cloud and hybrid infrastructure for electronic health records and PACS imaging.",
       icon: "Server"
-    },
-    {
-      title: "Hospital Security & Surveillance",
-      description: "CCTV, access control, and campus perimeter monitoring for patient and staff safety.",
-      icon: "Camera"
     }
   ],
-  offeringsFooter: "Build a resilient IT foundation for your healthcare organization with Savvtek.",
+  offeringsFooter: "Build a resilient IT foundation for your healthcare organization with Teqventiq.",
   details: [],
-  focusTitle: "Why Choose Savvtek for Healthcare",
+  focusTitle: "Why Choose Teqventiq for Healthcare",
   focusIntro: "Our domain expertise ensures seamless integration with clinical workflows.",
   focusAreas: [
     { name: "Compliance & Audit Readiness", icon: "CheckCircle" },
     { name: "Proactive Managed Support", icon: "Headphones" }
   ],
-  focusFooter: "Empowering healthcare providers to focus on what matters most — patient care.",
+  focusFooter: "Empowering healthcare providers to focus on patient care.",
   whyChooseUs: [
     {
       title: "Domain Expertise",
@@ -831,10 +807,10 @@ export const HEALTHCARE_CONTENT: HealthcareContent = {
   cta: {
     title: "Connect With Us",
     subtitle: "Empowering Growth Through Technology, Intelligence & Innovation",
-    company: "Savvtek Services Pvt. Ltd.",
-    address: "[Address]",
-    website: "[Website]",
-    phone: "[Phone Number]",
+    company: "TEQVENTIQ SERVICES PRIVATE LIMITED",
+    address: "24/9 & 24/10, MCIE, Mathura Road, Badarpur (South Delhi), South Delhi - 110044",
+    website: "https://teqventiq.com",
+    phone: "+91 98186 69400",
     steps: [
       { number: "01", title: "Consultation", description: "Schedule a discussion with our technical team." },
       { number: "02", title: "Assessment", description: "Receive a tailored assessment of your IT landscape." },
@@ -842,60 +818,3 @@ export const HEALTHCARE_CONTENT: HealthcareContent = {
     ]
   }
 };
-
-export const SOLUTIONS_ECOSYSTEM_ITEMS: SolutionsEcosystemItem[] = [
-  {
-    id: 'cybersecurity',
-    title: 'Cybersecurity Solutions',
-    subtitle: 'Resilience is not optional',
-    description: 'Our cybersecurity solutions strengthen your digital perimeter, protect sensitive data, and support regulatory compliance.',
-    features: ['Endpoint Protection & XDR', 'Zero Trust Architecture', 'Vulnerability Assessment (VAPT)'],
-    img: '/images/cyber_security_banner.png',
-    reverse: false
-  },
-  {
-    id: 'infrastructure',
-    title: 'Infrastructure & Cloud Services',
-    subtitle: 'Secure & Scalable Foundation',
-    description: 'We design and implement high-performance infrastructure environments balancing scalability with operational efficiency.',
-    features: ['Hybrid & Public Cloud', 'Backup & Disaster Recovery', 'Remote Monitoring & Management'],
-    img: '/images/infra_and_cloud_banner.png',
-    reverse: true
-  },
-  {
-    id: 'ai-automation',
-    title: 'AI & Intelligent Automation',
-    subtitle: 'Transform Manual Operations',
-    description: 'Combining AI with Intelligent Automation and RPA to enable faster decisions, accuracy, and operational efficiency.',
-    features: ['Gen AI & LLMs', 'Robotic Process Automation (RPA)', 'Predictive Insights & Analytics'],
-    img: '/images/ai_banner.png',
-    reverse: false
-  },
-  {
-    id: 'enterprise-applications',
-    title: 'Enterprise Applications & Digital Engineering',
-    subtitle: 'Modernize Business Apps',
-    description: 'Spanning Dynamics 365, Power Platform, custom application development, and managed support services.',
-    features: ['Dynamics 365 CRM & Business Central', 'App Development & Modernization', 'API & System Integration'],
-    img: '/images/application_engineering.png',
-    reverse: true
-  },
-  {
-    id: 'data-intelligence',
-    title: 'Data Intelligence & Market Research',
-    subtitle: 'Actionable Business Insights',
-    description: 'Transforming operational and market data into intelligence that supports better decisions and sustainable growth.',
-    features: ['Business Intelligence Dashboards', 'Competitive & Pricing Intelligence', 'Market Research & Analytics'],
-    img: '/images/data_intelligence.png',
-    reverse: false
-  },
-  {
-    id: 'digital-workplace',
-    title: 'Digital Workplace Solutions',
-    subtitle: 'Seamless Collaboration',
-    description: 'Empower employees to work efficiently from anywhere with secure collaboration, remote access, and ECM.',
-    features: ['Workplace Collaboration Platforms', 'Enterprise Content Management', 'Secure Remote Access'],
-    img: '/images/digital_workspace.png',
-    reverse: true
-  }
-];

@@ -1,3 +1,20 @@
+export interface ServiceValueProp {
+  title: string;
+  description: string;
+}
+
+export interface ServiceCapability {
+  category: string;
+  description: string;
+  items?: string[];
+}
+
+export interface ServiceDeliveryStep {
+  step: string;
+  title?: string;
+  description: string;
+}
+
 export interface Service {
   slug: string;
   title: string;
@@ -11,6 +28,16 @@ export interface Service {
   solutions?: string[];
   servicesTitle?: string;
   services?: string[];
+  // Expanded structure for rich rendering:
+  heroHeadline?: string;
+  heroSubhead?: string;
+  openingContext?: string;
+  valueProps?: ServiceValueProp[];
+  capabilities?: ServiceCapability[];
+  deliverySteps?: ServiceDeliveryStep[];
+  outcomes?: string[];
+  ctaText?: string;
+  platformPartner?: string;
 }
 
 export interface IndustryRiskRow { driver: string; why: string; }
@@ -18,6 +45,11 @@ export interface IndustrySolutionRow { category: string; useCase: string; brands
 export interface IndustryManagedServiceRow { service: string; priority: string; why: string; }
 export interface IndustryInfraSection { title: string; items: string[]; }
 export interface IndustryApproachPhase { phase: string; items: string[]; }
+
+export interface IndustryChallenge {
+  title: string;
+  description: string;
+}
 
 export interface Industry {
   slug: string;
@@ -28,7 +60,14 @@ export interface Industry {
   // Card-level data
   details: string;
   features: string[];
-  // Full detail page data (from markdown profiles)
+  // Expanded fields from narrative specifications
+  headline?: string;
+  subhead?: string;
+  context?: string;
+  challenges?: IndustryChallenge[];
+  howWeHelp?: string;
+  outcomes?: string[];
+  // Legacy detail page data
   tagline?: string;
   badges?: string[];
   aboutText?: string[];
@@ -47,6 +86,18 @@ export interface Industry {
   suggestions?: string[];
   whyPartner?: string[];
   ctaText?: string;
+}
+
+export interface FivePillarItem {
+  id: string;
+  title: string;
+  description: string;
+  tags: string[];
+}
+
+export interface CategorizedPartner {
+  category: string;
+  partners: { id: number; name: string; domain: string }[];
 }
 
 export interface Testimonial {

@@ -22,14 +22,14 @@ const Logo = () => {
     <div>
       <img
         src="/logo.png"
-        alt="Savvtek Services Logo"
+        alt="Teqventiq Logo"
         width="180"
         height="auto"
         className="logo-light max-w-full h-auto"
       />
       <img
         src="/logo-dark.png"
-        alt="Savvtek Services Logo"
+        alt="Teqventiq Logo"
         width="180"
         height="auto"
         className="logo-dark max-w-full h-auto"
@@ -280,7 +280,7 @@ export default function Header() {
           )}
         >
           <p className="text-muted-foreground text-sm tracking-widest uppercase">
-            info@savvtek.com
+            info@teqventiq.com
           </p>
         </div>
       </div>

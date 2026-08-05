@@ -258,10 +258,10 @@ export default function ContactPopup() {
                   Call Us
                 </p>
                 <a
-                  href="tel:+971506582200"
+                  href="tel:+919818669400"
                   className="text-sm font-bold hover:text-brand-lime-vibrant transition-colors"
                 >
-                  +971 50 658 2200
+                  +91 98186 69400
                 </a>
               </div>
             </div>
@@ -275,10 +275,10 @@ export default function ContactPopup() {
                   Email Us
                 </p>
                 <a
-                  href="mailto:info@savvtek.com"
+                  href="mailto:info@teqventiq.com"
                   className="text-sm font-bold hover:text-brand-lime-vibrant transition-colors"
                 >
-                  info@savvtek.com
+                  info@teqventiq.com
                 </a>
               </div>
             </div>
@@ -291,8 +291,8 @@ export default function ContactPopup() {
                 <p className="text-[10px] font-bold uppercase tracking-wider opacity-60">
                   Location
                 </p>
-                <p className="text-sm font-bold opacity-90">
-                 2312 B2B Tower, Business Bay, Dubai
+                <p className="text-xs font-bold opacity-90">
+                  24/9 & 24/10, MCIE, Mathura Road, Badarpur, South Delhi - 110044
                 </p>
               </div>
             </div>

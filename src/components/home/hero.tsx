@@ -12,25 +12,15 @@ import Link from 'next/link';
 
 const INDUSTRIES = [
   {
-    id: 'education',
-    label: 'Education',
-    slug: 'education',
-    color: '#34d399',
+    id: 'it-ites',
+    label: 'IT / ITES',
+    slug: 'it-ites',
+    color: '#38bdf8',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
-        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-        <path d="M6 12v5c3 3 9 3 12 0v-5" />
-      </svg>
-    ),
-  },
-  {
-    id: 'healthcare',
-    label: 'Healthcare',
-    slug: 'healthcare',
-    color: '#22d3ee',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
-        <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+        <line x1="8" y1="21" x2="16" y2="21" />
+        <line x1="12" y1="17" x2="12" y2="21" />
       </svg>
     ),
   },
@@ -51,24 +41,61 @@ const INDUSTRIES = [
     ),
   },
   {
-    id: 'oil-gas',
-    label: 'Oil & Gas',
-    slug: 'oil-gas',
+    id: 'manufacturing',
+    label: 'Manufacturing',
+    slug: 'manufacturing',
     color: '#fb923c',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
-        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+        <path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4H2z" />
       </svg>
     ),
   },
   {
-    id: 'aviation',
-    label: 'Aviation',
-    slug: 'aviation-airlines',
-    color: '#f472b6',
+    id: 'food-industry',
+    label: 'Food Industry',
+    slug: 'food-industry',
+    color: '#f43f5e',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
-        <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
+        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+        <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+      </svg>
+    ),
+  },
+  {
+    id: 'real-estate',
+    label: 'Real Estate',
+    slug: 'real-estate',
+    color: '#a855f7',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
+        <path d="M3 21h18" />
+        <path d="M5 21V7l8-4v18" />
+        <path d="M19 21V11l-6-3" />
+      </svg>
+    ),
+  },
+  {
+    id: 'education',
+    label: 'Education',
+    slug: 'education',
+    color: '#34d399',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
+        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+        <path d="M6 12v5c3 3 9 3 12 0v-5" />
+      </svg>
+    ),
+  },
+  {
+    id: 'psu-government',
+    label: 'PSU & Govt',
+    slug: 'psu-government',
+    color: '#22d3ee',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
       </svg>
     ),
   },
@@ -77,8 +104,8 @@ const INDUSTRIES = [
 // ─── Orbit Ring Config ────────────────────────────────────────────────────────
 
 const RINGS = [
-  { radius: 110, duration: 18, clockwise: true,  nodes: [1, 2] },      // inner: Healthcare, BFSI
-  { radius: 220, duration: 32, clockwise: false, nodes: [0, 3, 4] },   // outer: Education, Oil&Gas, Aviation
+  { radius: 110, duration: 18, clockwise: true,  nodes: [0, 1, 5] },      // inner: IT/ITES, BFSI, Education
+  { radius: 220, duration: 32, clockwise: false, nodes: [2, 3, 4, 6] },   // outer: Manufacturing, Food, Real Estate, PSU & Govt
 ];
 
 // ─── Component ────────────────────────────────────────────────────────────────
@@ -172,6 +199,16 @@ export default function Hero() {
       ref={containerRef}
       className="relative overflow-visible min-h-screen flex items-center pt-28 pb-16 lg:pt-28 lg:pb-16 text-foreground transition-colors duration-500"
     >
+      {/* Delhi Cityscape Hero Background Visual */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-15 dark:opacity-25 mix-blend-luminosity">
+        <img
+          src="/images/delhi_skyline_hero.png"
+          alt="Delhi Tech Infrastructure"
+          className="w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+      </div>
+
       {/* Ambient gradient mesh — multi-tone blobs for a vibrant backdrop */}
       <div className="gradient-mesh-hero">
         <div className="blob-1" />
@@ -190,7 +227,7 @@ export default function Hero() {
             <div className="hero-enter inline-flex items-center gap-3 bg-white/80 dark:bg-card/80 backdrop-blur-xl border border-brand-lime/20 px-5 py-2.5 rounded-full mb-10 shadow-md">
               <span className="w-2 h-2 bg-brand-lime rounded-full animate-pulse" />
               <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-lime">
-                Savvtek Services
+                Teqventiq Services
               </span>
             </div>
 

@@ -4,7 +4,8 @@ import {
   AboutSection, 
   StackedCardSection,
   PartnersSection,
-  ClientsSection
+  ClientsSection,
+  FivePillarsSection
 } from "@/components/home";
 import { SERVICES } from "@/core/constants";
 
@@ -23,10 +24,8 @@ export default function Home() {
     <div className="bg-muted transition-colors duration-500 min-h-full">
       <Hero />
       <ClientsSection />
-      <Features />
-      <PartnersSection />
-      <AboutSection />
-
+      <FivePillarsSection />
+      
       {/* Core Services — Stacked Card Flip */}
       <StackedCardSection
         id="core-services"
@@ -46,6 +45,10 @@ export default function Home() {
           </div>
         }
       />
+
+      <Features />
+      <PartnersSection />
+      <AboutSection />
     </div>
   );
 }

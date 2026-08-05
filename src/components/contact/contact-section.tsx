@@ -76,7 +76,7 @@ export default function ContactSection() {
               </h3>
               <p className="text-lg opacity-80 leading-relaxed mb-10 max-w-[320px]">
                 Build a stronger, smarter, and more secure IT foundation with
-                Savvtek Services. Connect with us and embark on a transformational
+                Teqventiq Services. Connect with us and embark on a transformational
                 journey!
               </p>
             </div>
@@ -91,10 +91,10 @@ export default function ContactSection() {
                     Call Us
                   </p>
                   <a
-                    href="tel:+971506582200"
+                    href="tel:+919818669400"
                     className="text-lg font-bold hover:text-brand-lime transition-colors"
                   >
-                    +971 50 658 2200
+                    +91 98186 69400
                   </a>
                 </div>
               </div>
@@ -108,10 +108,10 @@ export default function ContactSection() {
                     Email Us
                   </p>
                   <a
-                    href="mailto:info@savvtek.com"
+                    href="mailto:info@teqventiq.com"
                     className="text-lg font-bold hover:text-brand-lime transition-colors"
                   >
-                    info@savvtek.com
+                    info@teqventiq.com
                   </a>
                 </div>
               </div>

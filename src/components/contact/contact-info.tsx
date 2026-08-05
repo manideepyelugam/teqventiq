@@ -1,4 +1,5 @@
 import React from 'react';
+import { COMPANY_INFO } from '@/core/constants';
 
 export default function ContactInfo() {
   return (
@@ -13,7 +14,7 @@ export default function ContactInfo() {
         <span className="text-brand-blue">Future Together</span>
       </h1>
       
-      <p className=" text-base md:text-xl text-muted-foreground leading-relaxed mb-12 max-w-[500px]">
+      <p className="text-base md:text-xl text-muted-foreground leading-relaxed mb-12 max-w-[500px]">
         Have a complex challenge? Our team of engineering experts is ready to help you navigate the modern IT landscape.
       </p>
 
@@ -24,7 +25,7 @@ export default function ContactInfo() {
           </div>
           <div>
             <h4 className="text-foreground font-bold mb-1">Call Us</h4>
-            <p className="text-muted-foreground">+1 (555) 123-4567</p>
+            <p className="text-muted-foreground">{COMPANY_INFO.phone}</p>
           </div>
         </div>
 
@@ -34,7 +35,7 @@ export default function ContactInfo() {
           </div>
           <div>
             <h4 className="text-foreground font-bold mb-1">Email Us</h4>
-            <p className="text-muted-foreground">info@savvtek.com</p>
+            <p className="text-muted-foreground">{COMPANY_INFO.email}</p>
           </div>
         </div>
 
@@ -43,8 +44,8 @@ export default function ContactInfo() {
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
           </div>
           <div>
-            <h4 className="text-foreground font-bold mb-1">Visit Us</h4>
-            <p className="text-muted-foreground">123 Tech Plaza, Silicon Valley, CA</p>
+            <h4 className="text-foreground font-bold mb-1">Visit Us (Delhi Office)</h4>
+            <p className="text-muted-foreground">{COMPANY_INFO.address.full}</p>
           </div>
         </div>
       </div>

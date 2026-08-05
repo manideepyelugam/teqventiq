@@ -273,14 +273,14 @@ export default function SchnellSection() {
         <section ref={slider1Ref} className="w-full">
           <div className="mb-12 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
             <div className="max-w-[700px]">
-              <span className="text-brand-lime font-bold tracking-widest uppercase text-xs mb-3 sm:mb-4 block">The Savvtek Advantage</span>
-              <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold font-serif text-foreground leading-[1.1] tracking-tight">
+              <span className="text-brand-lime font-bold tracking-widest uppercase text-xs mb-3 sm:mb-4 block">The Teqventiq Advantage</span>
+              <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold font-serif text-foreground leading-[1.1] tracking-tight mb-6 sm:mb-8">
                 Why Choose <br />
-                <span className="text-muted-foreground">Savvtek?</span>
+                <span className="text-muted-foreground">Teqventiq?</span>
               </h2>
             </div>
-            <p className="text-base sm:text-lg text-muted-foreground max-w-[460px] leading-relaxed">
-              Savvtek specializes in managing and transforming complex network and IT infrastructure environments into stable, scalable, and manageable solutions.
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-[540px]">
+              Teqventiq specializes in managing and transforming complex network and IT infrastructure environments into stable, scalable, and manageable solutions.
             </p>
           </div>
 

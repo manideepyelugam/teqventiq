@@ -63,12 +63,12 @@ export default function ServiceDetailHero({ service }: ServiceDetailHeroProps) {
             </span>
           </div>
 
-          <h1 className="detail-hero-title text-4xl lg:text-8xl font-bold font-serif leading-[1.1] text-foreground mb-8">
-            {service.title}
+          <h1 className="detail-hero-title text-4xl lg:text-7xl font-bold font-serif leading-[1.1] text-foreground mb-8">
+            {service.heroHeadline || service.title}
           </h1>
 
-          <p className="detail-hero-desc text-xl lg:text-2xl text-muted-foreground font-medium leading-relaxed max-w-[600px]">
-            {service.description}
+          <p className="detail-hero-desc text-xl lg:text-2xl text-muted-foreground font-medium leading-relaxed max-w-[720px]">
+            {service.heroSubhead || service.description}
           </p>
         </div>
       </div>
