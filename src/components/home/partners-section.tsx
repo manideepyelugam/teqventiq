@@ -95,7 +95,7 @@ export default function PartnersSection() {
           {selectedPartners.map((partner, index) => (
             <div
               key={`${partner.name}-${index}`}
-              className="bg-card/90 backdrop-blur-md rounded-2xl p-4 h-24 sm:h-28 flex items-center justify-center shadow-sm border border-border/60 hover:scale-[1.03] hover:shadow-md hover:border-brand-blue/40 transition-all duration-300 group"
+              className="bg-white rounded-2xl p-4 h-24 sm:h-28 flex items-center justify-center shadow-sm border border-slate-200/80 hover:scale-[1.03] hover:shadow-md hover:border-brand-blue/50 transition-all duration-300 group"
             >
               <CompanyLogo
                 domain={partner.domain}

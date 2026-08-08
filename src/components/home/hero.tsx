@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import { gsap } from 'gsap';
 import { useGsap } from '@/core/hooks/use-gsap';
 import { Button } from '@/components/ui';
@@ -11,114 +11,44 @@ import {
   Server,
   Cpu,
   Network,
-  CheckCircle2,
-  Activity,
-  Zap,
+  Monitor,
+  Laptop,
+  Landmark,
+  Factory,
+  Utensils,
+  Building,
+  GraduationCap,
+  Building2,
   Radio,
-  Lock,
-  ArrowUpRight,
-  Shield,
-  Sparkles
 } from 'lucide-react';
 import Link from 'next/link';
 
-const ECOSYSTEM_NODES = [
-  {
-    id: 'cybersecurity',
-    title: 'Cybersecurity & Zero Trust',
-    shortName: 'Cybersecurity',
-    badge: 'ISO 27001 • SOC 2',
-    icon: ShieldCheck,
-    color: 'from-blue-500 to-indigo-600',
-    accentColor: 'text-brand-blue',
-    bgGlow: 'bg-blue-500/10',
-    borderColor: 'border-brand-blue/30',
-    metrics: [
-      { label: 'Threat Defense Rate', value: '99.99%' },
-      { label: 'Incident SLA', value: '< 15m' },
-      { label: 'Zero Trust Engine', value: 'Active' }
-    ],
-    features: [
-      'Next-Gen Firewall (NGFW) & SASE Architecture',
-      '24/7 Managed SOC & Incident Response',
-      'Identity & Endpoint Protection (EDR/XDR)'
-    ],
-    link: '/services/cybersecurity'
-  },
-  {
-    id: 'datacentre',
-    title: 'Datacentre & Cloud Infrastructure',
-    shortName: 'Cloud & Infra',
-    badge: 'Tier IV SLA',
-    icon: Server,
-    color: 'from-emerald-500 to-teal-600',
-    accentColor: 'text-emerald-500',
-    bgGlow: 'bg-emerald-500/10',
-    borderColor: 'border-emerald-500/30',
-    metrics: [
-      { label: 'Uptime SLA Target', value: '99.999%' },
-      { label: 'Failover RPO/RTO', value: '< 1 min' },
-      { label: 'Colocation Node', value: 'Delhi HQ' }
-    ],
-    features: [
-      'Enterprise Server Colocation & Compute',
-      'Multi-Cloud Orchestration (AWS/Azure/Private)',
-      'Disaster Recovery as a Service (DRaaS)'
-    ],
-    link: '/services/datacentre'
-  },
-  {
-    id: 'networking',
-    title: 'SD-WAN & Active Fiber Networks',
-    shortName: 'Networking',
-    badge: 'Active Fiber 10G',
-    icon: Network,
-    color: 'from-indigo-500 to-purple-600',
-    accentColor: 'text-indigo-400',
-    bgGlow: 'bg-indigo-500/10',
-    borderColor: 'border-indigo-500/30',
-    metrics: [
-      { label: 'Network Latency', value: '< 8ms' },
-      { label: 'Fiber Link Speed', value: '10 Gbps+' },
-      { label: 'Failover Response', value: 'Sub-Sec' }
-    ],
-    features: [
-      'SD-WAN Multi-Branch Acceleration',
-      'High-Density Managed Switch Fabrics',
-      'Active-Active Fiber Links & Redundancy'
-    ],
-    link: '/services/networking'
-  },
-  {
-    id: 'data-ai',
-    title: 'Data Intelligence & AI Ops',
-    shortName: 'Data & AI',
-    badge: 'AI Ops Engine',
-    icon: Cpu,
-    color: 'from-amber-500 to-orange-600',
-    accentColor: 'text-amber-500',
-    bgGlow: 'bg-amber-500/10',
-    borderColor: 'border-amber-500/30',
-    metrics: [
-      { label: 'Processing Telemetry', value: 'Real-Time' },
-      { label: 'Accuracy Benchmark', value: '99.8%' },
-      { label: 'Ops Efficiency Gain', value: '4.5x Rate' }
-    ],
-    features: [
-      'Enterprise Analytics & Data Warehouse',
-      'AI Predictive Maintenance & Intelligence',
-      'Automated Workflow ETL & Data Pipelines'
-    ],
-    link: '/services/data-ai'
-  }
+/* ─── DATA ──────────────────────────────────────────── */
+
+const SERVICES = [
+  { id: 'cybersecurity', title: 'Cybersecurity', icon: ShieldCheck, color: '#2563eb', link: '/services/cybersecurity' },
+  { id: 'datacentre', title: 'Datacentre', icon: Server, color: '#10b981', link: '/services/datacentre' },
+  { id: 'networking', title: 'Networking', icon: Network, color: '#6366f1', link: '/services/networking' },
+  { id: 'data-ai', title: 'Data & AI', icon: Cpu, color: '#f59e0b', link: '/services/data-ai' },
+  { id: 'managed-support', title: 'Managed IT', icon: Monitor, color: '#a855f7', link: '/services/managed-support' },
 ];
+
+const INDUSTRIES = [
+  { id: 'it-ites', title: 'IT / ITES', icon: Laptop, color: '#3b82f6', link: '/industries/it-ites' },
+  { id: 'bfsi', title: 'BFSI', icon: Landmark, color: '#10b981', link: '/industries/bfsi' },
+  { id: 'manufacturing', title: 'Manufacturing', icon: Factory, color: '#f97316', link: '/industries/manufacturing' },
+  { id: 'food-industry', title: 'Food Industry', icon: Utensils, color: '#eab308', link: '/industries/food-industry' },
+  { id: 'real-estate', title: 'Real Estate', icon: Building, color: '#ec4899', link: '/industries/real-estate' },
+  { id: 'education', title: 'Education', icon: GraduationCap, color: '#8b5cf6', link: '/industries/education' },
+  { id: 'psu-government', title: 'PSU & Govt', icon: Building2, color: '#06b6d4', link: '/industries/psu-government' },
+];
+
+/* ─── COMPONENT ─────────────────────────────────────── */
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [activeTab, setActiveTab] = useState(0);
 
   useGsap(() => {
-    // Text entrance animation
     gsap.from('.hero-enter', {
       opacity: 0,
       y: 40,
@@ -127,16 +57,6 @@ export default function Hero() {
       stagger: 0.14,
     });
 
-    // Gentle float for the showcase console card
-    gsap.to('.hero-dashboard-card', {
-      y: -8,
-      duration: 4,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut',
-    });
-
-    // Status pulse animation
     gsap.to('.status-pulse', {
       scale: 1.4,
       opacity: 0,
@@ -146,8 +66,11 @@ export default function Hero() {
     });
   }, containerRef);
 
-  const activeNode = ECOSYSTEM_NODES[activeTab];
-  const ActiveIcon = activeNode.icon;
+  // Orbit config
+  const INNER_RADIUS = 130; // services orbit radius (px)
+  const OUTER_RADIUS = 200; // industries orbit radius (px)
+  const INNER_SPEED = 60;  // seconds per full revolution
+  const OUTER_SPEED = 90;  // seconds per full revolution
 
   return (
     <section
@@ -155,7 +78,7 @@ export default function Hero() {
       ref={containerRef}
       className="relative overflow-hidden min-h-screen flex items-center pt-28 pb-20 lg:pt-32 lg:pb-24 text-foreground transition-colors duration-500"
     >
-      {/* Delhi Cityscape Hero Background Visual with smooth gradient mask */}
+      {/* Delhi Cityscape Background */}
       <div
         className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-15 dark:opacity-25 mix-blend-luminosity"
         style={{
@@ -171,7 +94,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
       </div>
 
-      {/* Ambient gradient mesh — masked at bottom for smooth page transition */}
+      {/* Ambient gradient mesh */}
       <div
         className="gradient-mesh-hero"
         style={{
@@ -183,18 +106,17 @@ export default function Hero() {
         <div className="blob-2" />
       </div>
 
-      {/* Dot grid texture */}
       <div className="dot-grid-overlay" />
 
       <div className="w-full mx-auto max-w-[1280px] px-5 relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
 
-          {/* ── LEFT: Text Content ────────────────────────────────── */}
-          <div className="lg:col-span-6">
+          {/* ── LEFT: Text ─────────────────────────────────── */}
+          <div className="lg:col-span-5">
             <div className="hero-enter inline-flex items-center gap-2.5 bg-brand-blue/10 border border-brand-blue/25 px-4 py-1.5 rounded-full mb-6 shadow-sm backdrop-blur-md">
               <span className="relative flex h-2.5 w-2.5">
-                <span className="status-pulse absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-blue"></span>
+                <span className="status-pulse absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-blue" />
               </span>
               <span className="text-xs font-bold uppercase tracking-wider text-brand-blue">
                 Teqventiq Services
@@ -219,12 +141,7 @@ export default function Hero() {
                   <ArrowRight className="w-4.5 h-4.5 transition-transform group-hover:translate-x-1" />
                 </a>
               </Button>
-
-              <Button
-                asChild
-                variant="outline"
-                className="btn-outline group"
-              >
+              <Button asChild variant="outline" className="btn-outline group">
                 <a href="#features">
                   Our Impact
                   <ChevronDown className="w-4.5 h-4.5 opacity-60 group-hover:opacity-100 transition-opacity" />
@@ -233,140 +150,181 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* ── RIGHT: Ultra-Premium Interactive Command Console ──── */}
-          <div className="lg:col-span-6 hero-enter flex justify-center lg:justify-end">
-            <div className="hero-dashboard-card relative w-full max-w-[580px] rounded-3xl bg-card/90 backdrop-blur-2xl border border-border/80 shadow-2xl p-5 sm:p-7 overflow-hidden group">
+          {/* ── RIGHT: Orbit Ecosystem ────────────────────── */}
+          <div className="lg:col-span-7 hero-enter flex justify-center lg:justify-end">
+            <div
+              className="relative"
+              style={{ width: OUTER_RADIUS * 2 + 80, height: OUTER_RADIUS * 2 + 80 }}
+            >
+              {/* ── Orbit Ring Tracks (visual guides) ── */}
+              {/* Inner ring */}
+              <div
+                className="absolute rounded-full border border-brand-blue/15 dark:border-brand-blue/25 pointer-events-none"
+                style={{
+                  width: INNER_RADIUS * 2,
+                  height: INNER_RADIUS * 2,
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  animation: 'orbit-pulse-ring 5s ease-in-out infinite',
+                }}
+              />
+              {/* Outer ring */}
+              <div
+                className="absolute rounded-full border border-indigo-500/10 dark:border-indigo-500/20 pointer-events-none"
+                style={{
+                  width: OUTER_RADIUS * 2,
+                  height: OUTER_RADIUS * 2,
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  animation: 'orbit-pulse-ring 7s ease-in-out infinite 1s',
+                }}
+              />
 
-              {/* Top Glassmorphic Glow Header */}
-              <div className="flex items-center justify-between pb-4 mb-5 border-b border-border/50">
-                <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 rounded-full bg-emerald-500 relative">
-                    <div className="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-75" />
-                  </div>
-                  <div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-foreground block leading-none mb-0.5">
-                      Enterprise Command Center
-                    </span>
-                    <span className="text-[11px] font-mono text-muted-foreground">
-                      Live Telemetry • Delhi HQ
-                    </span>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <span className="px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5">
-                    <Activity className="w-3 h-3 animate-pulse text-emerald-500" />
-                    Operational
-                  </span>
+              {/* ── CENTER HUB: Teqventiq Logo ────────── */}
+              <div
+                className="absolute z-20"
+                style={{
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                }}
+              >
+                <div
+                  className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-card/95 border-2 border-brand-blue/40 flex flex-col items-center justify-center p-3 relative backdrop-blur-2xl"
+                  style={{ animation: 'orbit-node-glow 4s ease-in-out infinite' }}
+                >
+                  {/* Ping ring */}
+                  <div className="absolute inset-0 rounded-full border-2 border-brand-blue/30 animate-ping pointer-events-none" />
+                  <img
+                    src="/images/teqventiq logo/teqventiq light.png"
+                    alt="Teqventiq"
+                    className="logo-light max-w-[72px] sm:max-w-[82px] h-auto object-contain"
+                  />
+                  <img
+                    src="/images/teqventiq logo/teqventiq dark.png"
+                    alt="Teqventiq"
+                    className="logo-dark max-w-[72px] sm:max-w-[82px] h-auto object-contain"
+                  />
                 </div>
               </div>
 
-              {/* Pillar Selector Tabs */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6">
-                {ECOSYSTEM_NODES.map((node, idx) => {
-                  const NodeIcon = node.icon;
-                  const isActive = activeTab === idx;
+              {/* ── INNER ORBIT: Services (rotate clockwise) ── */}
+              <div
+                className="absolute z-10"
+                style={{
+                  width: INNER_RADIUS * 2,
+                  height: INNER_RADIUS * 2,
+                  top: '50%',
+                  left: '50%',
+                  marginTop: -INNER_RADIUS,
+                  marginLeft: -INNER_RADIUS,
+                  animation: `orbit-spin ${INNER_SPEED}s linear infinite`,
+                }}
+              >
+                {SERVICES.map((svc, i) => {
+                  const angle = (360 / SERVICES.length) * i;
+                  const Icon = svc.icon;
                   return (
-                    <button
-                      key={node.id}
-                      onClick={() => setActiveTab(idx)}
-                      className={`flex items-center gap-2 p-2.5 rounded-xl border text-left transition-all duration-300 ${isActive
-                          ? 'bg-brand-blue/10 border-brand-blue text-brand-blue shadow-sm'
-                          : 'bg-muted/30 border-border/40 text-muted-foreground hover:bg-muted/70 hover:text-foreground'
-                        }`}
+                    <Link
+                      key={svc.id}
+                      href={svc.link}
+                      className="absolute group/node"
+                      style={{
+                        top: '50%',
+                        left: '50%',
+                        transform: `rotate(${angle}deg) translateY(-${INNER_RADIUS}px)`,
+                        marginTop: -22,
+                        marginLeft: -22,
+                      }}
                     >
-                      <NodeIcon className={`w-4 h-4 shrink-0 ${isActive ? 'text-brand-blue' : 'opacity-70'}`} />
-                      <span className="text-xs font-bold truncate font-sans">
-                        {node.shortName}
-                      </span>
-                    </button>
+                      {/* Counter-rotate to keep icon upright */}
+                      <div
+                        style={{
+                          animation: `orbit-counter ${INNER_SPEED}s linear infinite`,
+                          transform: `rotate(-${angle}deg)`,
+                        }}
+                      >
+                        <div
+                          className="w-11 h-11 rounded-2xl bg-card/95 border-2 shadow-lg backdrop-blur-xl flex items-center justify-center transition-all duration-300 group-hover/node:scale-130"
+                          style={{
+                            borderColor: svc.color,
+                            color: svc.color,
+                          }}
+                        >
+                          <Icon className="w-5 h-5" />
+                        </div>
+                        {/* Tooltip */}
+                        <div className="absolute top-full mt-1 left-1/2 -translate-x-1/2 whitespace-nowrap px-2.5 py-1 rounded-lg bg-card/95 border border-border/80 shadow-md backdrop-blur-md opacity-0 scale-90 group-hover/node:opacity-100 group-hover/node:scale-100 transition-all duration-200 pointer-events-none z-50">
+                          <span className="text-[10px] font-bold text-foreground block leading-none">
+                            {svc.title}
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
                   );
                 })}
               </div>
 
-              {/* Main Interactive Telemetry Display Box */}
-              <div className={`relative rounded-2xl p-5 border ${activeNode.borderColor} bg-gradient-to-br from-background/90 via-card to-background transition-all duration-500 overflow-hidden shadow-inner`}>
-
-                {/* Background Tech Circuit Mesh Graphic */}
-                <div className="absolute right-0 top-0 w-48 h-48 opacity-10 pointer-events-none text-brand-blue">
-                  <svg width="200" height="200" viewBox="0 0 200 200" fill="none">
-                    <circle cx="150" cy="50" r="40" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4" />
-                    <circle cx="150" cy="50" r="70" stroke="currentColor" strokeWidth="1" />
-                    <line x1="0" y1="50" x2="200" y2="50" stroke="currentColor" strokeWidth="1.5" />
-                    <line x1="150" y1="0" x2="150" y2="200" stroke="currentColor" strokeWidth="1.5" />
-                  </svg>
-                </div>
-
-                {/* Display Header */}
-                <div className="flex items-start justify-between mb-4 relative z-10">
-                  <div className="flex items-center gap-3">
-                    <div className={`w-11 h-11 rounded-2xl ${activeNode.bgGlow} border ${activeNode.borderColor} flex items-center justify-center ${activeNode.accentColor}`}>
-                      <ActiveIcon className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h3 className="text-base font-bold text-foreground font-serif leading-tight">
-                        {activeNode.title}
-                      </h3>
-                      <span className="text-[11px] font-mono text-muted-foreground">
-                        Verified Enterprise Spec
-                      </span>
-                    </div>
-                  </div>
-
-                  <span className="px-2.5 py-1 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-[10px] font-bold uppercase tracking-wider shrink-0">
-                    {activeNode.badge}
-                  </span>
-                </div>
-
-                {/* Live Metrics Grid */}
-                <div className="grid grid-cols-3 gap-2.5 mb-5 relative z-10">
-                  {activeNode.metrics.map((metric, idx) => (
-                    <div key={idx} className="p-2.5 rounded-xl bg-muted/40 border border-border/50 text-center">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground block mb-0.5">
-                        {metric.label}
-                      </span>
-                      <span className={`text-sm sm:text-base font-bold font-mono ${activeNode.accentColor}`}>
-                        {metric.value}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Key Capability Bullet Points */}
-                <div className="space-y-2 mb-5 relative z-10">
-                  {activeNode.features.map((feat, fIdx) => (
-                    <div key={fIdx} className="flex items-center gap-2.5 text-xs text-foreground/90">
-                      <CheckCircle2 className={`w-4 h-4 shrink-0 ${activeNode.accentColor}`} />
-                      <span className="font-medium truncate">{feat}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* View Details Link Action */}
-                <div className="pt-3 border-t border-border/40 flex items-center justify-between relative z-10">
-                  <span className="text-[11px] font-mono text-muted-foreground flex items-center gap-1.5">
-                    <Zap className="w-3.5 h-3.5 text-amber-500" />
-                    Automated Deployment Ready
-                  </span>
-                  <Link
-                    href={activeNode.link}
-                    className={`inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider ${activeNode.accentColor} hover:underline group/link`}
-                  >
-                    <span>Explore Spec</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
-                  </Link>
-                </div>
-
+              {/* ── OUTER ORBIT: Industries (rotate counter-clockwise) ── */}
+              <div
+                className="absolute z-10"
+                style={{
+                  width: OUTER_RADIUS * 2,
+                  height: OUTER_RADIUS * 2,
+                  top: '50%',
+                  left: '50%',
+                  marginTop: -OUTER_RADIUS,
+                  marginLeft: -OUTER_RADIUS,
+                  animation: `orbit-counter ${OUTER_SPEED}s linear infinite`,
+                }}
+              >
+                {INDUSTRIES.map((ind, i) => {
+                  const angle = (360 / INDUSTRIES.length) * i;
+                  const Icon = ind.icon;
+                  return (
+                    <Link
+                      key={ind.id}
+                      href={ind.link}
+                      className="absolute group/node"
+                      style={{
+                        top: '50%',
+                        left: '50%',
+                        transform: `rotate(${angle}deg) translateY(-${OUTER_RADIUS}px)`,
+                        marginTop: -19,
+                        marginLeft: -19,
+                      }}
+                    >
+                      {/* Counter-rotate (opposite direction) to keep icon upright */}
+                      <div
+                        style={{
+                          animation: `orbit-spin ${OUTER_SPEED}s linear infinite`,
+                          transform: `rotate(-${angle}deg)`,
+                        }}
+                      >
+                        <div
+                          className="w-[38px] h-[38px] rounded-xl bg-card/95 border-2 shadow-md backdrop-blur-xl flex items-center justify-center transition-all duration-300 group-hover/node:scale-130"
+                          style={{
+                            borderColor: ind.color,
+                            color: ind.color,
+                          }}
+                        >
+                          <Icon className="w-4 h-4" />
+                        </div>
+                        {/* Tooltip */}
+                        <div className="absolute top-full mt-1 left-1/2 -translate-x-1/2 whitespace-nowrap px-2 py-0.5 rounded-lg bg-card/95 border border-border/80 shadow-md backdrop-blur-md opacity-0 scale-90 group-hover/node:opacity-100 group-hover/node:scale-100 transition-all duration-200 pointer-events-none z-50">
+                          <span className="text-[9px] font-bold text-foreground block leading-none">
+                            {ind.title}
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  );
+                })}
               </div>
 
-              {/* Bottom Real-Time Telemetry Bar */}
-              <div className="mt-4 pt-3 border-t border-border/40 flex items-center justify-between text-[11px] text-muted-foreground font-mono">
-                <div className="flex items-center gap-2">
-                  <Radio className="w-3.5 h-3.5 text-emerald-500 animate-pulse" />
-                  <span>SLA 99.999% • Zero Trust Active</span>
-                </div>
-                <span className="text-brand-blue font-bold">DELHI HQ</span>
-              </div>
+
 
             </div>
           </div>

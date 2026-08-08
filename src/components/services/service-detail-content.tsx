@@ -70,38 +70,6 @@ export default function ServiceDetailContent({ service }: ServiceDetailContentPr
         </div>
       </section>
 
-      {/* 2. Value Proposition Grid */}
-      {!!service.valueProps?.length && (
-        <section className="mx-auto max-w-[1248px] px-5">
-          <div className="mb-12 reveal-block">
-            <span className="text-brand-lime font-bold tracking-widest uppercase text-xs block mb-3">
-              Why Teqventiq
-            </span>
-            <h3 className="text-3xl lg:text-4xl font-bold font-serif text-foreground">
-              Our Value Proposition
-            </h3>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-            {service.valueProps.map((vp, idx) => (
-              <Card key={idx} className="reveal-block rounded-2xl border border-border/60 bg-card/80 backdrop-blur-md p-6 sm:p-8 transition-all duration-300 hover:border-brand-blue/40 hover:shadow-md">
-                <CardContent className="p-0">
-                  <div className="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue font-bold font-mono text-sm mb-4">
-                    0{idx + 1}
-                  </div>
-                  <h4 className="text-xl font-bold font-serif text-foreground mb-3">
-                    {vp.title}
-                  </h4>
-                  <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                    {vp.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-      )}
-
       {/* 3. Capability Breakdown */}
       {!!service.capabilities?.length && (
         <section className="mx-auto max-w-[1280px] px-5">
