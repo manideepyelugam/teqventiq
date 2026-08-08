@@ -67,7 +67,6 @@ export default function FivePillarsSection() {
       id="five-pillars"
       className="py-12 lg:py-20 transition-colors duration-500 relative overflow-hidden"
     >
-      <div className="dot-grid-overlay" />
       <div className="mx-auto max-w-[1280px] px-5 relative z-10">
         
         {/* Stacked Cards replacing static grid */}

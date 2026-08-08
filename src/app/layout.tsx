@@ -42,7 +42,7 @@ export default function RootLayout({
         >
           <div className="wrapper">
             <Header />
-            <main className="page">
+            <main className="page min-h-screen">
               {children}
             </main>
             <Footer />

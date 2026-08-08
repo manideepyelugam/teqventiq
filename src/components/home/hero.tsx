@@ -210,19 +210,8 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* ── INNER ORBIT: Services (rotate clockwise) ── */}
-              <div
-                className="absolute z-10"
-                style={{
-                  width: INNER_RADIUS * 2,
-                  height: INNER_RADIUS * 2,
-                  top: '50%',
-                  left: '50%',
-                  marginTop: -INNER_RADIUS,
-                  marginLeft: -INNER_RADIUS,
-                  animation: `orbit-spin ${INNER_SPEED}s linear infinite`,
-                }}
-              >
+              {/* ── INNER ORBIT: Services (orbit clockwise, 100% upright) ── */}
+              <div className="absolute inset-0 z-30 pointer-events-none">
                 {SERVICES.map((svc, i) => {
                   const angle = (360 / SERVICES.length) * i;
                   const Icon = svc.icon;
@@ -230,24 +219,21 @@ export default function Hero() {
                     <Link
                       key={svc.id}
                       href={svc.link}
-                      className="absolute group/node"
+                      className="absolute group/node pointer-events-auto cursor-pointer z-40 hover:[animation-play-state:paused]"
                       style={{
                         top: '50%',
                         left: '50%',
-                        transform: `rotate(${angle}deg) translateY(-${INNER_RADIUS}px)`,
                         marginTop: -22,
                         marginLeft: -22,
+                        animation: `orbit-revolve-cw ${INNER_SPEED}s linear infinite`,
+                        // @ts-expect-error custom CSS variables for keyframe orbit
+                        '--start-angle': `${angle}deg`,
+                        '--orbit-radius': `${INNER_RADIUS}px`,
                       }}
                     >
-                      {/* Counter-rotate to keep icon upright */}
-                      <div
-                        style={{
-                          animation: `orbit-counter ${INNER_SPEED}s linear infinite`,
-                          transform: `rotate(-${angle}deg)`,
-                        }}
-                      >
+                      <div className="relative">
                         <div
-                          className="w-11 h-11 rounded-2xl bg-card/95 border-2 shadow-lg backdrop-blur-xl flex items-center justify-center transition-all duration-300 group-hover/node:scale-130"
+                          className="w-11 h-11 rounded-2xl bg-card/95 border-2 shadow-lg backdrop-blur-xl flex items-center justify-center transition-all duration-300 group-hover/node:scale-130 group-hover/node:shadow-2xl"
                           style={{
                             borderColor: svc.color,
                             color: svc.color,
@@ -256,7 +242,7 @@ export default function Hero() {
                           <Icon className="w-5 h-5" />
                         </div>
                         {/* Tooltip */}
-                        <div className="absolute top-full mt-1 left-1/2 -translate-x-1/2 whitespace-nowrap px-2.5 py-1 rounded-lg bg-card/95 border border-border/80 shadow-md backdrop-blur-md opacity-0 scale-90 group-hover/node:opacity-100 group-hover/node:scale-100 transition-all duration-200 pointer-events-none z-50">
+                        <div className="absolute top-full mt-1.5 left-1/2 -translate-x-1/2 whitespace-nowrap px-2.5 py-1 rounded-lg bg-card/95 border border-border/80 shadow-md backdrop-blur-md opacity-0 scale-90 group-hover/node:opacity-100 group-hover/node:scale-100 transition-all duration-200 pointer-events-none z-50">
                           <span className="text-[10px] font-bold text-foreground block leading-none">
                             {svc.title}
                           </span>
@@ -267,19 +253,8 @@ export default function Hero() {
                 })}
               </div>
 
-              {/* ── OUTER ORBIT: Industries (rotate counter-clockwise) ── */}
-              <div
-                className="absolute z-10"
-                style={{
-                  width: OUTER_RADIUS * 2,
-                  height: OUTER_RADIUS * 2,
-                  top: '50%',
-                  left: '50%',
-                  marginTop: -OUTER_RADIUS,
-                  marginLeft: -OUTER_RADIUS,
-                  animation: `orbit-counter ${OUTER_SPEED}s linear infinite`,
-                }}
-              >
+              {/* ── OUTER ORBIT: Industries (orbit counter-clockwise, 100% upright) ── */}
+              <div className="absolute inset-0 z-20 pointer-events-none">
                 {INDUSTRIES.map((ind, i) => {
                   const angle = (360 / INDUSTRIES.length) * i;
                   const Icon = ind.icon;
@@ -287,24 +262,21 @@ export default function Hero() {
                     <Link
                       key={ind.id}
                       href={ind.link}
-                      className="absolute group/node"
+                      className="absolute group/node pointer-events-auto cursor-pointer z-40 hover:[animation-play-state:paused]"
                       style={{
                         top: '50%',
                         left: '50%',
-                        transform: `rotate(${angle}deg) translateY(-${OUTER_RADIUS}px)`,
                         marginTop: -19,
                         marginLeft: -19,
+                        animation: `orbit-revolve-ccw ${OUTER_SPEED}s linear infinite`,
+                        // @ts-expect-error custom CSS variables for keyframe orbit
+                        '--start-angle': `${angle}deg`,
+                        '--orbit-radius': `${OUTER_RADIUS}px`,
                       }}
                     >
-                      {/* Counter-rotate (opposite direction) to keep icon upright */}
-                      <div
-                        style={{
-                          animation: `orbit-spin ${OUTER_SPEED}s linear infinite`,
-                          transform: `rotate(-${angle}deg)`,
-                        }}
-                      >
+                      <div className="relative">
                         <div
-                          className="w-[38px] h-[38px] rounded-xl bg-card/95 border-2 shadow-md backdrop-blur-xl flex items-center justify-center transition-all duration-300 group-hover/node:scale-130"
+                          className="w-[38px] h-[38px] rounded-xl bg-card/95 border-2 shadow-md backdrop-blur-xl flex items-center justify-center transition-all duration-300 group-hover/node:scale-130 group-hover/node:shadow-2xl"
                           style={{
                             borderColor: ind.color,
                             color: ind.color,
@@ -313,7 +285,7 @@ export default function Hero() {
                           <Icon className="w-4 h-4" />
                         </div>
                         {/* Tooltip */}
-                        <div className="absolute top-full mt-1 left-1/2 -translate-x-1/2 whitespace-nowrap px-2 py-0.5 rounded-lg bg-card/95 border border-border/80 shadow-md backdrop-blur-md opacity-0 scale-90 group-hover/node:opacity-100 group-hover/node:scale-100 transition-all duration-200 pointer-events-none z-50">
+                        <div className="absolute top-full mt-1.5 left-1/2 -translate-x-1/2 whitespace-nowrap px-2 py-0.5 rounded-lg bg-card/95 border border-border/80 shadow-md backdrop-blur-md opacity-0 scale-90 group-hover/node:opacity-100 group-hover/node:scale-100 transition-all duration-200 pointer-events-none z-50">
                           <span className="text-[9px] font-bold text-foreground block leading-none">
                             {ind.title}
                           </span>

@@ -41,7 +41,7 @@
   --brand-dark: #090d16;
   --brand-lime: #2563eb;
   --brand-lime-vibrant: #10b981;
-  --dot-grid-color: rgba(37, 99, 235, 0.08);
+  --dot-grid-color: rgba(37, 99, 235, 0.20);
 }
 
 .dark {
@@ -64,7 +64,7 @@
   --ring: #3b82f6;
   --brand-lime: #10b981;
   --brand-lime-vibrant: #10b981;
-  --dot-grid-color: rgba(255, 255, 255, 0.05);
+  --dot-grid-color: rgba(255, 255, 255, 0.10);
 }
 
 @theme {
@@ -138,26 +138,55 @@
 }
 
 /* ── Hero Orbit Animations ─────────────────────────── */
-@keyframes orbit-spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+@keyframes orbit-revolve-cw {
+  0% {
+    transform: rotate(var(--start-angle)) translateY(calc(-1 * var(--orbit-radius))) rotate(calc(-1 * var(--start-angle)));
+  }
+
+  100% {
+    transform: rotate(calc(var(--start-angle) + 360deg)) translateY(calc(-1 * var(--orbit-radius))) rotate(calc(-1 * (var(--start-angle) + 360deg)));
+  }
 }
 
-@keyframes orbit-counter {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(-360deg); }
+@keyframes orbit-revolve-ccw {
+  0% {
+    transform: rotate(var(--start-angle)) translateY(calc(-1 * var(--orbit-radius))) rotate(calc(-1 * var(--start-angle)));
+  }
+
+  100% {
+    transform: rotate(calc(var(--start-angle) - 360deg)) translateY(calc(-1 * var(--orbit-radius))) rotate(calc(-1 * (var(--start-angle) - 360deg)));
+  }
 }
 
 @keyframes orbit-pulse-ring {
-  0%   { transform: scale(1); opacity: 0.4; }
-  50%  { transform: scale(1.06); opacity: 0.15; }
-  100% { transform: scale(1); opacity: 0.4; }
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: scale(1.06);
+    opacity: 0.15;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
 }
 
 @keyframes orbit-node-glow {
-  0%   { box-shadow: 0 0 8px rgba(37,99,235,0.15); }
-  50%  { box-shadow: 0 0 20px rgba(37,99,235,0.35); }
-  100% { box-shadow: 0 0 8px rgba(37,99,235,0.15); }
+  0% {
+    box-shadow: 0 0 8px rgba(37, 99, 235, 0.15);
+  }
+
+  50% {
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.35);
+  }
+
+  100% {
+    box-shadow: 0 0 8px rgba(37, 99, 235, 0.15);
+  }
 }
 
 @layer base {
@@ -365,61 +394,25 @@
   }
 }
 
-/* Enterprise Ambient Glow Background Mesh */
+/* Enterprise Ambient Glow Background Mesh (Disabled in favor of uniform dotted background) */
 .gradient-mesh-hero,
 .gradient-mesh-section {
+  display: none !important;
+}
+
+/* Background Dot Grid Utility using dynamic color variables */
+.dot-grid-overlay {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  overflow: hidden;
   z-index: 0;
+  background-image: radial-gradient(circle, var(--dot-grid-color) 1.2px, transparent 1.2px);
+  background-size: 28px 28px;
 }
 
-.gradient-mesh-hero .blob-1,
-.gradient-mesh-section .blob-a {
-  position: absolute;
-  width: 60%;
-  height: 60%;
-  top: -20%;
-  right: -10%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, rgba(37, 99, 235, 0.02) 50%, transparent 70%);
-  filter: blur(80px);
-}
-
-.gradient-mesh-hero .blob-2,
-.gradient-mesh-section .blob-b {
-  position: absolute;
-  width: 50%;
-  height: 50%;
-  bottom: -15%;
-  left: -10%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.07) 0%, rgba(99, 102, 241, 0.01) 50%, transparent 70%);
-  filter: blur(80px);
-}
-
-.gradient-mesh-hero .blob-3,
-.gradient-mesh-hero .blob-4,
-.gradient-mesh-section .blob-c {
-  display: none;
-}
-
-.dark .gradient-mesh-hero .blob-1,
-.dark .gradient-mesh-section .blob-a {
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, rgba(37, 99, 235, 0.03) 50%, transparent 75%);
-}
-
-.dark .gradient-mesh-hero .blob-2,
-.dark .gradient-mesh-section .blob-b {
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, rgba(99, 102, 241, 0.02) 50%, transparent 75%);
-}
-
-/* Background Dot Grid Utility */
-.dot-grid-overlay,
 .bg-dot-grid {
   background-image: radial-gradient(circle, var(--dot-grid-color) 1.2px, transparent 1.2px);
-  background-size: 32px 32px;
+  background-size: 28px 28px;
 }
 
 .gradient-mask-bottom {
