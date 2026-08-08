@@ -153,7 +153,7 @@ export default function Features() {
               image={industry.image}
               slug={industry.slug}
               className={cn(
-                index === 0 && "lg:col-span-2"
+                (index === 0 || index === orderedIndustries.length - 1) && "lg:col-span-2"
               )}
             />
           ))}

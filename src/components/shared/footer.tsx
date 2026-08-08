@@ -18,16 +18,16 @@ const Logo = () => {
   return (
     <>
       <img
-        src="/logo.png"
+        src="/images/teqventiq logo/teqventiq light.png"
         alt="Teqventiq Logo"
-        width="180"
+        width="140"
         height="auto"
         className="logo-light max-w-full h-auto"
       />
       <img
-        src="/logo.png"
+        src="/images/teqventiq logo/teqventiq dark.png"
         alt="Teqventiq Logo"
-        width="180"
+        width="140"
         height="auto"
         className="logo-dark max-w-full h-auto"
       />

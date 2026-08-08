@@ -97,7 +97,7 @@ export interface FivePillarItem {
 
 export interface CategorizedPartner {
   category: string;
-  partners: { id: number; name: string; domain: string }[];
+  partners: { id: number; name: string; domain: string; image?: string }[];
 }
 
 export interface Testimonial {
@@ -114,6 +114,7 @@ export interface Partner {
   name: string;
   domain: string;
   logo?: string;
+  image?: string;
 }
 
 export interface Client {

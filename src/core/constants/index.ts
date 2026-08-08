@@ -294,7 +294,7 @@ export const SERVICES: Service[] = [
     title: "Datacentre",
     description: "From servers and storage to backup and virtualization, we design datacentre environments built for resilience first, capacity second.",
     icon: "Server",
-    image: "/images/infra_and_cloud_banner.png",
+    image: "/images/services banner/datacenter.png",
     heroHeadline: "Infrastructure that doesn't go down when it matters most.",
     heroSubhead: "From servers and storage to backup and virtualization, we design datacentre environments built for resilience first, capacity second.",
     openingContext: "A datacentre environment is judged on the one day it's tested — a hardware failure, a ransomware event, a power outage — not the 364 days it runs quietly. Most infrastructure failures aren't about buying the wrong server; they're about backup, redundancy, and recovery planning that was treated as optional. We plan for that one bad day from the first design conversation, not after it happens.",
@@ -359,7 +359,7 @@ export const SERVICES: Service[] = [
     title: "Managed Support Services",
     description: "Proactive monitoring, maintenance, and support that keeps your technology running quietly in the background — so your team can focus on the business, not the ticket queue.",
     icon: "Headphones",
-    image: "/images/managed_it_services.png",
+    image: "/images/services banner/managed support.png",
     heroHeadline: "Your systems, someone else's 2 a.m. problem.",
     heroSubhead: "Proactive monitoring, maintenance, and support that keeps your technology running quietly in the background — so your team can focus on the business, not the ticket queue.",
     openingContext: "Most internal IT teams spend the majority of their time firefighting instead of improving anything — because nobody's watching the systems until something breaks. Managed support flips that: issues get caught in monitoring before they become a 9 a.m. crisis, and the people watching your systems are doing it as their full-time job, not as one more thing squeezed between everything else.",
@@ -426,7 +426,7 @@ export const INDUSTRIES: Industry[] = [
     slug: "it-ites",
     title: "IT / ITES",
     description: "Infrastructure built to scale as fast as you hire. IT and ITES businesses live and die by uptime, security, and onboarding capacity.",
-    image: "/images/strategic_expertise_us_1777468846673.png",
+    image: "/images/industry banner/it-ites banner.png",
     details: "Powering technology and enabled services companies with scalable, agile, and high-performance infrastructure.",
     icon: "Laptop",
     headline: "Infrastructure built to scale as fast as you hire.",
@@ -476,7 +476,7 @@ export const INDUSTRIES: Industry[] = [
     slug: "manufacturing",
     title: "Manufacturing",
     description: "Keep the plant floor running, and the data flowing. Blending IT and operational technology under one secure roof.",
-    image: "/images/cybersecurity_hero_card_1777468690258.png",
+    image: "/images/industry banner/manufacturing.png",
     details: "Driving smart factory automation, industrial OT security, supply chain efficiency, and ERP integration.",
     icon: "Factory",
     headline: "Keep the plant floor running, and the data flowing.",
@@ -501,7 +501,7 @@ export const INDUSTRIES: Industry[] = [
     slug: "food-industry",
     title: "Food Industry",
     description: "Technology that keeps up with a business that never stops moving. Reliable multi-site infrastructure for plants, warehouses, and POS.",
-    image: "/images/mission.png",
+    image: "/images/industry banner/food industry banner.png",
     details: "Enabling food processors, cloud kitchens, and distribution networks with dependable tech and analytics.",
     icon: "Utensils",
     headline: "Technology that keeps up with a business that never stops moving.",
@@ -526,7 +526,7 @@ export const INDUSTRIES: Industry[] = [
     slug: "real-estate",
     title: "Real Estate",
     description: "Smarter buildings start with smarter infrastructure. Connecting sales offices, smart buildings, and multi-site portfolios.",
-    image: "/images/vision.png",
+    image: "/images/industry banner/realestate.jpg",
     details: "Connecting sales offices, smart buildings, surveillance, and multi-site real estate portfolios.",
     icon: "Building",
     headline: "Smarter buildings start with smarter infrastructure.",
@@ -551,7 +551,7 @@ export const INDUSTRIES: Industry[] = [
     slug: "education",
     title: "Education",
     description: "Secure campuses. Connected classrooms. Protected data. Campus Wi-Fi, student privacy, and hybrid learning infrastructure.",
-    image: "/images/education_industry.jpg",
+    image: "/images/industry banner/education.png",
     details: "Connecting and protecting campuses, classrooms, student data, and digital learning environments.",
     icon: "GraduationCap",
     headline: "Secure campuses. Connected classrooms. Protected data.",
@@ -576,7 +576,7 @@ export const INDUSTRIES: Industry[] = [
     slug: "psu-government",
     title: "PSU & Government Sector",
     description: "Public infrastructure. Private-sector discipline. Compliant, documented, and resilient public technology deployments.",
-    image: "/images/govt_public_sector_industry_new_1777473095832.png",
+    image: "/images/industry banner/psu and govt sector.png",
     details: "Empowering public sector organizations with secure, resilient, and compliant technology ecosystems.",
     icon: "Building2",
     headline: "Public infrastructure. Private-sector discipline.",
@@ -601,66 +601,67 @@ export const INDUSTRIES: Industry[] = [
 
 export const CATEGORIZED_PARTNERS: CategorizedPartner[] = [
   {
-    category: "Networking — Active",
+    category: "active networking",
     partners: [
-      { id: 1, name: 'Cisco', domain: 'cisco.com' },
-      { id: 2, name: 'Aruba', domain: 'arubanetworks.com' },
-      { id: 3, name: 'Ruckus', domain: 'commscope.com' },
-      { id: 4, name: 'Arista', domain: 'arista.com' }
+      { id: 1, name: 'Cisco', domain: 'cisco.com', image: '/images/vendor logos/active networking/cisco.png' },
+      { id: 2, name: 'Aruba', domain: 'arubanetworks.com', image: '/images/vendor logos/active networking/aruba.webp' },
+      { id: 3, name: 'Arista', domain: 'arista.com', image: '/images/vendor logos/active networking/Arista-networks-logo.svg' },
+      { id: 4, name: 'Ruckus', domain: 'commscope.com', image: '/images/vendor logos/active networking/ruckus.png' }
     ]
   },
   {
-    category: "Networking — Passive",
+    category: "passive networking",
     partners: [
-      { id: 5, name: 'CommScope', domain: 'commscope.com' },
-      { id: 6, name: 'Molex', domain: 'molex.com' },
-      { id: 7, name: 'R&M', domain: 'rdm.com' },
-      { id: 8, name: 'Legrand', domain: 'legrand.com' }
+      { id: 5, name: 'CommScope', domain: 'commscope.com', image: '/images/vendor logos/passive networking/commscope1.png' },
+      { id: 6, name: 'Legrand', domain: 'legrand.com', image: '/images/vendor logos/passive networking/legrand-thumb.png' },
+      { id: 7, name: 'Molex', domain: 'molex.com', image: '/images/vendor logos/passive networking/Molex-Logo.svg.webp' },
+      { id: 8, name: 'R&M', domain: 'rdm.com', image: '/images/vendor logos/passive networking/RandM.png' }
     ]
   },
   {
-    category: "Cybersecurity",
+    category: "cybersecurity",
     partners: [
-      { id: 9, name: 'Fortinet', domain: 'fortinet.com' },
-      { id: 10, name: 'Palo Alto Networks', domain: 'paloaltonetworks.com' },
-      { id: 11, name: 'Arcon', domain: 'arconnet.com' },
-      { id: 12, name: 'Saviynt', domain: 'saviynt.com' },
-      { id: 13, name: 'Akamai', domain: 'akamai.com' },
-      { id: 14, name: 'CrowdStrike', domain: 'crowdstrike.com' },
-      { id: 15, name: 'Check Point', domain: 'checkpoint.com' },
-      { id: 16, name: 'Zscaler', domain: 'zscaler.com' },
-      { id: 17, name: 'Netskope', domain: 'netskope.com' },
-      { id: 18, name: 'Barracuda', domain: 'barracuda.com' },
-      { id: 19, name: 'F5', domain: 'f5.com' },
-      { id: 20, name: 'Imperva', domain: 'imperva.com' },
-      { id: 21, name: 'Indusface', domain: 'indusface.com' },
-      { id: 22, name: 'Forcepoint', domain: 'forcepoint.com' }
+      { id: 9, name: 'Fortinet', domain: 'fortinet.com', image: '/images/vendor logos/cybersecurity/fortinet-logo.png' },
+      { id: 10, name: 'Check Point', domain: 'checkpoint.com', image: '/images/vendor logos/cybersecurity/Check_Point_logo.svg' },
+      { id: 11, name: 'Saviynt', domain: 'saviynt.com', image: '/images/vendor logos/cybersecurity/saviynt.png' },
+      { id: 12, name: 'Zscaler', domain: 'zscaler.com', image: '/images/vendor logos/cybersecurity/zscaler-logo.png' },
+      { id: 13, name: 'Barracuda', domain: 'barracuda.com', image: '/images/vendor logos/cybersecurity/baracuda.png' },
+      { id: 14, name: 'Arcon', domain: 'arconnet.com', image: '/images/vendor logos/cybersecurity/Arcon_logo.png' },
+      { id: 15, name: 'F5', domain: 'f5.com', image: '/images/vendor logos/cybersecurity/F5_Networks-Logo.svg' },
+      { id: 16, name: 'Akamai', domain: 'akamai.com', image: '/images/vendor logos/cybersecurity/akamai.png' },
+      { id: 17, name: 'Imperva', domain: 'imperva.com', image: '/images/vendor logos/cybersecurity/Imperva_logo.jpg' },
+      { id: 18, name: 'Indusface', domain: 'indusface.com', image: '/images/vendor logos/cybersecurity/indusface.png' },
+      { id: 19, name: 'Palo Alto Networks', domain: 'paloaltonetworks.com', image: '/images/vendor logos/cybersecurity/palo-alto-networks-.png' },
+      { id: 20, name: 'Forcepoint', domain: 'forcepoint.com', image: '/images/vendor logos/cybersecurity/forcepoint.png' },
+      { id: 21, name: 'CrowdStrike', domain: 'crowdstrike.com', image: '/images/vendor logos/cybersecurity/crowdstrike.png' },
+      { id: 22, name: 'Netskope', domain: 'netskope.com', image: '/images/vendor logos/cybersecurity/netskope.png' }
     ]
   },
   {
-    category: "Datacentre (Compute, Storage & DR)",
+    category: "data center",
     partners: [
-      { id: 23, name: 'Dell Technologies', domain: 'dell.com' },
-      { id: 24, name: 'NetApp', domain: 'netapp.com' },
-      { id: 25, name: 'HP', domain: 'hp.com' },
-      { id: 26, name: 'Commvault', domain: 'commvault.com' },
-      { id: 27, name: 'Veeam', domain: 'veeam.com' },
-      { id: 28, name: 'VMware', domain: 'vmware.com' }
+      { id: 23, name: 'NetApp', domain: 'netapp.com', image: '/images/vendor logos/data center/netApp.png' },
+      { id: 24, name: 'HP', domain: 'hp.com', image: '/images/vendor logos/data center/HP_logo_2025.svg' },
+      { id: 25, name: 'Dell Technologies', domain: 'dell.com', image: '/images/vendor logos/data center/Dell-Logo.svg.webp' }
     ]
   },
   {
-    category: "Data & AI",
+    category: "virtualization",
     partners: [
-      { id: 29, name: 'Quiler.AI', domain: 'quiler.ai' }
+      { id: 26, name: 'VMware', domain: 'vmware.com', image: '/images/vendor logos/virtualization/vm ware.png' }
     ]
   },
   {
-    category: "Hardware & End-User Computing",
+    category: "backup",
     partners: [
-      { id: 30, name: 'Dell', domain: 'dell.com' },
-      { id: 31, name: 'HP', domain: 'hp.com' },
-      { id: 32, name: 'Lenovo', domain: 'lenovo.com' },
-      { id: 33, name: 'Samsung', domain: 'samsung.com' }
+      { id: 27, name: 'Commvault', domain: 'commvault.com', image: '/images/vendor logos/backup/Commvault_logo.webp' },
+      { id: 28, name: 'Veeam', domain: 'veeam.com', image: '/images/vendor logos/backup/veem.png' }
+    ]
+  },
+  {
+    category: "data and AI",
+    partners: [
+      { id: 29, name: 'Quiler.AI', domain: 'quiler.ai', image: '/images/vendor logos/data and AI/quilrAI.jpeg' }
     ]
   }
 ];

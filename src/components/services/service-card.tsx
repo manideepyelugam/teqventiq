@@ -44,14 +44,16 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
     );
   }, cardRef);
 
+  const isDatacentre = service.slug === "datacentre";
+
   return (
     <Link 
       ref={cardRef}
       href={`/services/${service.slug}`}
       className={cn(
-        "group relative rounded-[2rem] overflow-hidden transition-all duration-700 h-[500px] lg:h-[550px] border border-border bg-card md:col-span-1",
-        index === 0 || index === 3 || index === 4 ? "lg:col-span-8" : 
-        "lg:col-span-4"
+        "group relative rounded-[2rem] overflow-hidden transition-all duration-700 h-[500px] lg:h-[550px] border border-border bg-card",
+        index === 0 || isDatacentre || index === 3 || index === 4 ? "md:col-span-2 lg:col-span-8" : 
+        "md:col-span-1 lg:col-span-4"
       )}
     >
       {/* Background Image with Fixed Rounded Corners */}
@@ -78,7 +80,7 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
 
           <h3 className={cn(
             "font-bold text-white mb-4 tracking-tight leading-[1.08] text-2xl sm:text-3xl",
-            index === 0 || index === 3 || index === 4 ? "lg:text-5xl xl:text-6xl" : "lg:text-3xl"
+            index === 0 || isDatacentre || index === 3 || index === 4 ? "lg:text-5xl xl:text-6xl" : "lg:text-3xl"
           )}>
             {service.title}
           </h3>

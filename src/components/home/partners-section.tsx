@@ -72,7 +72,7 @@ export default function PartnersSection() {
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 className={cn(
-                  "px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 border",
+                  "px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 border capitalize",
                   activeCategory === cat
                     ? "bg-brand-blue text-white border-brand-blue shadow-sm"
                     : "bg-card/80 backdrop-blur-md text-muted-foreground border-border/60 hover:border-brand-blue/40 hover:text-foreground"
@@ -100,6 +100,7 @@ export default function PartnersSection() {
               <CompanyLogo
                 domain={partner.domain}
                 name={partner.name}
+                src={partner.image}
                 className="w-full h-full opacity-90 group-hover:opacity-100 transition-all duration-500"
               />
             </div>

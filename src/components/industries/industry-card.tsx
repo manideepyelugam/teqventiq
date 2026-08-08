@@ -44,16 +44,17 @@ export default function IndustryCard({ industry, index }: IndustryCardProps) {
     );
   }, cardRef);
 
+  const isPsuGov = industry.slug === "psu-government";
+
   return (
     <Link
       ref={cardRef}
       href={`/industries/${industry.slug}`}
       className={cn(
         "group relative rounded-[2rem] overflow-hidden transition-all duration-700 h-[500px] lg:h-[550px] border border-border bg-card",
-        index === 0 ? "lg:col-span-8" :
-        index === 1 ? "lg:col-span-4" :
-        index % 3 === 0 ? "lg:col-span-4" :
-        "lg:col-span-4"
+        index === 0 ? "md:col-span-2 lg:col-span-8" :
+        isPsuGov ? "md:col-span-2 lg:col-span-8" :
+        "md:col-span-1 lg:col-span-4"
       )}
     >
       {/* Background Image */}
@@ -80,7 +81,7 @@ export default function IndustryCard({ industry, index }: IndustryCardProps) {
 
           <h3 className={cn(
             "font-bold text-white mb-4 tracking-tight leading-[1.08] text-2xl sm:text-3xl",
-            index === 0 ? " lg:text-6xl" : " lg:text-3xl"
+            index === 0 || isPsuGov ? " lg:text-5xl xl:text-6xl" : " lg:text-3xl"
           )}>
             {industry.title.split(' — ')[0]}
           </h3>
