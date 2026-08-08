@@ -39,7 +39,7 @@ export default function ServiceDetailPage() {
   }, containerRef);
 
   return (
-    <div className="relative bg-muted bg-dot-grid transition-colors duration-500 min-h-screen" ref={containerRef}>
+    <div className="relative bg-background bg-dot-grid transition-colors duration-500 min-h-screen" ref={containerRef}>
       {/* Ambient gradient mesh — covers the top viewport area, no footer bleed */}
       <div className="absolute inset-x-0 top-0 h-screen pointer-events-none z-0">
         <div className="gradient-mesh-hero">

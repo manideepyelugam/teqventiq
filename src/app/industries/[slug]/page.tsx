@@ -53,7 +53,7 @@ export default function IndustryDetailPage() {
   if (slug === "healthcare") {
     return (
       <div
-        className="relative bg-muted bg-dot-grid transition-colors duration-500 min-h-screen"
+        className="relative bg-background bg-dot-grid transition-colors duration-500 min-h-screen"
         ref={containerRef}
       >
         {/* Ambient gradient mesh — covers the top viewport area, no footer bleed */}
@@ -76,7 +76,7 @@ export default function IndustryDetailPage() {
 
   return (
     <div
-      className="relative bg-muted bg-dot-grid transition-colors duration-500 min-h-screen"
+      className="relative bg-background bg-dot-grid transition-colors duration-500 min-h-screen"
       ref={containerRef}
     >
       {/* Ambient gradient mesh — covers the top viewport area, no footer bleed */}

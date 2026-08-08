@@ -1,11 +1,16 @@
 "use client";
 
-import { useEffect } from 'react';
-import { gsap } from 'gsap';
+import { useGSAP, useGSAPConfig } from '@gsap/react';
+import { RefObject } from 'react';
 
-export function useGsap(callback: gsap.ContextFunc, scope?: React.RefObject<any>) {
-  useEffect(() => {
-    const ctx = gsap.context(callback, scope);
-    return () => ctx.revert();
-  }, [callback, scope]);
+export function useGsap(
+  callback: Parameters<typeof useGSAP>[0],
+  scopeOrConfig?: RefObject<any> | useGSAPConfig | any[]
+) {
+  const config: useGSAPConfig | any[] | undefined =
+    scopeOrConfig && typeof scopeOrConfig === 'object' && 'current' in scopeOrConfig
+      ? { scope: scopeOrConfig }
+      : (scopeOrConfig as useGSAPConfig | any[] | undefined);
+
+  useGSAP(callback, config);
 }

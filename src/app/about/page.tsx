@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import { useGsap } from '@/core/hooks/use-gsap';
 import { gsap } from 'gsap';
 import { MissionVisionSection, AboutContent } from "@/components/about";
-import { FivePillarsSection, StackedCardSection } from "@/components/home";
+import { StackedCardSection } from "@/components/home";
 import { WHY_CHOOSE_US } from "@/core/constants";
 
 export default function AboutPage() {
@@ -23,7 +23,7 @@ export default function AboutPage() {
   }, containerRef);
 
   return (
-    <div className="relative bg-muted bg-dot-grid transition-colors duration-500 min-h-screen" ref={containerRef}>
+    <div className="relative bg-background bg-dot-grid transition-colors duration-500 min-h-screen" ref={containerRef}>
       {/* Ambient gradient mesh */}
       <div className="absolute inset-x-0 top-0 h-screen pointer-events-none z-0">
         <div className="gradient-mesh-hero">
@@ -46,9 +46,6 @@ export default function AboutPage() {
         </section>
 
         <AboutContent />
-
-        {/* Five Pillars. One Promise Section */}
-        <FivePillarsSection />
 
         {/* Why Choose Teqventiq — Stacked Card Flip */}
         <StackedCardSection

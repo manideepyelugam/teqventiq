@@ -32,7 +32,13 @@ export default function ClientsSection() {
       className="py-16 lg:py-24 overflow-visible relative transition-colors duration-500"
       id="clients-section"
     >
-      <div className="gradient-mesh-section">
+      <div 
+        className="gradient-mesh-section"
+        style={{
+          maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%)',
+        }}
+      >
         <div className="blob-a" />
         <div className="blob-b" />
       </div>

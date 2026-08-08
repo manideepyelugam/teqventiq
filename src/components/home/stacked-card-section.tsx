@@ -103,6 +103,7 @@ export default function StackedCardSection({ id, cards, header }: StackedCardSec
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const lastIndexRef = useRef(-1);
 
   // Viewport detection
   useLayoutEffect(() => {
@@ -166,7 +167,10 @@ export default function StackedCardSection({ id, cards, header }: StackedCardSec
       onUpdate: (self) => {
         const progress = self.progress;
         const currentIdx = Math.round(progress * (cardEls.length - 1));
-        setActiveIndex(currentIdx);
+        if (lastIndexRef.current !== currentIdx) {
+          lastIndexRef.current = currentIdx;
+          setActiveIndex(currentIdx);
+        }
 
         cardEls.forEach((card, i) => {
           // 1. Slide In Progress

@@ -160,6 +160,8 @@ export default function SchnellSection() {
       slides.forEach((sl) => { sl.style.height = `${slideHeight}px`; });
       container.style.height = `${slideHeight}px`;
 
+      let lastIdx = -1;
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: container,
@@ -175,7 +177,11 @@ export default function SchnellSection() {
             ease: "power1.inOut"
           },
           onUpdate: (self) => {
-            setActive(Math.round(self.progress * (slides.length - 1)));
+            const idx = Math.round(self.progress * (slides.length - 1));
+            if (lastIdx !== idx) {
+              lastIdx = idx;
+              setActive(idx);
+            }
           },
         }
       });

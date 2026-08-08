@@ -9,7 +9,7 @@ import {
 
 export default function Home() {
   return (
-    <div className="bg-muted transition-colors duration-500 min-h-full">
+    <div className="bg-background transition-colors duration-500 min-h-full">
       <Hero />
       <ClientsSection />
       <FivePillarsSection />
