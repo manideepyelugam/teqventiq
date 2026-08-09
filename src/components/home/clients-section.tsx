@@ -1,8 +1,8 @@
 'use client';
 
-import { CLIENTS_BY_VERTICAL } from '@/core/constants';
+import { PARTNERS } from '@/core/constants';
+import { CompanyLogo } from '@/components/shared';
 import { useRef, useEffect, useState } from 'react';
-import { Building2, ShieldCheck } from 'lucide-react';
 
 export default function ClientsSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -26,72 +26,95 @@ export default function ClientsSection() {
     return () => observer.disconnect();
   }, []);
 
+  // Split ~30 vendor logos into 2 rows (15 in Row 1, 14/15 in Row 2)
+  const row1Logos = PARTNERS.slice(0, 15);
+  const row2Logos = PARTNERS.slice(15);
+
+  // Double items for seamless marquee loop
+  const marqueeRow1 = [...row1Logos, ...row1Logos];
+  const marqueeRow2 = [...row2Logos, ...row2Logos];
+
   return (
     <section
       ref={sectionRef}
-      className="py-16 lg:py-24 overflow-visible relative transition-colors duration-500"
+      className="py-16 lg:py-24 overflow-hidden relative transition-colors duration-500"
       id="clients-section"
     >
-      <div 
-        className="gradient-mesh-section"
-        style={{
-          maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%)',
-        }}
-      >
-        <div className="blob-a" />
-        <div className="blob-b" />
-      </div>
+      {/* Dot field texture */}
       <div className="dot-grid-overlay" />
-      
+
       <div
-        className="mx-auto max-w-[1248px] px-4 sm:px-6 lg:px-8 relative z-10"
+        className="mx-auto max-w-[1248px] px-4 sm:px-6 lg:px-8 relative z-10 mb-12 lg:mb-16"
         style={{
           opacity: isVisible ? 1 : 0,
           transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
           transition: 'opacity 0.6s ease, transform 0.6s ease',
         }}
       >
-        <div className="text-center mb-12 lg:mb-16">
-          <span className="text-brand-blue font-bold tracking-wider uppercase text-xs mb-3 block">
-            Client Footprint
+        <div className="text-center">
+          <span className="text-brand-blue font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
+            Our Clients
           </span>
           <h3 className="text-3xl lg:text-5xl font-bold font-serif text-foreground tracking-tight mb-6">
             Trusted by <span className="bg-gradient-to-r from-brand-blue to-blue-600 bg-clip-text text-transparent">Industry Leaders</span>
           </h3>
-          <p className="text-lg text-muted-foreground max-w-[640px] mx-auto leading-relaxed">
-            Delivering mission-critical technology solutions across key regional enterprise verticals.
+          <p className="text-lg text-muted-foreground max-w-[600px] mx-auto leading-relaxed">
+            Partnering with leading organizations across the region to deliver transformative technology solutions.
           </p>
         </div>
+      </div>
 
-        {/* Industry Vertical Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {CLIENTS_BY_VERTICAL.map((item, idx) => (
+      {/* Marquee Container */}
+      <div 
+        className="relative py-4 md:py-6 overflow-hidden"
+        style={{
+          opacity: isVisible ? 1 : 0,
+          transition: 'opacity 0.8s ease 0.2s',
+        }}
+      >
+        {/* Edge gradient fades for smooth mask */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+
+        {/* Row 1 — scrolls left */}
+        <div 
+          className="flex w-max animate-marquee-left will-change-transform hover:[animation-play-state:paused] items-center mb-6 md:mb-8"
+          style={{ animationDuration: `${marqueeRow1.length * 2.5}s` }}
+        >
+          {marqueeRow1.map((client, index) => (
             <div
-              key={idx}
-              className="bg-card/80 backdrop-blur-md rounded-2xl p-6 border border-border/60 hover:border-brand-blue/40 transition-all duration-300 shadow-sm hover:shadow-md flex flex-col justify-between"
+              key={`row1-${client.id || client.name}-${index}`}
+              className="flex-shrink-0 mx-3 md:mx-4"
             >
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue">
-                    <Building2 className="w-5 h-5" />
-                  </div>
-                  <h4 className="font-bold text-foreground text-base font-serif">
-                    {item.vertical}
-                  </h4>
-                </div>
-                <div className="space-y-2">
-                  {item.clients.map((client, cIdx) => (
-                    <div key={cIdx} className="flex items-center gap-2 text-xs text-muted-foreground">
-                      <ShieldCheck className="w-3.5 h-3.5 text-brand-blue" />
-                      <span>{client.name}</span>
-                    </div>
-                  ))}
-                </div>
+              <div className="bg-white rounded-2xl px-6 py-4 w-44 md:w-56 h-24 md:h-28 flex items-center justify-center shadow-sm border border-slate-200/80 dark:border-white/10 hover:scale-105 hover:shadow-md transition-all duration-300 group">
+                <CompanyLogo
+                  src={client.image}
+                  domain={client.domain}
+                  name={client.name}
+                  className="w-full h-full opacity-90 group-hover:opacity-100 transition-all duration-500"
+                />
               </div>
-              <div className="mt-6 pt-4 border-t border-border/20 flex items-center justify-between text-[11px] text-muted-foreground font-mono">
-                <span>VERIFIED PARTNER</span>
-                <span className="text-brand-lime font-bold">2026 ACTIVE</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Row 2 — scrolls right */}
+        <div 
+          className="flex w-max animate-marquee-right will-change-transform hover:[animation-play-state:paused] items-center"
+          style={{ animationDuration: `${marqueeRow2.length * 2.5}s` }}
+        >
+          {marqueeRow2.map((client, index) => (
+            <div
+              key={`row2-${client.id || client.name}-${index}`}
+              className="flex-shrink-0 mx-3 md:mx-4"
+            >
+              <div className="bg-white rounded-2xl px-6 py-4 w-44 md:w-56 h-24 md:h-28 flex items-center justify-center shadow-sm border border-slate-200/80 dark:border-white/10 hover:scale-105 hover:shadow-md transition-all duration-300 group">
+                <CompanyLogo
+                  src={client.image}
+                  domain={client.domain}
+                  name={client.name}
+                  className="w-full h-full opacity-90 group-hover:opacity-100 transition-all duration-500"
+                />
               </div>
             </div>
           ))}

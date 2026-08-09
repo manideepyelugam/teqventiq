@@ -1,5 +1,6 @@
 import { 
   Hero, 
+  ClientsSection,
   FivePillarsSection,
   Features, 
   PartnersSection,
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <div className="bg-background transition-colors duration-500 min-h-full">
       <Hero />
+      <ClientsSection />
       <FivePillarsSection />
       <Features />
       <PartnersSection />

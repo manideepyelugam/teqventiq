@@ -239,6 +239,13 @@
 
 /* Custom Swiper & Utility Styles */
 @layer utilities {
+  .animate-marquee-left {
+    animation: marquee-left 35s linear infinite;
+  }
+  .animate-marquee-right {
+    animation: marquee-right 35s linear infinite;
+  }
+
   :root {
     --swiper-theme-color: #2563eb
   }
