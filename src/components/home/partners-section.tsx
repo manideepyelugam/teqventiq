@@ -26,9 +26,9 @@ export default function PartnersSection() {
     return () => observer.disconnect();
   }, []);
 
-  // Split ~30 vendor logos into 2 rows (15 in Row 1, 14/15 in Row 2)
-  const row1Logos = PARTNERS.slice(0, 15);
-  const row2Logos = PARTNERS.slice(15);
+  // Distribute vendor logos across 2 rows so Ruckus and CommScope are in different rows and categories are balanced
+  const row1Logos = PARTNERS.filter((_, index) => index % 2 === 0);
+  const row2Logos = PARTNERS.filter((_, index) => index % 2 !== 0);
 
   // Double items for seamless marquee loop
   const marqueeRow1 = [...row1Logos, ...row1Logos];
