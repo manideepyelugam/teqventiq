@@ -69,8 +69,8 @@ export const ONE_PROMISE = {
 export const STATS = [
   { label: "Founded", value: "2026" },
   { label: "Support", value: "24/7" },
-  { label: "Industries Served", value: "7+" },
-  { label: "Projects", value: "200+" }
+  { label: "Client Satisfaction", value: "5★" },
+  { label: "Response Time", value: "<24h" }
 ];
 
 export const TESTIMONIALS: Testimonial[] = [
@@ -111,17 +111,17 @@ export const SERVICES: Service[] = [
     heroSubhead: "From structured cabling to enterprise-grade routing and switching, we design networks that don't buckle under growth — engineered for uptime, security, and room to scale.",
     openingContext: "Every system your business runs on — email, ERP, POS, video, cloud apps, security cameras — depends on a network that was designed to carry it, not just connect it. Most network problems organizations experience aren't hardware failures; they're the result of infrastructure that was scaled up in pieces, patched together over years, and never re-architected for what the business actually became. We design networks the way they should be designed the first time: as a single system, not a collection of add-ons.",
     features: [
-      "Enterprise Switching & Routing (Cisco, Aruba, Arista)",
-      "High-Density Wireless Systems (Ruckus, Aruba)",
-      "Structured Cabling Infrastructure (CommScope, Legrand, R&M)",
-      "Fiber Optic Backbones & Site Audits (Molex, CommScope)",
+      "Enterprise Switching & Routing",
+      "High-Density Wireless Systems",
+      "Structured Cabling Infrastructure",
+      "Fiber Optic Backbones & Site Audits",
       "SD-WAN Multi-Site Connectivity",
       "Network Segmentation & VLAN Security"
     ],
     valueProps: [
       {
         title: "OEM-Agnostic Design",
-        description: "We carry no vendor allegiance. With hands-on expertise across Cisco, Aruba, Ruckus, and Arista, we specify what your environment actually needs — not the platform that pays us the best margin."
+        description: "We carry no vendor allegiance. With hands-on expertise across leading enterprise platforms, we specify what your environment actually needs — not the platform that pays us the best margin."
       },
       {
         title: "Both Layers, One Team",
@@ -139,11 +139,11 @@ export const SERVICES: Service[] = [
     capabilities: [
       {
         category: "Active Networking",
-        description: "The layer that makes traffic move — switching, routing, wireless, and policies. We design enterprise switching/routing (Cisco, Aruba, Arista), architect segmented networks with proper VLAN design, and roll out high-density enterprise wireless (Ruckus, Aruba). SD-WAN ties multi-site locations together with centralized policy."
+        description: "The layer that makes traffic move — switching, routing, wireless, and policies. We design enterprise switching/routing, architect segmented networks with proper VLAN design, and roll out high-density enterprise wireless. SD-WAN ties multi-site locations together with centralized policy."
       },
       {
         category: "Passive Networking",
-        description: "The physical foundation everything else depends on. We design and install structured cabling (CommScope, Legrand, R&M) and fiber optic backbones (Molex, CommScope) to certified standards, build maintainable server room rack cabling, and run comprehensive site surveys."
+        description: "The physical foundation everything else depends on. We design and install structured cabling and fiber optic backbones to certified standards, build maintainable server room rack cabling, and run comprehensive site surveys."
       }
     ],
     deliverySteps: [
@@ -172,10 +172,10 @@ export const SERVICES: Service[] = [
     heroSubhead: "We design and operate security postures that protect the perimeter, the endpoint, and everything in between — grounded in real-world threat patterns, not checkbox compliance.",
     openingContext: "Cybersecurity has stopped being a single product decision and become a design discipline — the firewall, the endpoint agent, the identity policy, and the monitoring layer all have to work as one coherent system, or the gaps between them become exactly where an attacker gets in. We build security postures the way attackers think: end to end, not tool by tool.",
     features: [
-      "Next-Generation Firewalls (NGFW - Fortinet, Palo Alto, Check Point)",
-      "Endpoint Protection & XDR (CrowdStrike, Sophos)",
-      "Zero Trust Access & Secure Web Gateways (Zscaler, Netskope)",
-      "Identity & Access Management / PAM (Arcon, Saviynt)",
+      "Next-Generation Firewalls (NGFW)",
+      "Endpoint Protection & XDR",
+      "Zero Trust Access & Secure Web Gateways",
+      "Identity & Access Management / PAM",
       "Vulnerability Assessment & Penetration Testing (VAPT)",
       "Brand Protection, Phishing Defense & DPDP Act Compliance"
     ],
@@ -186,7 +186,7 @@ export const SERVICES: Service[] = [
       },
       {
         title: "Multi-OEM Independence",
-        description: "Hands-on expertise across Fortinet, Palo Alto, Check Point, Zscaler, Netskope, CrowdStrike, Barracuda, F5, Imperva, Indusface, Forcepoint, Akamai, Arcon, and Saviynt."
+        description: "Hands-on expertise across leading firewall, endpoint, zero-trust, identity, and security platforms."
       },
       {
         title: "Compliance as a Foundation",
@@ -200,7 +200,7 @@ export const SERVICES: Service[] = [
     capabilities: [
       {
         category: "Protect",
-        description: "Next-gen firewalls (Fortinet, Palo Alto) enforce policy. Endpoint protection & XDR (CrowdStrike) isolate compromised devices in real time. Phishing defense stops entry points, and Zero Trust access (Zscaler, Netskope) continuously verifies identity."
+        description: "Next-gen firewalls enforce policy. Endpoint protection & XDR isolate compromised devices in real time. Phishing defense stops entry points, and Zero Trust access continuously verifies identity."
       },
       {
         category: "Detect & Respond",
@@ -243,7 +243,7 @@ export const SERVICES: Service[] = [
       "Conversational AI & AI Contact Centers",
       "Smart Analytics & Executive Dashboards",
       "RPA & Intelligent Process Automation",
-      "Market Intelligence & Data Governance (Quiler.AI)"
+      "Market Intelligence & Data Governance"
     ],
     valueProps: [
       {
@@ -299,9 +299,9 @@ export const SERVICES: Service[] = [
     heroSubhead: "From servers and storage to backup and virtualization, we design datacentre environments built for resilience first, capacity second.",
     openingContext: "A datacentre environment is judged on the one day it's tested — a hardware failure, a ransomware event, a power outage — not the 364 days it runs quietly. Most infrastructure failures aren't about buying the wrong server; they're about backup, redundancy, and recovery planning that was treated as optional. We plan for that one bad day from the first design conversation, not after it happens.",
     features: [
-      "Enterprise Servers & Storage (Dell, NetApp, HP)",
-      "Backup & Disaster Recovery (Commvault, Veeam)",
-      "Server Virtualization & Containerization (VMware)",
+      "Enterprise Servers & Storage",
+      "Backup & Disaster Recovery",
+      "Server Virtualization & Containerization",
       "End-User Computing (Laptops, Desktops, Peripherals)",
       "Hyperconverged Infrastructure (HCI)",
       "Hardware Lifecycle Management & Refresh"
@@ -317,7 +317,7 @@ export const SERVICES: Service[] = [
       },
       {
         title: "Vendor-Backed, Not Vendor-Locked",
-        description: "Relationships with Dell, NetApp, HP, Commvault, Veeam, and VMware mean platform selection based on fit."
+        description: "Relationships with leading enterprise technology OEMs mean platform selection based on fit."
       },
       {
         title: "Full Lifecycle Ownership",
@@ -327,15 +327,15 @@ export const SERVICES: Service[] = [
     capabilities: [
       {
         category: "Compute & Storage",
-        description: "Enterprise servers and storage (Dell, NetApp, HP) sized to workload demand, with HCI options consolidating compute, storage, and virtualization."
+        description: "Enterprise servers and storage sized to workload demand, with HCI options consolidating compute, storage, and virtualization."
       },
       {
         category: "Backup & Continuity",
-        description: "Backup & DR on Commvault and Veeam designed against real recovery time objectives (RTO/RPO) and failover testing."
+        description: "Backup & DR solutions designed against real recovery time objectives (RTO/RPO) and failover testing."
       },
       {
         category: "Virtualization & End-User Computing",
-        description: "VMware server virtualization, workload consolidation, plus enterprise desktop, laptop, and office hardware deployment."
+        description: "Server virtualization, workload consolidation, plus enterprise desktop, laptop, and office hardware deployment."
       }
     ],
     deliverySteps: [
