@@ -80,7 +80,7 @@ export const TESTIMONIALS: Testimonial[] = [
     author: "Director of IT",
     role: "Govt & Public Sector",
     company: "Public Sector Enterprise",
-    image: "/images/strategic_expertise_us_1777468846673.png"
+    image: "/images/strategic_expertise_us_1777468846673.webp"
   },
   {
     id: 2,
@@ -88,7 +88,7 @@ export const TESTIMONIALS: Testimonial[] = [
     author: "CTO",
     role: "Corporate Enterprise",
     company: "Enterprise Client",
-    image: "/images/mission_vision_us_1777468862412.png"
+    image: "/images/mission_vision_us_1777468862412.webp"
   },
   {
     id: 3,
@@ -96,7 +96,7 @@ export const TESTIMONIALS: Testimonial[] = [
     author: "Head of Operations",
     role: "Retail & Ecommerce",
     company: "Retail Group",
-    image: "/images/cybersecurity_hero_card_1777468690258.png"
+    image: "/images/cybersecurity_hero_card_1777468690258.webp"
   }
 ];
 
@@ -106,7 +106,7 @@ export const SERVICES: Service[] = [
     title: "Networking (Active / Passive)",
     description: "From structured cabling to enterprise-grade routing and switching, we design networks that don't buckle under growth — engineered for uptime, security, and room to scale.",
     icon: "Network",
-    image: "/images/networking.png",
+    image: "/images/networking.webp",
     heroHeadline: "The network is the business. Build it right.",
     heroSubhead: "From structured cabling to enterprise-grade routing and switching, we design networks that don't buckle under growth — engineered for uptime, security, and room to scale.",
     openingContext: "Every system your business runs on — email, ERP, POS, video, cloud apps, security cameras — depends on a network that was designed to carry it, not just connect it. Most network problems organizations experience aren't hardware failures; they're the result of infrastructure that was scaled up in pieces, patched together over years, and never re-architected for what the business actually became. We design networks the way they should be designed the first time: as a single system, not a collection of add-ons.",
@@ -167,7 +167,7 @@ export const SERVICES: Service[] = [
     title: "Cybersecurity",
     description: "We design and operate security postures that protect the perimeter, the endpoint, and everything in between — grounded in real-world threat patterns, not checkbox compliance.",
     icon: "Shield",
-    image: "/images/cyber_security_banner.png",
+    image: "/images/cyber_security_banner.webp",
     heroHeadline: "Threats don't wait. Neither should your defences.",
     heroSubhead: "We design and operate security postures that protect the perimeter, the endpoint, and everything in between — grounded in real-world threat patterns, not checkbox compliance.",
     openingContext: "Cybersecurity has stopped being a single product decision and become a design discipline — the firewall, the endpoint agent, the identity policy, and the monitoring layer all have to work as one coherent system, or the gaps between them become exactly where an attacker gets in. We build security postures the way attackers think: end to end, not tool by tool.",
@@ -232,7 +232,7 @@ export const SERVICES: Service[] = [
     title: "Data & AI",
     description: "We build the pipelines, platforms, and intelligence layers that turn scattered operational data into forecasts, automation, and answers your teams can act on immediately.",
     icon: "Cpu",
-    image: "/images/ai_banner.png",
+    image: "/images/ai_banner.webp",
     platformPartner: "Quiler.AI",
     heroHeadline: "Turn data into your next decision — not your next backlog.",
     heroSubhead: "We build the pipelines, platforms, and intelligence layers that turn scattered operational data into forecasts, automation, and answers your teams can act on immediately.",
@@ -294,7 +294,7 @@ export const SERVICES: Service[] = [
     title: "Datacentre",
     description: "From servers and storage to backup and virtualization, we design datacentre environments built for resilience first, capacity second.",
     icon: "Server",
-    image: "/images/services banner/datacenter.png",
+    image: "/images/services banner/datacenter.webp",
     heroHeadline: "Infrastructure that doesn't go down when it matters most.",
     heroSubhead: "From servers and storage to backup and virtualization, we design datacentre environments built for resilience first, capacity second.",
     openingContext: "A datacentre environment is judged on the one day it's tested — a hardware failure, a ransomware event, a power outage — not the 364 days it runs quietly. Most infrastructure failures aren't about buying the wrong server; they're about backup, redundancy, and recovery planning that was treated as optional. We plan for that one bad day from the first design conversation, not after it happens.",
@@ -359,7 +359,7 @@ export const SERVICES: Service[] = [
     title: "Managed Support Services",
     description: "Proactive monitoring, maintenance, and support that keeps your technology running quietly in the background — so your team can focus on the business, not the ticket queue.",
     icon: "Headphones",
-    image: "/images/services banner/managed support.png",
+    image: "/images/services banner/managed support.webp",
     heroHeadline: "Your systems, someone else's 2 a.m. problem.",
     heroSubhead: "Proactive monitoring, maintenance, and support that keeps your technology running quietly in the background — so your team can focus on the business, not the ticket queue.",
     openingContext: "Most internal IT teams spend the majority of their time firefighting instead of improving anything — because nobody's watching the systems until something breaks. Managed support flips that: issues get caught in monitoring before they become a 9 a.m. crisis, and the people watching your systems are doing it as their full-time job, not as one more thing squeezed between everything else.",
@@ -426,7 +426,7 @@ export const INDUSTRIES: Industry[] = [
     slug: "it-ites",
     title: "IT / ITES",
     description: "Infrastructure built to scale as fast as you hire. IT and ITES businesses live and die by uptime, security, and onboarding capacity.",
-    image: "/images/industry banner/it-ites banner.png",
+    image: "/images/industry banner/it-ites banner.webp",
     details: "Powering technology and enabled services companies with scalable, agile, and high-performance infrastructure.",
     icon: "Laptop",
     headline: "Infrastructure built to scale as fast as you hire.",
@@ -451,7 +451,7 @@ export const INDUSTRIES: Industry[] = [
     slug: "bfsi",
     title: "BFSI (Banking, Financial Services & Insurance)",
     description: "Where security isn't a feature — it's the license to operate. Securing financial assets, transactions, and regulatory compliance.",
-    image: "/images/bfsi_industry.jpg",
+    image: "/images/bfsi_industry.webp",
     details: "Securing financial assets, transactions, and regulatory compliance for modern banking institutions.",
     icon: "Landmark",
     headline: "Where security isn't a feature — it's the license to operate.",
@@ -476,7 +476,7 @@ export const INDUSTRIES: Industry[] = [
     slug: "manufacturing",
     title: "Manufacturing",
     description: "Keep the plant floor running, and the data flowing. Blending IT and operational technology under one secure roof.",
-    image: "/images/industry banner/manufacturing.png",
+    image: "/images/industry banner/manufacturing.webp",
     details: "Driving smart factory automation, industrial OT security, supply chain efficiency, and ERP integration.",
     icon: "Factory",
     headline: "Keep the plant floor running, and the data flowing.",
@@ -501,7 +501,7 @@ export const INDUSTRIES: Industry[] = [
     slug: "food-industry",
     title: "Food Industry",
     description: "Technology that keeps up with a business that never stops moving. Reliable multi-site infrastructure for plants, warehouses, and POS.",
-    image: "/images/industry banner/food industry banner.png",
+    image: "/images/industry banner/food industry banner.webp",
     details: "Enabling food processors, cloud kitchens, and distribution networks with dependable tech and analytics.",
     icon: "Utensils",
     headline: "Technology that keeps up with a business that never stops moving.",
@@ -526,7 +526,7 @@ export const INDUSTRIES: Industry[] = [
     slug: "real-estate",
     title: "Real Estate",
     description: "Smarter buildings start with smarter infrastructure. Connecting sales offices, smart buildings, and multi-site portfolios.",
-    image: "/images/industry banner/realestate.jpg",
+    image: "/images/industry banner/realestate.webp",
     details: "Connecting sales offices, smart buildings, surveillance, and multi-site real estate portfolios.",
     icon: "Building",
     headline: "Smarter buildings start with smarter infrastructure.",
@@ -551,7 +551,7 @@ export const INDUSTRIES: Industry[] = [
     slug: "education",
     title: "Education",
     description: "Secure campuses. Connected classrooms. Protected data. Campus Wi-Fi, student privacy, and hybrid learning infrastructure.",
-    image: "/images/industry banner/education.png",
+    image: "/images/industry banner/education.webp",
     details: "Connecting and protecting campuses, classrooms, student data, and digital learning environments.",
     icon: "GraduationCap",
     headline: "Secure campuses. Connected classrooms. Protected data.",
@@ -576,7 +576,7 @@ export const INDUSTRIES: Industry[] = [
     slug: "psu-government",
     title: "PSU & Government Sector",
     description: "Public infrastructure. Private-sector discipline. Compliant, documented, and resilient public technology deployments.",
-    image: "/images/industry banner/psu and govt sector.png",
+    image: "/images/industry banner/psu and govt sector.webp",
     details: "Empowering public sector organizations with secure, resilient, and compliant technology ecosystems.",
     icon: "Building2",
     headline: "Public infrastructure. Private-sector discipline.",
@@ -603,44 +603,44 @@ export const CATEGORIZED_PARTNERS: CategorizedPartner[] = [
   {
     category: "active networking",
     partners: [
-      { id: 1, name: 'Cisco', domain: 'cisco.com', image: '/images/vendor logos/active networking/cisco.png' },
+      { id: 1, name: 'Cisco', domain: 'cisco.com', image: '/images/vendor logos/active networking/cisco.webp' },
       { id: 2, name: 'Aruba', domain: 'arubanetworks.com', image: '/images/vendor logos/active networking/aruba.webp' },
       { id: 3, name: 'Arista', domain: 'arista.com', image: '/images/vendor logos/active networking/Arista-networks-logo.svg' },
-      { id: 4, name: 'Ruckus', domain: 'commscope.com', image: '/images/vendor logos/active networking/ruckus.png' }
+      { id: 4, name: 'Ruckus', domain: 'commscope.com', image: '/images/vendor logos/active networking/ruckus.webp' }
     ]
   },
   {
     category: "passive networking",
     partners: [
-      { id: 5, name: 'CommScope', domain: 'commscope.com', image: '/images/vendor logos/passive networking/commscope1.png' },
-      { id: 6, name: 'Legrand', domain: 'legrand.com', image: '/images/vendor logos/passive networking/legrand-thumb.png' },
+      { id: 5, name: 'CommScope', domain: 'commscope.com', image: '/images/vendor logos/passive networking/commscope1.webp' },
+      { id: 6, name: 'Legrand', domain: 'legrand.com', image: '/images/vendor logos/passive networking/legrand-thumb.webp' },
       { id: 7, name: 'Molex', domain: 'molex.com', image: '/images/vendor logos/passive networking/Molex-Logo.svg.webp' },
-      { id: 8, name: 'R&M', domain: 'rdm.com', image: '/images/vendor logos/passive networking/RandM.png' }
+      { id: 8, name: 'R&M', domain: 'rdm.com', image: '/images/vendor logos/passive networking/RandM.webp' }
     ]
   },
   {
     category: "cybersecurity",
     partners: [
-      { id: 9, name: 'Fortinet', domain: 'fortinet.com', image: '/images/vendor logos/cybersecurity/fortinet-logo.png' },
+      { id: 9, name: 'Fortinet', domain: 'fortinet.com', image: '/images/vendor logos/cybersecurity/fortinet-logo.webp' },
       { id: 10, name: 'Check Point', domain: 'checkpoint.com', image: '/images/vendor logos/cybersecurity/Check_Point_logo.svg' },
-      { id: 11, name: 'Saviynt', domain: 'saviynt.com', image: '/images/vendor logos/cybersecurity/saviynt.png' },
-      { id: 12, name: 'Zscaler', domain: 'zscaler.com', image: '/images/vendor logos/cybersecurity/zscaler-logo.png' },
-      { id: 13, name: 'Barracuda', domain: 'barracuda.com', image: '/images/vendor logos/cybersecurity/baracuda.png' },
-      { id: 14, name: 'Arcon', domain: 'arconnet.com', image: '/images/vendor logos/cybersecurity/Arcon_logo.png' },
+      { id: 11, name: 'Saviynt', domain: 'saviynt.com', image: '/images/vendor logos/cybersecurity/saviynt.webp' },
+      { id: 12, name: 'Zscaler', domain: 'zscaler.com', image: '/images/vendor logos/cybersecurity/zscaler-logo.webp' },
+      { id: 13, name: 'Barracuda', domain: 'barracuda.com', image: '/images/vendor logos/cybersecurity/baracuda.webp' },
+      { id: 14, name: 'Arcon', domain: 'arconnet.com', image: '/images/vendor logos/cybersecurity/Arcon_logo.webp' },
       { id: 15, name: 'F5', domain: 'f5.com', image: '/images/vendor logos/cybersecurity/F5_Networks-Logo.svg' },
-      { id: 16, name: 'Akamai', domain: 'akamai.com', image: '/images/vendor logos/cybersecurity/akamai.png' },
-      { id: 17, name: 'Imperva', domain: 'imperva.com', image: '/images/vendor logos/cybersecurity/Imperva_logo.jpg' },
-      { id: 18, name: 'Indusface', domain: 'indusface.com', image: '/images/vendor logos/cybersecurity/indusface.png' },
-      { id: 19, name: 'Palo Alto Networks', domain: 'paloaltonetworks.com', image: '/images/vendor logos/cybersecurity/palo-alto-networks-.png' },
-      { id: 20, name: 'Forcepoint', domain: 'forcepoint.com', image: '/images/vendor logos/cybersecurity/forcepoint.png' },
-      { id: 21, name: 'CrowdStrike', domain: 'crowdstrike.com', image: '/images/vendor logos/cybersecurity/crowdstrike.png' },
-      { id: 22, name: 'Netskope', domain: 'netskope.com', image: '/images/vendor logos/cybersecurity/netskope.png' }
+      { id: 16, name: 'Akamai', domain: 'akamai.com', image: '/images/vendor logos/cybersecurity/akamai.webp' },
+      { id: 17, name: 'Imperva', domain: 'imperva.com', image: '/images/vendor logos/cybersecurity/Imperva_logo.webp' },
+      { id: 18, name: 'Indusface', domain: 'indusface.com', image: '/images/vendor logos/cybersecurity/indusface.webp' },
+      { id: 19, name: 'Palo Alto Networks', domain: 'paloaltonetworks.com', image: '/images/vendor logos/cybersecurity/palo-alto-networks-.webp' },
+      { id: 20, name: 'Forcepoint', domain: 'forcepoint.com', image: '/images/vendor logos/cybersecurity/forcepoint.webp' },
+      { id: 21, name: 'CrowdStrike', domain: 'crowdstrike.com', image: '/images/vendor logos/cybersecurity/crowdstrike.webp' },
+      { id: 22, name: 'Netskope', domain: 'netskope.com', image: '/images/vendor logos/cybersecurity/netskope.webp' }
     ]
   },
   {
     category: "data center",
     partners: [
-      { id: 23, name: 'NetApp', domain: 'netapp.com', image: '/images/vendor logos/data center/netApp.png' },
+      { id: 23, name: 'NetApp', domain: 'netapp.com', image: '/images/vendor logos/data center/netApp.webp' },
       { id: 24, name: 'HP', domain: 'hp.com', image: '/images/vendor logos/data center/HP_logo_2025.svg' },
       { id: 25, name: 'Dell Technologies', domain: 'dell.com', image: '/images/vendor logos/data center/Dell-Logo.svg.webp' }
     ]
@@ -648,20 +648,20 @@ export const CATEGORIZED_PARTNERS: CategorizedPartner[] = [
   {
     category: "virtualization",
     partners: [
-      { id: 26, name: 'VMware', domain: 'vmware.com', image: '/images/vendor logos/virtualization/vm ware.png' }
+      { id: 26, name: 'VMware', domain: 'vmware.com', image: '/images/vendor logos/virtualization/vm ware.webp' }
     ]
   },
   {
     category: "backup",
     partners: [
       { id: 27, name: 'Commvault', domain: 'commvault.com', image: '/images/vendor logos/backup/Commvault_logo.webp' },
-      { id: 28, name: 'Veeam', domain: 'veeam.com', image: '/images/vendor logos/backup/veem.png' }
+      { id: 28, name: 'Veeam', domain: 'veeam.com', image: '/images/vendor logos/backup/veem.webp' }
     ]
   },
   {
     category: "data and AI",
     partners: [
-      { id: 29, name: 'Quiler.AI', domain: 'quiler.ai', image: '/images/vendor logos/data and AI/quilrAI.jpeg' }
+      { id: 29, name: 'Quiler.AI', domain: 'quiler.ai', image: '/images/vendor logos/data and AI/quilrAI.webp' }
     ]
   }
 ];
@@ -685,35 +685,35 @@ export const WHY_CHOOSE_US = [
     title: "Strategic Expertise",
     text: "We align technology, automation, and business intelligence with your objectives, delivering solutions that solve real operational challenges.",
     button: "Learn More",
-    img: "/images/about-team.png",
+    img: "/images/about-team.webp",
     icon: "Target"
   },
   {
     title: "Client-First Approach",
     text: "We prioritize transparency, responsiveness, and long-term relationships built on trust and reliability.",
     button: "Learn More",
-    img: "/images/client-first.png",
+    img: "/images/client-first.webp",
     icon: "Heart"
   },
   {
     title: "Data-Driven Decision Support",
     text: "From competitive intelligence and pricing analysis to market research and forecasting, we help organizations make informed strategic decisions.",
     button: "Learn More",
-    img: "/images/security-focused.png",
+    img: "/images/security-focused.webp",
     icon: "BarChart2"
   },
   {
     title: "Innovation",
     text: "Future-ready technologies that keep you ahead of the curve. Whether it's AI, automation, or market intelligence, we help you stay competitive.",
     button: "Learn More",
-    img: "/images/innovation.png",
+    img: "/images/innovation.webp",
     icon: "Zap"
   },
   {
     title: "End-to-End Capabilities",
     text: "From advisory and implementation to managed services and ongoing support, we provide complete lifecycle support.",
     button: "Learn More",
-    img: "/images/optimize.png",
+    img: "/images/optimize.webp",
     icon: "Layers"
   }
 ];
@@ -724,7 +724,7 @@ export const MISSION_VISION = [
     text: "To help organizations leverage technology, automation, and intelligence to drive growth, improve efficiency, and strengthen decision making — delivering dependable solutions across cybersecurity, cloud, data, applications, hardware, and digital environments.",
     text1: "We deliver dependable solutions across cybersecurity, cloud, data, applications, hardware, and digital environments, ensuring our clients remain secure, agile, and future ready.",
     button: "Read More",
-    img: "/images/mission.png",
+    img: "/images/mission.webp",
     icon: "Flag"
   },
   {
@@ -732,7 +732,7 @@ export const MISSION_VISION = [
     text: "To become a trusted technology and business intelligence partner, helping organizations navigate digital transformation with confidence through secure, intelligent, and scalable solutions that support long-term growth.",
     text1: "Through secure, intelligent, and scalable solutions that support long term growth, we empower enterprises to thrive in a digital-first world.",
     button: "Read More",
-    img: "/images/vision.png",
+    img: "/images/vision.webp",
     icon: "Eye"
   }
 ];

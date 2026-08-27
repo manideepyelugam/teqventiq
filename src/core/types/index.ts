@@ -222,4 +222,26 @@ export interface SolutionsEcosystemItem {
   reverse: boolean;
 }
 
+export interface ContactFormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  topic: string;
+  message: string;
+  formType?: string;
+  turnstileToken?: string;
+}
+
+export interface FormSubmissionResponse {
+  success: boolean;
+  message?: string;
+  data?: {
+    id?: string;
+    status?: string;
+    [key: string]: unknown;
+  };
+  error?: string;
+}
+
+
 

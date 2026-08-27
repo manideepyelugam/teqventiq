@@ -45,21 +45,21 @@ const STRENGTHS = [
 
 export default function AboutContent() {
   return (
-    <div className=" bg-transparent pb-10">
-      <div className="mx-auto max-w-[1248px] px-5">
+    <div className="bg-transparent pb-10">
+      <div className="mx-auto max-w-[1248px] px-4 sm:px-5">
         
         {/* Intro & Strategy Section */}
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start mb-32">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-24 items-start mb-16 sm:mb-32">
           <div>
            
-            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+            <div className="space-y-4 sm:space-y-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
               <p>
                 <span className="text-brand-lime">Teqventiq Services Private Limited</span> is a technology management, consulting, intelligence, and solutions company. Combining deep industry experience, comprehensive capabilities across technology and business functions, <span className="text-brand-lime">Teqventiq Services Private Limited</span> collaborates with clients to help them become high-performance organizations. With a strong team coupled with expertise across various verticals, <span className="text-brand-lime">Teqventiq Services Private Limited</span> delivers secure, scalable, and future-ready technology solutions.
               </p>
               <p>
                 Our <span className="text-brand-lime">"high performance business" </span>strategy builds on our expertise in consulting, technology and outsourcing to help clients perform at the highest levels so they can create sustainable value for their customers and shareholders. Using our industry knowledge, service-offering expertise and technology capabilities, we identify new business and technology trends and develop solutions to help clients around the region:
               </p>
-              <ul className="list-disc pl-6 space-y-2 mt-4 text-foreground/80 font-medium">
+              <ul className="list-disc pl-5 sm:pl-6 space-y-2 mt-4 text-foreground/80 font-medium text-sm sm:text-base">
                 <li>Enter new markets</li>
                 <li>Increase revenues in existing markets</li>
                 <li>Improve operational performance</li>
@@ -68,20 +68,20 @@ export default function AboutContent() {
             </div>
           </div>
           
-          <div id="strengths" className="group p-6 sm:p-8 rounded-2xl border border-border/60 bg-card/80 backdrop-blur-md transition-all duration-300 hover:border-brand-blue/40 hover:shadow-md">
-            <h3 className="text-2xl font-bold font-serif mb-6">Our Strengths</h3>
-            <p className="text-muted-foreground mb-8">
+          <div id="strengths" className="group p-5 sm:p-8 rounded-2xl border border-border/60 bg-card/80 backdrop-blur-md transition-all duration-300 hover:border-brand-blue/40 hover:shadow-md">
+            <h3 className="text-xl sm:text-2xl font-bold font-serif mb-4 sm:mb-6">Our Strengths</h3>
+            <p className="text-muted-foreground text-sm sm:text-base mb-6 sm:mb-8">
               We have extensive relationships with the world's leading companies and governments and work with organizations of all sizes. Our commitment to client satisfaction strengthens and extends our relationships.
               <br/><br/>
               Some of the major strengths that distinguish us in the market are our:
             </p>
-            <ul className="space-y-4">
+            <ul className="space-y-3 sm:space-y-4">
               {STRENGTHS.map((strength, index) => (
-                <li key={index} className="flex items-start gap-4">
-                  <div className="mt-1 w-6 h-6 rounded-full bg-brand-blue/10 flex items-center justify-center shrink-0">
-                    <CheckCircle2 className="w-4 h-4 text-brand-blue" />
+                <li key={index} className="flex items-start gap-3 sm:gap-4">
+                  <div className="mt-0.5 sm:mt-1 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-brand-blue/10 flex items-center justify-center shrink-0">
+                    <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-blue" />
                   </div>
-                  <span className="text-foreground/90 font-medium leading-relaxed">{strength}</span>
+                  <span className="text-foreground/90 font-medium text-xs sm:text-sm md:text-base leading-relaxed">{strength}</span>
                 </li>
               ))}
             </ul>
@@ -89,27 +89,27 @@ export default function AboutContent() {
         </div>
 
         {/* Core Values Section */}
-        <div id="core-values" className="mb-16 text-center max-w-[800px] mx-auto">
+        <div id="core-values" className="mb-10 sm:mb-16 text-center max-w-[800px] mx-auto">
           <span className="text-brand-blue font-bold tracking-wider uppercase text-xs mb-3 block">Our DNA</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-serif text-foreground tracking-tight mb-6">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold font-serif text-foreground tracking-tight mb-4 sm:mb-6">
             Core Values
           </h2>
-          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed">
             Our Core Values have shaped the culture and defined the character of our company, guiding how we behave and make decisions:
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
           {CORE_VALUES.map((value, index) => (
             <div 
               key={index}
-              className="group p-6 sm:p-8 rounded-2xl bg-card/80 backdrop-blur-md border border-border/60 hover:border-brand-blue/40 transition-all duration-300 hover:shadow-md"
+              className="group p-5 sm:p-8 rounded-2xl bg-card/80 backdrop-blur-md border border-border/60 hover:border-brand-blue/40 transition-all duration-300 hover:shadow-md"
             >
-              <div className="w-12 h-12 rounded-xl bg-brand-blue/10 flex items-center justify-center mb-6 group-hover:-translate-y-1 transition-transform duration-300">
-                <value.icon className="w-6 h-6 text-brand-blue" />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand-blue/10 flex items-center justify-center mb-4 sm:mb-6 group-hover:-translate-y-1 transition-transform duration-300">
+                <value.icon className="w-5 h-5 sm:w-6 sm:h-6 text-brand-blue" />
               </div>
-              <h3 className="text-xl font-bold font-serif mb-4 group-hover:text-brand-lime  transition-colors">{value.title}</h3>
-              <p className="text-muted-foreground leading-relaxed text-sm">
+              <h3 className="text-lg sm:text-xl font-bold font-serif mb-2 sm:mb-4 group-hover:text-brand-lime transition-colors">{value.title}</h3>
+              <p className="text-muted-foreground leading-relaxed text-xs sm:text-sm">
                 {value.description}
               </p>
             </div>
@@ -117,10 +117,10 @@ export default function AboutContent() {
         </div>
 
         {/* Conclusion Banner */}
-        <div className="mt-24 p-12 lg:p-16 rounded-[32px] bg-brand-blue text-white relative overflow-hidden  text-justify md:text-center ">
+        <div className="mt-16 sm:mt-24 p-6 sm:p-12 lg:p-16 rounded-2xl sm:rounded-[32px] bg-brand-blue text-white relative overflow-hidden text-left md:text-center">
           <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/10 blur-[100px] rounded-full pointer-events-none"></div>
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-white/10 blur-[100px] rounded-full pointer-events-none"></div>
-          <p className="text-lg lg:text-xl font-serif font-medium leading-relaxed relative z-10  mx-auto space-y-4 ">
+          <p className="text-sm sm:text-base lg:text-xl font-serif font-medium leading-relaxed relative z-10 mx-auto space-y-4">
             <span className="block">"By enhancing our consulting and outsourcing expertise with alliances and other capabilities, we help move clients forward in every part of their businesses, from strategic planning to day-to-day operations.</span>
             <span className="block">With deep industry and business process expertise, broad resources and a proven track record, Teqventiq Services Private Limited mobilizes technology and business intelligence to help clients improve performance and drive growth."</span>
           </p>

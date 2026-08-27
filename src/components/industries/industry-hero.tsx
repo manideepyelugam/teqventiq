@@ -49,20 +49,20 @@ export default function IndustryHero() {
   }, containerRef);
 
   return (
-    <div className="max-w-[800px] mb-24" ref={containerRef}>
-      <div className="hero-badge inline-flex items-center gap-3 bg-muted/50 backdrop-blur-xl border border-border px-5 py-2.5 rounded-full mb-8 transition-colors duration-500">
+    <div className="max-w-[800px] mb-12 sm:mb-24" ref={containerRef}>
+      <div className="hero-badge inline-flex items-center gap-3 bg-muted/50 backdrop-blur-xl border border-border px-4 sm:px-5 py-2 sm:py-2.5 rounded-full mb-6 sm:mb-8 transition-colors duration-500">
         <span className="w-2 h-2 bg-brand-lime rounded-full"></span>
         <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-lime dark:text-brand-lime">
           Industries We Serve
         </span>
       </div>
 
-      <h1 className="hero-title text-4xl lg:text-8xl font-bold font-serif leading-[1.1] text-foreground mb-10">
+      <h1 className="hero-title text-3xl sm:text-5xl lg:text-7xl font-bold font-serif leading-[1.1] text-foreground mb-6 sm:mb-10 tracking-tight">
         Built for Every <br />
         <span className="text-brand-lime">Industry</span>
       </h1>
 
-      <p className="hero-desc text-base lg:text-2xl text-muted-foreground font-medium leading-relaxed max-w-[650px]">
+      <p className="hero-desc text-sm sm:text-base lg:text-xl text-muted-foreground font-medium leading-relaxed max-w-[650px]">
         We deliver tailored IT, infrastructure, and cybersecurity solutions across diverse sectors — each engineered to address the unique compliance, operational, and digital transformation demands of your industry.
       </p>
     </div>

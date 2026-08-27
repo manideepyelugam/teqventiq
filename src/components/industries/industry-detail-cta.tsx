@@ -57,26 +57,26 @@ export default function IndustryDetailCTA({ industry }: IndustryDetailCTAProps) 
   }, containerRef);
 
   return (
-    <section ref={containerRef} className="py-24 px-5 bg-transparent">
+    <section ref={containerRef} className="py-16 sm:py-24 px-4 sm:px-5 bg-transparent">
       <div className="mx-auto max-w-[1280px]">
-        <div className="detail-cta-box bg-card border border-border/60 rounded-3xl p-10 sm:p-14 lg:p-16 relative overflow-hidden shadow-md backdrop-blur-md">
+        <div className="detail-cta-box bg-card border border-border/60 rounded-2xl sm:rounded-3xl p-6 sm:p-12 lg:p-16 relative overflow-hidden shadow-md backdrop-blur-md">
           <div className="relative z-10 text-center">
-            <span className="detail-cta-item text-brand-blue font-bold tracking-wider uppercase text-xs mb-4 block">Ready to Get Started?</span>
-            <h2 className="detail-cta-item text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 font-serif tracking-tight">
+            <span className="detail-cta-item text-brand-blue font-bold tracking-wider uppercase text-xs mb-3 sm:mb-4 block">Ready to Get Started?</span>
+            <h2 className="detail-cta-item text-2xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6 font-serif tracking-tight">
               Let&apos;s build your <span className="bg-gradient-to-r from-brand-blue to-blue-600 bg-clip-text text-transparent">{industry.title.split(' — ')[0]}</span> technology roadmap
             </h2>
-            <p className="detail-cta-item text-base sm:text-lg text-muted-foreground mb-8 max-w-[580px] mx-auto leading-relaxed">
+            <p className="detail-cta-item text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 sm:mb-8 max-w-[580px] mx-auto leading-relaxed">
               {industry.ctaText ?? 'Our sector specialists are ready to conduct a tailored discovery workshop and assessment for your organisation.'}
             </p>
-            <div className="detail-cta-item flex flex-wrap gap-4 justify-center">
-              <Button asChild className="btn-primary group">
-                <Link href="/contact">
+            <div className="detail-cta-item flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center w-full sm:w-auto">
+              <Button asChild className="btn-primary group w-full sm:w-auto">
+                <Link href="/contact" className="justify-center">
                   Request a Discovery Workshop
                   <ArrowUpRight className="w-4.5 h-4.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
               </Button>
-              <Button asChild className="btn-outline">
-                <Link href="/industries">
+              <Button asChild className="btn-outline w-full sm:w-auto">
+                <Link href="/industries" className="justify-center">
                   View All Industries
                 </Link>
               </Button>

@@ -52,16 +52,16 @@ export default function IndustryCTA() {
   }, containerRef);
 
   return (
-    <div className="mt-24 px-5" ref={containerRef}>
-      <div className="cta-card mx-auto max-w-[1280px] bg-card border border-border/60 rounded-3xl p-10 sm:p-14 lg:p-16 text-center relative overflow-hidden shadow-md backdrop-blur-md">
+    <div className="mt-12 sm:mt-24 px-4 sm:px-5" ref={containerRef}>
+      <div className="cta-card mx-auto max-w-[1280px] bg-card border border-border/60 rounded-2xl sm:rounded-3xl p-6 sm:p-12 lg:p-16 text-center relative overflow-hidden shadow-md backdrop-blur-md">
         <div className="relative z-10">
-          <h2 className="cta-item text-3xl sm:text-4xl lg:text-5xl font-bold font-serif text-foreground tracking-tight mb-6">Don&apos;t see your industry?</h2>
-          <p className="cta-item text-base sm:text-lg text-muted-foreground mb-8 max-w-[580px] mx-auto leading-relaxed">
+          <h2 className="cta-item text-2xl sm:text-4xl lg:text-5xl font-bold font-serif text-foreground tracking-tight mb-4 sm:mb-6">Don&apos;t see your industry?</h2>
+          <p className="cta-item text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 sm:mb-8 max-w-[580px] mx-auto leading-relaxed">
             We work with organisations across a wide range of sectors. Our consultants can design a tailored technology strategy for your unique operational environment.
           </p>
-          <div className="cta-item inline-block">
-            <Button asChild className="btn-primary group">
-              <Link href="/contact">
+          <div className="cta-item inline-block w-full sm:w-auto">
+            <Button asChild className="btn-primary group w-full sm:w-auto">
+              <Link href="/contact" className="justify-center">
                 Talk to a Consultant
                 <ArrowUpRight className="w-4.5 h-4.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>

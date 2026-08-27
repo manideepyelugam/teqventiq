@@ -159,13 +159,13 @@ export default function NavSection() {
                 key={item.id}
                 id={item.id}
                 ref={(el) => { sectionRefs.current[item.id] = el; }}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center scroll-mt-[120px]"
+                className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center scroll-mt-[120px]"
               >
                 <div className={cn(
                   'relative group transition-all duration-700',
                   item.reverse ? 'lg:order-last' : ''
                 )}>
-                  <div className="relative rounded-[40px] overflow-hidden shadow-2xl border border-border/50 bg-muted/30 aspect-[4/3] group-hover:shadow-brand-blue/10 transition-all duration-700">
+                  <div className="relative rounded-2xl sm:rounded-[40px] overflow-hidden shadow-2xl border border-border/50 bg-muted/30 aspect-[4/3] group-hover:shadow-brand-blue/10 transition-all duration-700">
                     <img
                       loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
@@ -173,33 +173,33 @@ export default function NavSection() {
                       alt={item.title}
                     />
                   </div>
-                  <div className="absolute -inset-4 bg-brand-blue/5 rounded-[48px] -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                  <div className="absolute -inset-2 sm:-inset-4 bg-brand-blue/5 rounded-3xl sm:rounded-[48px] -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
                 </div>
 
-                <div className="flex flex-col gap-8">
+                <div className="flex flex-col gap-5 sm:gap-8">
                   <div>
-                    <h5 className="text-3xl lg:text-4xl font-bold font-serif text-foreground mb-4 leading-tight">
+                    <h5 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-serif text-foreground mb-3 sm:mb-4 leading-tight">
                       {item.title}
                     </h5>
-                    <p className="text-brand-blue font-bold tracking-widest uppercase text-xs mb-6 px-3 py-1 bg-brand-blue/5 w-fit rounded-lg">
+                    <p className="text-brand-blue font-bold tracking-widest uppercase text-xs mb-4 sm:mb-6 px-3 py-1 bg-brand-blue/5 w-fit rounded-lg">
                       {item.subtitle}
                     </p>
-                    <p className="text-lg text-muted-foreground leading-relaxed font-normal">
+                    <p className="text-base sm:text-lg text-muted-foreground leading-relaxed font-normal">
                       {item.description}
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-1 gap-3">
+                  <div className="grid grid-cols-1 gap-2.5 sm:gap-3">
                     {item.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-4 group/item">
-                        <div className="w-1.5 h-1.5 rounded-full bg-brand-blue group-hover/item:scale-150 transition-transform duration-300" />
-                        <p className="text-foreground/90 font-bold text-sm tracking-tight">{feature}</p>
+                      <div key={idx} className="flex items-center gap-3 sm:gap-4 group/item">
+                        <div className="w-1.5 h-1.5 rounded-full bg-brand-blue group-hover/item:scale-150 transition-transform duration-300 shrink-0" />
+                        <p className="text-foreground/90 font-bold text-xs sm:text-sm tracking-tight">{feature}</p>
                       </div>
                     ))}
                   </div>
 
                   <div className="pt-3 md:pt-6 border-t border-border/10">
-                    <a href="#contact-section" className="group text-brand-blue font-bold flex items-center gap-2 text-sm uppercase tracking-widest transition-all">
+                    <a href="#contact-section" className="group text-brand-blue font-bold flex items-center gap-2 text-xs sm:text-sm uppercase tracking-widest transition-all">
                       <span className="border-b border-brand-blue/0 group-hover:border-brand-blue/100 pb-1">Get Technical Details</span>
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-2">
                         <polyline points="9 18 15 12 9 6" />

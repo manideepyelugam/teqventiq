@@ -57,21 +57,21 @@ export default function ServiceDetailCTA({ service }: ServiceDetailCTAProps) {
   }, containerRef);
 
   return (
-    <section ref={containerRef} className="pb-24 px-5 bg-transparent">
-      <div className="detail-cta-card mx-auto max-w-[1280px] bg-card border border-border/60 rounded-3xl p-10 sm:p-14 lg:p-16 text-center relative overflow-hidden shadow-md backdrop-blur-md">
+    <section ref={containerRef} className="pb-16 sm:pb-24 px-4 sm:px-5 bg-transparent">
+      <div className="detail-cta-card mx-auto max-w-[1280px] bg-card border border-border/60 rounded-2xl sm:rounded-3xl p-6 sm:p-12 lg:p-16 text-center relative overflow-hidden shadow-md backdrop-blur-md">
         <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/5 via-transparent to-transparent opacity-50"></div>
         <div className="relative z-10">
-          <h2 className="detail-cta-item text-3xl sm:text-4xl lg:text-5xl font-bold font-serif text-foreground tracking-tight mb-6">
+          <h2 className="detail-cta-item text-2xl sm:text-4xl lg:text-5xl font-bold font-serif text-foreground tracking-tight mb-4 sm:mb-6">
             Ready to modernize?
           </h2>
-          <p className="detail-cta-item text-base sm:text-lg text-muted-foreground mb-8 max-w-[580px] mx-auto leading-relaxed">
+          <p className="detail-cta-item text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 sm:mb-8 max-w-[580px] mx-auto leading-relaxed">
             Schedule a consultation with our experts and discover how{' '}
             {service.title} can transform your operations.
           </p>
-          <div className="detail-cta-item inline-block">
+          <div className="detail-cta-item inline-block w-full sm:w-auto">
             <Button
               asChild
-              className="btn-primary group"
+              className="btn-primary group w-full sm:w-auto"
             >
               <Link href="/contact">
                 Talk to an Expert

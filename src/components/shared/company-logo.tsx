@@ -59,8 +59,8 @@ export default function CompanyLogo({
     );
   }
 
-  // Load the pre-downloaded PNG logo served directly from the public folder
-  const logoUrl = `/logos/${domain}.png`;
+  // Load the pre-downloaded WebP logo served directly from the public folder
+  const logoUrl = `/logos/${domain}.webp`;
 
   return (
     <img

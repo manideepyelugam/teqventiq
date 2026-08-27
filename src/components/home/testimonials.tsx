@@ -18,19 +18,19 @@ const getInitials = (company: string) => {
 const getCompanyLogo = (company: string) => {
   if (company.includes("World Trade")) {
     return {
-      src: "/logos/dwtc.com.png",
+      src: "/logos/dwtc.com.webp",
       className: "object-contain p-1 bg-white",
     };
   }
   if (company.includes("Danube")) {
     return {
-      src: "/logos/aldanube.com.png",
+      src: "/logos/aldanube.com.webp",
       className: "object-contain p-2.5 bg-white",
     };
   }
   if (company.includes("Kitopi")) {
     return {
-      src: "/logos/kitopi.com.png",
+      src: "/logos/kitopi.com.webp",
       className: "object-cover p-0 bg-transparent",
     };
   }
@@ -52,17 +52,17 @@ const getGradient = (id: number) => {
 
 export default function Testimonials() {
   return (
-    <section className="pt-16 lg:pt-24 pb-8 overflow-visible relative transition-colors duration-500" id="testimonials">
+    <section className="pt-12 sm:pt-16 lg:pt-24 pb-8 overflow-hidden md:overflow-visible relative transition-colors duration-500" id="testimonials">
       {/* Decorative Glows */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-blue/5 blur-[120px] rounded-full"></div>
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-blue/5 blur-[120px] rounded-full"></div>
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-blue/5 blur-[120px] rounded-full pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-blue/5 blur-[120px] rounded-full pointer-events-none"></div>
       {/* Dot field texture */}
       <div className="dot-grid-overlay" />
 
-      <div className="mx-auto max-w-[1248px] px-5 relative z-10">
-        <div className="mb-16">
-          <span className="text-brand-lime font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Client Success</span>
-          <h3 className="text-4xl lg:text-6xl font-bold font-serif text-foreground tracking-tight">Trust from the Leaders</h3>
+      <div className="mx-auto max-w-[1248px] px-4 sm:px-5 relative z-10">
+        <div className="mb-10 sm:mb-16">
+          <span className="text-brand-lime font-bold tracking-[0.3em] uppercase text-xs mb-3 sm:mb-4 block">Client Success</span>
+          <h3 className="text-3xl sm:text-4xl lg:text-6xl font-bold font-serif text-foreground tracking-tight">Trust from the Leaders</h3>
         </div>
 
         <Swiper
@@ -72,19 +72,21 @@ export default function Testimonials() {
             nextEl: '.test-next',
           }}
           autoplay={{ delay: 5000, disableOnInteraction: false }}
-          spaceBetween={32}
+          spaceBetween={24}
           breakpoints={{
             320: {
               slidesPerView: 1,
             },
             768: {
               slidesPerView: 2,
+              spaceBetween: 32,
             },
             1024: {
               slidesPerView: 3,
+              spaceBetween: 32,
             },
           }}
-          className="!overflow-visible"
+          className="overflow-hidden md:!overflow-visible"
         >
           {TESTIMONIALS.map((item) => (
             <SwiperSlide key={item.id} className="py-4 !h-auto flex flex-col">

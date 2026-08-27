@@ -18,7 +18,7 @@ export default function AboutSection() {
           <div className="relative order-2 lg:order-1">
              <div className="relative rounded-3xl overflow-hidden shadow-lg z-[2] border border-border/60">
               <img 
-                src="/images/india.png" 
+                src="/images/india.webp" 
                 alt="Teqventiq India Operations" 
                 className="w-full h-[500px] lg:h-[700px] object-cover object-center transition-transform duration-700 hover:scale-[1.02]"
               />

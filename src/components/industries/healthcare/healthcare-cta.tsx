@@ -8,44 +8,44 @@ export default function HealthcareCTA() {
   const { cta } = HEALTHCARE_CONTENT;
 
   return (
-    <section className="py-20 bg-transparent">
-      <div className="mx-auto max-w-[1280px] px-5">
+    <section className="py-12 sm:py-20 bg-transparent">
+      <div className="mx-auto max-w-[1280px] px-4 sm:px-5">
         
-        <div className="bg-card border border-border/60 rounded-3xl p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-md backdrop-blur-md reveal">
-          <div className="relative z-10 grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="bg-card border border-border/60 rounded-2xl sm:rounded-3xl p-5 sm:p-10 lg:p-16 relative overflow-hidden shadow-md backdrop-blur-md reveal">
+          <div className="relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-16 items-start">
             
             {/* Contact Details */}
             <div className="lg:col-span-6">
-              <span className="text-brand-blue font-bold tracking-wider uppercase text-xs mb-4 block">Get In Touch</span>
-              <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-6 font-serif tracking-tight">
+              <span className="text-brand-blue font-bold tracking-wider uppercase text-xs mb-3 sm:mb-4 block">Get In Touch</span>
+              <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6 font-serif tracking-tight">
                 {cta.title}
               </h2>
-              <p className="text-base sm:text-lg text-muted-foreground mb-8 leading-relaxed">
+              <p className="text-sm sm:text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
                 {cta.subtitle}
               </p>
 
-              <div className="flex flex-col gap-6">
-                <div className="flex gap-4 items-start">
+              <div className="flex flex-col gap-4 sm:gap-6">
+                <div className="flex gap-3 sm:gap-4 items-start">
                   <MapPin className="w-5 h-5 text-brand-blue mt-1 flex-shrink-0" />
                   <div>
                     <span className="text-xs font-bold text-muted-foreground uppercase block mb-1">Office Address</span>
-                    <span className="text-sm font-medium text-foreground">{cta.address}</span>
+                    <span className="text-xs sm:text-sm font-medium text-foreground">{cta.address}</span>
                   </div>
                 </div>
-                <div className="flex gap-4 items-start">
+                <div className="flex gap-3 sm:gap-4 items-start">
                   <Globe className="w-5 h-5 text-brand-lime mt-1 flex-shrink-0" />
                   <div>
                     <span className="text-xs font-bold text-muted-foreground uppercase block mb-1">Website</span>
-                    <a href={`https://${cta.website}`} target="_blank" rel="noreferrer" className="text-sm font-medium text-foreground hover:text-brand-lime transition-colors">
+                    <a href={`https://${cta.website}`} target="_blank" rel="noreferrer" className="text-xs sm:text-sm font-medium text-foreground hover:text-brand-lime transition-colors">
                       {cta.website}
                     </a>
                   </div>
                 </div>
-                <div className="flex gap-4 items-start">
+                <div className="flex gap-3 sm:gap-4 items-start">
                   <Phone className="w-5 h-5 text-brand-lime mt-1 flex-shrink-0" />
                   <div>
                     <span className="text-xs font-bold text-muted-foreground uppercase block mb-1">Call Us</span>
-                    <a href={`tel:${cta.phone.replace(/\s+/g, '')}`} className="text-sm font-medium text-foreground hover:text-brand-lime transition-colors">
+                    <a href={`tel:${cta.phone.replace(/\s+/g, '')}`} className="text-xs sm:text-sm font-medium text-foreground hover:text-brand-lime transition-colors">
                       {cta.phone}
                     </a>
                   </div>
@@ -54,25 +54,25 @@ export default function HealthcareCTA() {
             </div>
 
             {/* Steps / Process */}
-            <div className="lg:col-span-6 flex flex-col gap-8">
-              <h3 className="font-bold text-foreground text-sm tracking-wide uppercase mb-2">Our Engagement Process</h3>
-              <div className="flex flex-col gap-8 relative pl-6 border-l border-border">
+            <div className="lg:col-span-6 flex flex-col gap-6 sm:gap-8">
+              <h3 className="font-bold text-foreground text-xs sm:text-sm tracking-wide uppercase mb-1 sm:mb-2">Our Engagement Process</h3>
+              <div className="flex flex-col gap-6 sm:gap-8 relative pl-5 sm:pl-6 border-l border-border">
                 {cta.steps.map((step, i) => (
                   <div key={i} className="relative">
                     {/* Bullet marker */}
-                    <div className="absolute -left-[35px] top-1.5 w-4.5 h-4.5 rounded-full bg-brand-lime flex items-center justify-center border-4 border-muted">
+                    <div className="absolute -left-[30px] sm:-left-[35px] top-1.5 w-4 h-4 sm:w-4.5 sm:h-4.5 rounded-full bg-brand-lime flex items-center justify-center border-4 border-muted">
                       <span className="w-1.5 h-1.5 rounded-full bg-background"></span>
                     </div>
-                    <span className="text-[10px] font-bold text-brand-lime uppercase tracking-widest block mb-2">Step {step.number}</span>
-                    <h4 className="text-lg font-bold text-foreground mb-2 leading-snug">{step.title}</h4>
+                    <span className="text-[10px] font-bold text-brand-lime uppercase tracking-widest block mb-1.5 sm:mb-2">Step {step.number}</span>
+                    <h4 className="text-base sm:text-lg font-bold text-foreground mb-1.5 sm:mb-2 leading-snug">{step.title}</h4>
                     <p className="text-xs text-muted-foreground leading-relaxed">{step.description}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-8">
-                <Button asChild className="btn-primary text-base h-auto px-10 py-5 rounded-full group">
-                  <Link href="/contact">
+              <div className="mt-4 sm:mt-8">
+                <Button asChild className="btn-primary text-sm sm:text-base h-auto py-3.5 sm:py-5 px-6 sm:px-10 rounded-full group w-full sm:w-auto">
+                  <Link href="/contact" className="justify-center">
                     Talk to our Healthcare Team
                     <ArrowUpRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                   </Link>

@@ -66,9 +66,7 @@ export default function Hero() {
     });
   }, containerRef);
 
-  // Orbit config
-  const INNER_RADIUS = 130; // services orbit radius (px)
-  const OUTER_RADIUS = 200; // industries orbit radius (px)
+  // Orbit speed config
   const INNER_SPEED = 60;  // seconds per full revolution
   const OUTER_SPEED = 90;  // seconds per full revolution
 
@@ -76,7 +74,7 @@ export default function Hero() {
     <section
       id="hero-section"
       ref={containerRef}
-      className="relative overflow-hidden min-h-screen flex items-center pt-28 pb-20 lg:pt-32 lg:pb-24 text-foreground transition-colors duration-500"
+      className="relative overflow-hidden min-h-screen flex items-center pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-24 text-foreground transition-colors duration-500"
     >
       {/* Delhi Cityscape Background */}
       <div
@@ -87,7 +85,7 @@ export default function Hero() {
         }}
       >
         <img
-          src="/images/delhi_skyline_hero.png"
+          src="/images/delhi_skyline_hero.webp"
           alt="Delhi Tech Infrastructure"
           className="w-full h-full object-cover object-center"
         />
@@ -108,40 +106,40 @@ export default function Hero() {
 
       <div className="dot-grid-overlay" />
 
-      <div className="w-full mx-auto max-w-[1280px] px-5 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="w-full mx-auto max-w-[1280px] px-4 sm:px-6 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
 
           {/* ── LEFT: Text ─────────────────────────────────── */}
-          <div className="lg:col-span-5">
-            <div className="hero-enter inline-flex items-center gap-2.5 bg-brand-blue/10 border border-brand-blue/25 px-4 py-1.5 rounded-full mb-6 shadow-sm backdrop-blur-md">
-              <span className="relative flex h-2.5 w-2.5">
+          <div className="lg:col-span-5 text-center lg:text-left flex flex-col items-center lg:items-start">
+            <div className="hero-enter inline-flex items-center gap-2.5 bg-brand-blue/10 border border-brand-blue/25 px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-full mb-4 sm:mb-6 shadow-sm backdrop-blur-md">
+              <span className="relative flex h-2 sm:h-2.5 w-2 sm:w-2.5">
                 <span className="status-pulse absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-blue" />
+                <span className="relative inline-flex rounded-full h-2 sm:h-2.5 w-2 sm:w-2.5 bg-brand-blue" />
               </span>
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-blue">
+              <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-brand-blue">
                 Teqventiq Services
               </span>
             </div>
 
-            <h1 className="hero-enter text-4xl sm:text-5xl lg:text-6xl font-bold font-serif leading-[1.08] tracking-tight text-foreground mb-6">
+            <h1 className="hero-enter text-3xl sm:text-5xl lg:text-6xl font-bold font-serif leading-[1.12] sm:leading-[1.08] tracking-tight text-foreground mb-4 sm:mb-6">
               Where Technology <br />
               <span className="bg-gradient-to-r from-brand-blue via-blue-600 to-indigo-600 bg-clip-text text-transparent">
                 Meets Business Intelligence
               </span>
             </h1>
 
-            <p className="hero-enter text-base sm:text-lg text-muted-foreground font-sans max-w-[500px] mb-8 leading-relaxed">
+            <p className="hero-enter text-sm sm:text-base lg:text-lg text-muted-foreground font-sans max-w-[500px] mb-6 sm:mb-8 leading-relaxed">
               Empowering organizations with secure, scalable, and modern enterprise technology ecosystems.
             </p>
 
-            <div className="hero-enter flex flex-wrap items-center gap-4">
-              <Button asChild className="btn-primary group">
+            <div className="hero-enter flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 w-full sm:w-auto">
+              <Button asChild className="btn-primary group w-full sm:w-auto">
                 <a href="#contact-section">
                   <span>Start Your Project</span>
                   <ArrowRight className="w-4.5 h-4.5 transition-transform group-hover:translate-x-1" />
                 </a>
               </Button>
-              <Button asChild variant="outline" className="btn-outline group">
+              <Button asChild variant="outline" className="btn-outline group w-full sm:w-auto">
                 <a href="#features">
                   Our Impact
                   <ChevronDown className="w-4.5 h-4.5 opacity-60 group-hover:opacity-100 transition-opacity" />
@@ -151,18 +149,15 @@ export default function Hero() {
           </div>
 
           {/* ── RIGHT: Orbit Ecosystem ────────────────────── */}
-          <div className="lg:col-span-7 hero-enter flex justify-center lg:justify-end">
-            <div
-              className="relative"
-              style={{ width: OUTER_RADIUS * 2 + 80, height: OUTER_RADIUS * 2 + 80 }}
-            >
+          <div className="lg:col-span-7 hero-enter flex justify-center lg:justify-end w-full overflow-visible py-4">
+            <div className="hero-orbit-container relative mx-auto select-none">
               {/* ── Orbit Ring Tracks (visual guides) ── */}
               {/* Inner ring */}
               <div
                 className="absolute rounded-full border border-brand-blue/15 dark:border-brand-blue/25 pointer-events-none"
                 style={{
-                  width: INNER_RADIUS * 2,
-                  height: INNER_RADIUS * 2,
+                  width: 'calc(var(--inner-radius) * 2)',
+                  height: 'calc(var(--inner-radius) * 2)',
                   top: '50%',
                   left: '50%',
                   transform: 'translate(-50%, -50%)',
@@ -173,8 +168,8 @@ export default function Hero() {
               <div
                 className="absolute rounded-full border border-indigo-500/10 dark:border-indigo-500/20 pointer-events-none"
                 style={{
-                  width: OUTER_RADIUS * 2,
-                  height: OUTER_RADIUS * 2,
+                  width: 'calc(var(--outer-radius) * 2)',
+                  height: 'calc(var(--outer-radius) * 2)',
                   top: '50%',
                   left: '50%',
                   transform: 'translate(-50%, -50%)',
@@ -192,20 +187,24 @@ export default function Hero() {
                 }}
               >
                 <div
-                  className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-card/95 border-2 border-brand-blue/40 flex flex-col items-center justify-center p-3 relative backdrop-blur-2xl"
-                  style={{ animation: 'orbit-node-glow 4s ease-in-out infinite' }}
+                  className="rounded-full bg-card/95 border-2 border-brand-blue/40 flex flex-col items-center justify-center p-2 sm:p-3 relative backdrop-blur-2xl transition-all duration-300"
+                  style={{
+                    width: 'var(--hub-size)',
+                    height: 'var(--hub-size)',
+                    animation: 'orbit-node-glow 4s ease-in-out infinite',
+                  }}
                 >
                   {/* Ping ring */}
                   <div className="absolute inset-0 rounded-full border-2 border-brand-blue/30 animate-ping pointer-events-none" />
                   <img
-                    src="/images/teqventiq logo/teqventiq light.png"
+                    src="/images/teqventiq logo/teqventiq light.webp"
                     alt="Teqventiq"
-                    className="logo-light max-w-[72px] sm:max-w-[82px] h-auto object-contain"
+                    className="logo-light max-w-[52px] sm:max-w-[68px] lg:max-w-[82px] h-auto object-contain"
                   />
                   <img
-                    src="/images/teqventiq logo/teqventiq dark.png"
+                    src="/images/teqventiq logo/teqventiq dark.webp"
                     alt="Teqventiq"
-                    className="logo-dark max-w-[72px] sm:max-w-[82px] h-auto object-contain"
+                    className="logo-dark max-w-[52px] sm:max-w-[68px] lg:max-w-[82px] h-auto object-contain"
                   />
                 </div>
               </div>
@@ -223,27 +222,29 @@ export default function Hero() {
                       style={{
                         top: '50%',
                         left: '50%',
-                        marginTop: -22,
-                        marginLeft: -22,
+                        marginTop: 'calc(-1 * var(--inner-node-size) / 2)',
+                        marginLeft: 'calc(-1 * var(--inner-node-size) / 2)',
                         animation: `orbit-revolve-cw ${INNER_SPEED}s linear infinite`,
                         // @ts-expect-error custom CSS variables for keyframe orbit
                         '--start-angle': `${angle}deg`,
-                        '--orbit-radius': `${INNER_RADIUS}px`,
+                        '--orbit-radius': `var(--inner-radius)`,
                       }}
                     >
                       <div className="relative">
                         <div
-                          className="w-11 h-11 rounded-2xl bg-card/95 border-2 shadow-lg backdrop-blur-xl flex items-center justify-center transition-all duration-300 group-hover/node:scale-130 group-hover/node:shadow-2xl"
+                          className="rounded-xl sm:rounded-2xl bg-card/95 border-2 shadow-lg backdrop-blur-xl flex items-center justify-center transition-all duration-300 group-hover/node:scale-125 group-hover/node:shadow-2xl"
                           style={{
+                            width: 'var(--inner-node-size)',
+                            height: 'var(--inner-node-size)',
                             borderColor: svc.color,
                             color: svc.color,
                           }}
                         >
-                          <Icon className="w-5 h-5" />
+                          <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
                         </div>
                         {/* Tooltip */}
-                        <div className="absolute top-full mt-1.5 left-1/2 -translate-x-1/2 whitespace-nowrap px-2.5 py-1 rounded-lg bg-card/95 border border-border/80 shadow-md backdrop-blur-md opacity-0 scale-90 group-hover/node:opacity-100 group-hover/node:scale-100 transition-all duration-200 pointer-events-none z-50">
-                          <span className="text-[10px] font-bold text-foreground block leading-none">
+                        <div className="absolute top-full mt-1.5 left-1/2 -translate-x-1/2 whitespace-nowrap px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg bg-card/95 border border-border/80 shadow-md backdrop-blur-md opacity-0 scale-90 group-hover/node:opacity-100 group-hover/node:scale-100 transition-all duration-200 pointer-events-none z-50">
+                          <span className="text-[9px] sm:text-[10px] font-bold text-foreground block leading-none">
                             {svc.title}
                           </span>
                         </div>
@@ -266,27 +267,29 @@ export default function Hero() {
                       style={{
                         top: '50%',
                         left: '50%',
-                        marginTop: -19,
-                        marginLeft: -19,
+                        marginTop: 'calc(-1 * var(--outer-node-size) / 2)',
+                        marginLeft: 'calc(-1 * var(--outer-node-size) / 2)',
                         animation: `orbit-revolve-ccw ${OUTER_SPEED}s linear infinite`,
                         // @ts-expect-error custom CSS variables for keyframe orbit
                         '--start-angle': `${angle}deg`,
-                        '--orbit-radius': `${OUTER_RADIUS}px`,
+                        '--orbit-radius': `var(--outer-radius)`,
                       }}
                     >
                       <div className="relative">
                         <div
-                          className="w-[38px] h-[38px] rounded-xl bg-card/95 border-2 shadow-md backdrop-blur-xl flex items-center justify-center transition-all duration-300 group-hover/node:scale-130 group-hover/node:shadow-2xl"
+                          className="rounded-lg sm:rounded-xl bg-card/95 border-2 shadow-md backdrop-blur-xl flex items-center justify-center transition-all duration-300 group-hover/node:scale-125 group-hover/node:shadow-2xl"
                           style={{
+                            width: 'var(--outer-node-size)',
+                            height: 'var(--outer-node-size)',
                             borderColor: ind.color,
                             color: ind.color,
                           }}
                         >
-                          <Icon className="w-4 h-4" />
+                          <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5 lg:w-4 lg:h-4" />
                         </div>
                         {/* Tooltip */}
-                        <div className="absolute top-full mt-1.5 left-1/2 -translate-x-1/2 whitespace-nowrap px-2 py-0.5 rounded-lg bg-card/95 border border-border/80 shadow-md backdrop-blur-md opacity-0 scale-90 group-hover/node:opacity-100 group-hover/node:scale-100 transition-all duration-200 pointer-events-none z-50">
-                          <span className="text-[9px] font-bold text-foreground block leading-none">
+                        <div className="absolute top-full mt-1.5 left-1/2 -translate-x-1/2 whitespace-nowrap px-1.5 sm:px-2 py-0.5 rounded-lg bg-card/95 border border-border/80 shadow-md backdrop-blur-md opacity-0 scale-90 group-hover/node:opacity-100 group-hover/node:scale-100 transition-all duration-200 pointer-events-none z-50">
+                          <span className="text-[8px] sm:text-[9px] font-bold text-foreground block leading-none">
                             {ind.title}
                           </span>
                         </div>
@@ -296,8 +299,6 @@ export default function Hero() {
                 })}
               </div>
 
-
-
             </div>
           </div>
 
@@ -306,3 +307,4 @@ export default function Hero() {
     </section>
   );
 }
+

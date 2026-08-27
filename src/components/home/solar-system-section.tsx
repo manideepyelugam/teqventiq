@@ -388,7 +388,7 @@ export default function SolarSystemSection() {
                   }}
                 >
                   <Image
-                    src="/logo.png"
+                    src="/logo.webp"
                     alt="Teqventiq Services"
                     width={52}
                     height={52}

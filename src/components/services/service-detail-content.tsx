@@ -72,18 +72,18 @@ export default function ServiceDetailContent({ service }: ServiceDetailContentPr
 
       {/* 3. Capability Breakdown */}
       {!!service.capabilities?.length && (
-        <section className="mx-auto max-w-[1280px] px-5">
-          <div className="rounded-3xl bg-card border border-border/60 p-8 sm:p-12 lg:p-14 shadow-sm backdrop-blur-md">
-            <div className="mb-12 reveal-block flex items-center gap-3">
-              <Layers className="w-6 h-6 text-brand-blue" />
+        <section className="mx-auto max-w-[1280px] px-4 sm:px-5">
+          <div className="rounded-2xl sm:rounded-3xl bg-card border border-border/60 p-5 sm:p-10 lg:p-14 shadow-sm backdrop-blur-md">
+            <div className="mb-8 sm:mb-12 reveal-block flex items-center gap-3">
+              <Layers className="w-5 h-5 sm:w-6 sm:h-6 text-brand-blue shrink-0" />
               <h3 className="text-2xl sm:text-4xl font-bold font-serif text-foreground">
                 Capability Breakdown
               </h3>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-8">
+            <div className="grid lg:grid-cols-2 gap-4 sm:gap-8">
               {service.capabilities.map((cap, idx) => (
-                <div key={idx} className="reveal-block space-y-3 p-6 rounded-2xl bg-muted/40 border border-border/40">
+                <div key={idx} className="reveal-block space-y-3 p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-muted/40 border border-border/40">
                   <span className="text-xs font-bold uppercase tracking-wider text-brand-blue block">
                     {cap.category}
                   </span>
@@ -97,7 +97,7 @@ export default function ServiceDetailContent({ service }: ServiceDetailContentPr
                       {cap.items.map((item, iIdx) => (
                         <span
                           key={iIdx}
-                          className="px-3 py-1 rounded-full text-xs font-medium bg-background text-foreground border border-border/50"
+                          className="px-2.5 sm:px-3 py-1 rounded-full text-xs font-medium bg-background text-foreground border border-border/50"
                         >
                           {item}
                         </span>
@@ -109,15 +109,15 @@ export default function ServiceDetailContent({ service }: ServiceDetailContentPr
             </div>
             {/* Core Features List */}
             {!!service.features?.length && (
-              <div className="mt-12 pt-10 border-t border-border/30">
-                <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-6">
+              <div className="mt-8 sm:mt-12 pt-6 sm:pt-10 border-t border-border/30">
+                <h4 className="text-xs sm:text-sm font-bold uppercase tracking-widest text-muted-foreground mb-4 sm:mb-6">
                   Key Technical Capabilities
                 </h4>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                   {service.features.map((feat, fIdx) => (
-                    <div key={fIdx} className="flex items-start gap-3 p-3 rounded-xl bg-background/50 border border-border/20 text-xs sm:text-sm text-foreground/90 font-medium">
+                    <div key={fIdx} className="flex items-start gap-2.5 sm:gap-3 p-3 rounded-xl bg-background/50 border border-border/20 text-xs sm:text-sm text-foreground/90 font-medium">
                       <Check className="w-4 h-4 text-brand-lime flex-shrink-0 mt-0.5" />
-                      <span>{feat}</span>
+                      <span className="break-words min-w-0">{feat}</span>
                     </div>
                   ))}
                 </div>
@@ -129,22 +129,22 @@ export default function ServiceDetailContent({ service }: ServiceDetailContentPr
 
       {/* 4. Delivery Methodology */}
       {!!service.deliverySteps?.length && (
-        <section className="mx-auto max-w-[1248px] px-5">
-          <div className="mb-12 reveal-block flex items-center gap-3">
-            <Workflow className="w-6 h-6 text-brand-lime" />
-            <h3 className="text-3xl lg:text-4xl font-bold font-serif text-foreground">
+        <section className="mx-auto max-w-[1248px] px-4 sm:px-5">
+          <div className="mb-8 sm:mb-12 reveal-block flex items-center gap-3">
+            <Workflow className="w-5 h-5 sm:w-6 sm:h-6 text-brand-lime shrink-0" />
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-serif text-foreground">
               Delivery Methodology
             </h3>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
             {service.deliverySteps.map((stepItem, idx) => (
-              <div key={idx} className="reveal-block rounded-2xl bg-card border border-border/30 p-6 flex flex-col justify-between">
+              <div key={idx} className="reveal-block rounded-xl sm:rounded-2xl bg-card border border-border/30 p-5 sm:p-6 flex flex-col justify-between">
                 <div>
-                  <span className="text-2xl font-bold font-mono text-brand-lime block mb-4">
+                  <span className="text-xl sm:text-2xl font-bold font-mono text-brand-lime block mb-3 sm:mb-4">
                     {stepItem.step}
                   </span>
-                  <h4 className="font-bold text-foreground text-base mb-2 font-serif">
+                  <h4 className="font-bold text-foreground text-sm sm:text-base mb-1.5 sm:mb-2 font-serif">
                     {stepItem.title}
                   </h4>
                   <p className="text-xs text-muted-foreground leading-relaxed">
@@ -159,23 +159,23 @@ export default function ServiceDetailContent({ service }: ServiceDetailContentPr
 
       {/* 5. Business Outcomes & CTA */}
       {!!service.outcomes?.length && (
-        <section className="mx-auto max-w-[1248px] px-5">
-          <div className="rounded-[2.5rem] bg-gradient-to-br from-brand-lime/10 via-card to-card border border-brand-lime/30 p-8 sm:p-12 lg:p-16">
-            <div className="grid lg:grid-cols-12 gap-10 items-center">
-              <div className="lg:col-span-7 space-y-6">
+        <section className="mx-auto max-w-[1248px] px-4 sm:px-5">
+          <div className="rounded-2xl sm:rounded-3xl lg:rounded-[2.5rem] bg-gradient-to-br from-brand-lime/10 via-card to-card border border-brand-lime/30 p-5 sm:p-10 lg:p-16 overflow-hidden">
+            <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+              <div className="lg:col-span-7 space-y-4 sm:space-y-6">
                 <span className="text-brand-lime font-bold tracking-widest uppercase text-xs block">
                   Measured Value
                 </span>
-                <h3 className="text-3xl lg:text-4xl font-bold font-serif text-foreground">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-serif text-foreground">
                   Business Outcomes
                 </h3>
-                <div className="space-y-4 pt-2">
+                <div className="space-y-3 sm:space-y-4 pt-2">
                   {service.outcomes.map((out, oIdx) => (
-                    <div key={oIdx} className="flex items-start gap-3">
+                    <div key={oIdx} className="flex items-start gap-2.5 sm:gap-3 min-w-0">
                       <div className="w-5 h-5 rounded-full bg-brand-lime/20 flex items-center justify-center text-brand-lime flex-shrink-0 mt-0.5">
                         <CheckCircle2 className="w-3.5 h-3.5" />
                       </div>
-                      <span className="text-foreground text-sm sm:text-base font-medium">
+                      <span className="text-foreground text-xs sm:text-sm md:text-base font-medium leading-relaxed break-words min-w-0 flex-1">
                         {out}
                       </span>
                     </div>
@@ -183,11 +183,11 @@ export default function ServiceDetailContent({ service }: ServiceDetailContentPr
                 </div>
               </div>
 
-              <div className="lg:col-span-5 text-center lg:text-right pt-6 lg:pt-0">
-                <Button asChild className="btn-lime h-auto text-base py-4 px-8 group shadow-xl">
-                  <a href="#contact-section" className="inline-flex items-center gap-3">
-                    <span>{service.ctaText || "Get Started →"}</span>
-                    <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+              <div className="lg:col-span-5 text-center lg:text-right pt-2 lg:pt-0 w-full">
+                <Button asChild className="btn-lime h-auto text-sm sm:text-base py-3.5 sm:py-4 px-5 sm:px-8 group shadow-xl w-full sm:w-auto max-w-full">
+                  <a href="#contact-section" className="inline-flex items-center justify-center gap-2 sm:gap-3 w-full sm:w-auto">
+                    <span className="text-center">{service.ctaText || "Get Started →"}</span>
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1 shrink-0" />
                   </a>
                 </Button>
               </div>

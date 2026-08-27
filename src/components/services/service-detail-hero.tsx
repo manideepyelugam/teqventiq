@@ -53,21 +53,21 @@ export default function ServiceDetailHero({ service }: ServiceDetailHeroProps) {
   }, containerRef);
 
   return (
-    <section ref={containerRef} className="relative pt-40 pb-24 lg:pt-56 lg:pb-40 bg-transparent overflow-hidden transition-colors duration-500">
-      <div className="mx-auto max-w-[1248px] px-5 relative z-10">
+    <section ref={containerRef} className="relative pt-28 sm:pt-40 pb-12 sm:pb-24 lg:pt-56 lg:pb-40 bg-transparent overflow-hidden transition-colors duration-500">
+      <div className="mx-auto max-w-[1248px] px-4 sm:px-5 relative z-10">
         <div className="max-w-[800px]">
-          <div className="detail-hero-badge inline-flex items-center gap-3 bg-muted/50 backdrop-blur-xl border border-border px-5 py-2.5 rounded-full mb-10">
+          <div className="detail-hero-badge inline-flex items-center gap-3 bg-muted/50 backdrop-blur-xl border border-border px-4 sm:px-5 py-2 sm:py-2.5 rounded-full mb-6 sm:mb-10">
             <span className="w-2 h-2 bg-brand-lime rounded-full"></span>
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-lime dark:text-brand-lime">
               Our Expertise
             </span>
           </div>
 
-          <h1 className="detail-hero-title text-4xl lg:text-7xl font-bold font-serif leading-[1.1] text-foreground mb-8">
+          <h1 className="detail-hero-title text-3xl sm:text-5xl lg:text-7xl font-bold font-serif leading-[1.1] text-foreground mb-4 sm:mb-8 tracking-tight">
             {service.heroHeadline || service.title}
           </h1>
 
-          <p className="detail-hero-desc text-xl lg:text-2xl text-muted-foreground font-medium leading-relaxed max-w-[720px]">
+          <p className="detail-hero-desc text-base sm:text-xl lg:text-2xl text-muted-foreground font-medium leading-relaxed max-w-[720px]">
             {service.heroSubhead || service.description}
           </p>
         </div>
